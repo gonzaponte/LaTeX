@@ -1,0 +1,198 @@
+\documentclass[10pt]{beamer}
+
+\usepackage{beamerthemesplit}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{bm}
+\usepackage{graphicx,subfig}
+\usepackage{ae,aecompl}
+\usepackage{amsmath,amsfonts,latexsym,cancel,color,textcomp,amsthm,multicol,xcolor}
+\usepackage[demo,abs]{overpic}
+\usepackage{movie15}
+\usepackage{ragged2e}
+
+\justifying
+\usetheme{default}
+%\usetheme{Marburg}
+
+\input{/Users/Gonzalo/Dropbox/Gonzalo/LaTeX/Comandos.tex}
+\input{/Users/Gonzalo/Dropbox/Gonzalo/LaTeX/headline.tex}
+\definecolor{mycor}{rgb}{1,0,0}
+\newcommand{\cor}[1]{\textcolor{mycor}{#1}}
+\newcommand{\azul}[1]{\textcolor{blue}{#1}}
+\newcommand{\white}[1]{\textcolor{white}{#1}}
+
+\usepackage{beamerthemeshadow}
+%\setbeamercolor{block}{fg=black}
+
+%\beamersetaveragebackground{color}
+%\beamertemplatesolidbackgroundcolor{\red}
+%\beamertemplateshadingbackground{blue}{-green}
+\setbeamertemplate{navigation symbols}{} 
+
+
+\definecolor{olive}{rgb}{0.3, 0.4, .1}
+\definecolor{fore}{RGB}{249,242,215}
+\definecolor{back}{RGB}{51,51,51}
+\definecolor{title}{RGB}{255,0,90}
+\definecolor{gold}{rgb}{1.,0.84,0.}
+\definecolor{JungleGreen}{cmyk}{0.99,0,0.52,0}
+\definecolor{BlueGreen}{cmyk}{0.85,0,0.33,0}
+\definecolor{RawSienna}{cmyk}{0,0.72,1,0.45}
+\definecolor{Magenta}{cmyk}{0,1,0,0}
+\definecolor{red}{rgb}{1.,0.,0.}
+\definecolor{white}{rgb}{1.,1.,1.}
+\definecolor{green}{rgb}{0.,1.,0.}
+\definecolor{blue}{rgb}{0.,0.,1.}
+\definecolor{softred}{rgb}{0.8,0.,0.}
+\definecolor{softgreen}{rgb}{0.,0.5,0.}
+\definecolor{softblue}{rgb}{0.,0.,0.8}
+
+\newcommand{\blocktitle}[2]{\setbeamercolor{block title}{use=structure,fg=#1,bg=#2!75!black}}
+\newcommand{\blockbody}[2]{\setbeamercolor{block body}{use=structure,fg=#1,bg=#2!20!white}}
+
+
+\newcommand{\addframenumber}[1]{\hspace{#1} \insertframenumber/\inserttotalframenumber}
+
+%\newcommand{\bbcn}[0]{$\beta\beta0\nu$ }
+%\newcommand{\bbdn}[0]{$\beta\beta2\nu$ }
+\newcommand{\blueblock}[2]
+{
+\blocktitle{white}{blue}
+\blockbody{black}{blue}
+\begin{block}{\centering \bf #1}
+{#2}
+\end{block}
+}
+\newcommand{\redblock}[2]
+{
+\begin{alertblock}{\centering \bf #1}
+{#2}
+\end{alertblock}
+}
+\newcommand{\violetblock}[2]
+{
+\blocktitle{white}{violet}
+\blockbody{black}{violet}
+\begin{block}{\centering \bf #1}
+{#2}
+\end{block}
+}
+\newcommand{\indice}[0]
+{
+\begin{frame}
+\tableofcontents
+\end{frame}
+}
+\newcommand{\mytitleframe}[1]
+{
+\begin{frame}
+\begin{center}
+   {\bf\azul{#1}}
+\end{center}
+\end{frame}
+}
+\newcommand{\mybigtitleframe}[2]
+{
+\begin{frame}
+\hspace{-12mm}
+\vspace{-2mm}
+\begin{overpic}[width=131mm,height=88mm, unit=1mm]{#1}
+\put(40,50){ {\bf\Huge\white{#2}} }
+\end{overpic}
+\end{frame}
+}
+
+\newcommand{\mytitle}[3]%title,author,date
+{
+\begin{frame}
+\vspace{2cm}
+\begin{center}
+{\Large
+     \bf\blue{#1}}\\
+\vspace{1cm}
+{\normalsize {\bf #2 }\\
+\vspace{1cm}
+#3} \\
+\end{center}
+\end{frame}
+}
+
+
+\newcommand{\myusctitle}[3]%title,author,date
+{
+\begin{frame}
+\begin{columns}
+\column{0.8\textwidth}
+\column{0.2\textwidth}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.1]{logo_usc.pdf}
+\end{figure}
+\end{columns}
+\vspace{1cm}
+\begin{center}\Large
+     {\bf\blue{#1}}\\ \normalsize
+\vspace{1cm}
+{\bf #2}\\
+\vspace{1cm}
+#3\\
+\end{center}
+
+\end{frame}
+}
+
+\newcommand{\mynextusctitle}[3]%title,author,date
+{
+\begin{frame}
+\begin{columns}
+\column{0.2\textwidth}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.08]{logo_next.png}
+\end{figure}
+\column{0.6\textwidth}
+\column{0.2\textwidth}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.08]{logo_usc.pdf}
+\end{figure}
+\end{columns}
+\vspace{5mm}
+\begin{center}\Large
+     {\bf\blue{#1}}\\ \normalsize
+\vspace{1cm}
+{\bf #2}\\
+\vspace{1cm}
+#3\\
+\end{center}
+
+\end{frame}
+}
+
+\newcommand{\image}[2]%image,options
+{
+\begin{figure}
+\centering
+\includegraphics[#2]{#1}
+\end{figure}
+}
+
+\newcommand{\frametitleusc}[1]
+{
+\frametitle{
+\raggedleft #1 \ 
+\raggedright \includegraphics[scale=0.03]{logo_usc.pdf}
+}
+}
+
+\newcommand{\titleimage}[3]
+{
+{\usebackgroundtemplate{\includegraphics[width=\paperwidth,height=\paperheight]{#1}}
+\begin{frame}
+\centering \Huge\bf\textcolor{#3}{#2}
+\end{frame}}
+}
+
+\newcommand{\bcol}[0]{\begin{columns}}
+\newcommand{\ecol}[0]{\end{columns}}

@@ -1,0 +1,368 @@
+\documentclass[10pt]{beamer}
+
+\usepackage{beamerthemesplit}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{bm}
+\usepackage{graphicx,subfig}
+\usepackage{ae,aecompl}
+\usepackage{amsmath,amsfonts,latexsym,cancel,color,textcomp,anysize,amsthm,multicol}
+
+\usepackage[demo,abs]{overpic}
+
+\usepackage{ragged2e}
+\justifying
+
+\usetheme{Marburg}
+
+\input{/Users/Gonzalo/Dropbox/Comandos.tex}
+\definecolor{mycor}{rgb}{1,0,0}
+\newcommand{\cor}[1]{\textcolor{mycor}{#1}}
+\newcommand{\azul}[1]{\textcolor{blue}{#1}}
+\newcommand{\bbcn}[0]{$\beta\beta0\nu$ }
+\newcommand{\bbdn}[0]{$\beta\beta2\nu$ }
+
+\begin{document}
+
+%\frame{\titlepage}
+
+\begin{frame}
+
+\vspace{2cm}
+\begin{center}\Large
+{\bf\azul{Reconstrucción de trazas de electróns no experimento NEXT-DEMO}}\\ \normalsize
+\vspace{1cm}
+23/07/2013\\
+\vspace{1cm}
+\begin{tabular}{cc}
+{\small{\bf Autor}}: & {Gonzalo Martínez Lema}\\
+{\small{\bf Director}}: & {José Ángel Hernando Morata}
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+\begin{frame}%[allowframebreaks]
+\tableofcontents
+\end{frame}
+
+\section{Introdución}
+
+\begin{frame}
+\begin{center}
+{\bf\azul{Introdución}}
+\end{center}
+\end{frame}
+
+\subsection{Introdución e motivación}
+\begin{frame} \frametitle{Introdución}
+
+\bi \justifying
+\item O Modelo Estándar (SM) considera que os neutrinos non teñen masa. Os experimentos de oscilacións de neutrinos confirman que son masivos.
+
+\item Dúas formas de introducir a masa:
+	\bi \justifying
+	\item Dirac: igual que o resto de leptóns.
+	\item Majorana: novo tipo de partícula. É a súa propia antipartícula.
+	\ei
+
+\item O formalismo de Majorana é máis económico:
+	\bi
+	\item Dirac: $\qquad \chula P \quet{\nu_L} = \quet{\nu_R} \qquad \chula P \quet{\bar \nu_L} = \quet{\bar \nu_R}$
+	\item Majorana: $\; \chula P \quet{\nu_L} = \quet{\bar \nu_R}$
+	\ei
+\item Actualmente o único xeito de determinar a natureza dos neutrinos é mediante a busca da desintegración dobre beta sen neutrinos (\bbcn).
+
+\item Experimento NEXT: busca da \bbcn nunha TPC con $^{136}$Xe. Actualmente úsase o prototipo NEXT - DEMO para demostrar que o método de análise é válido.
+\ei
+\end{frame}
+
+\subsection{Decaemento dobre beta}
+
+\begin{frame}\frametitle{Desintegración dobre beta}
+
+\bi \justifying
+\item Desintegración $\beta$:\\ $n \rightarrow p + e^- + \bar\nu_e \quad \Rightarrow \quad (Z,A) \rightarrow (Z+1,A) + e^- + \bar\nu_e $\smallskip
+\item Desintegración $\beta\beta$ (\bbdn):\\ $2n \rightarrow 2p + 2e^- + 2\bar\nu_e \quad \Rightarrow \quad (Z,A) \rightarrow (Z+2,A) + 2e^- + 2\bar\nu_e $
+\item Desintegración \bbcn:\\ $2n \rightarrow 2p + 2e^- \quad \Rightarrow \quad (Z,A) \rightarrow (Z+2,A) + 2e^- $
+\ei
+
+\begin{figure}
+\centering
+\includegraphics[height=90pt]{espectrobb.png}
+\includegraphics[height=90pt]{bb0nu.jpg}
+\end{figure}
+
+\end{frame}
+
+\subsection{Experimento NEXT}
+
+\begin{frame}\frametitle{Experimento NEXT}
+
+\bi \justifying
+\item Cámara de proxección temporal (TPC) cuns 100 kg de $^{136}$Xe que pode obter información topolóxica para eliminar o fondo e cunha moi boa resolución enerxética (0.7 \% FWHM @ $Q_{\beta\beta}$).
+
+\item Consta de un plano de enerxía con tubos fotomultiplicadores (PMT) para a obtención da enerxía e un plano de fotomultiplicadores de silicio (SiPM) que se usan para a reconstrucción espacial da traza.
+\ei
+
+\vspace{-0.2cm}
+
+\begin{figure}
+\centering
+\includegraphics[height=100pt]{PMT.jpg}
+\includegraphics[height=100pt]{SiPM.jpeg}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}\frametitle{Dinámica dos eventos}
+\begin{figure}
+\centering
+\includegraphics[width=250pt]{event.pdf}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}
+\begin{center}
+
+\section{Análise de datos co isótopo $^{22}$Na}
+
+{\bf\azul{Análise de datos co isótopo $^{22}$Na}}
+
+\end{center}
+\end{frame}
+
+\subsection{Propiedades das trazas}
+
+\begin{frame}[allowframebreaks]\frametitle{Propiedades das trazas}
+
+\bi \justifying
+\item O espectro enerxético é o típico dunha fonte gamma (511 keV), onde se poden ver o pico dos raios X do Xe ($\sim$30 keV), o continuo Compton, o borde Compton, o pico de escape simple e o fotopico.
+\item Selecciónanse as trazas segundo dentro dun rango enerxético (raios X, Compton ou fotoeléctrico) a fin de facer estudos máis precisos.
+\ei
+
+\vspace{-0.5cm}
+\begin{figure}
+\centering
+\includegraphics[width=180pt]{espectro_Na.pdf}
+\end{figure}
+ 
+\bi \justifying
+\item Un histograma do número de slices amosa a distribución da lonxitude das trazas ao longo do eixo de simetría da cámara.
+\item Isto permite clasificar as trazas en curtas, medias e longas. Concretamente faise esta selección dentro do rango enerxético do fotoeléctrico.
+\ei
+
+ \begin{figure}
+ \centering
+ \includegraphics[width=140pt]{nslices.pdf}
+ \includegraphics[width=140pt]{Enslices.pdf}
+ \end{figure}
+
+\end{frame}
+\subsection{Comportamento do detector}
+
+\begin{frame}[allowframebreaks]\frametitle{Comportamento do detector}
+
+\bi \justifying
+\item Un dos primeiros estudos feitos foi a relación entre os datos recibidos de ambos planos de detección da cámara (enerxía vs. carga). A relación é moi lineal tanto se a analizamos traza por traza como slice por slice.
+\item A dispersión é maior no segundo caso debido á que hai SiPM ruidosos, mortos ou saturados que non dan un sinal adecuado.
+\ei
+
+\vspace{-0.5cm}
+
+\begin{figure}
+\centering
+\includegraphics[width=140pt]{EQTraza.pdf}
+\includegraphics[width=140pt]{EQSlice.pdf}
+\end{figure}
+%
+%\bi \justifying
+%\item Os SiPM ruidosos e mortos foron identificados mediante un gráfico onde se representa a posición (x,y) do SiPM e a carga que dá.
+%\item Estes SiPM son problemáticos á hora de reconstruir a traza, pois dan unha posición do electrón falaz.
+%\ei
+%
+%\begin{figure}
+%\centering
+%\includegraphics[width=180pt]{planosipm.pdf}
+%\end{figure}
+% 
+\bi \justifying
+\item Outro efecto que se viu na cámara era que algunhas trazas se saían da cámara. Víase unha clara acumulación de trazas que tiñan como última slice aquela do borde da cámara. A partir de aquí introducíuse un corte a tódolos datos analizados que elimina estas trazas.
+\ei
+
+\begin{figure}
+\centering
+\includegraphics[width=180pt]{z.pdf}
+\end{figure}
+ 
+\end{frame}
+
+\subsection{Identificación e caracterización do blob}
+
+\begin{frame}[allowframebreaks]\frametitle{Identificación e caracterización do blob}
+
+\begin{figure}
+\centering
+\includegraphics[width=240pt]{track.jpg}
+\end{figure}
+
+\newpage
+
+\bi \justifying
+\item O blob leva o 90 \% da enerxía da traza, polo que é importante caracterizalo.
+
+\item O perfil da traza dinos que en promedio:
+	\bi \justifying
+	\item Vense dúas zonas: mip e blob.
+	\item O blob é simétrico.
+	\item Hai ata un factor 10 en enerxía entre o blob e a traza.
+	\item O blob ten 8 - 10 mm de lonxitude no eixo z.
+	\ei
+\ei
+
+\vspace{-0.5cm}
+
+\begin{figure}
+\centering
+\includegraphics[width=180pt]{perfil.pdf}
+\end{figure}
+
+\bi \justifying
+
+\item Un resultado importante é que o blob non varía a súa extensión en z coa enerxía ou número de slices da traza.
+\bigskip
+\item Debido a isto a enerxía da slice máis enerxética non crece monotonamente co número de slices, se non que atopa un máximo e despois diminúe.
+\ei
+
+\vspace{-0.5cm}
+
+\begin{figure}
+\centering
+\includegraphics[width=140pt]{pw.pdf}
+\includegraphics[width=140pt]{profemaxnslices.pdf}
+\end{figure}
+\newpage
+\bi \justifying
+\item Intuitivamente agardábase que as trazas máis longas tivesen o blob ao final da traza. Isto corrobórase co seguinte histograma onde se ve que a medida que se aumenta o número de slices da traza, o blob tende a estar ao principio ou ao final. 
+\ei
+
+\begin{figure}
+\centering
+\includegraphics[width=140pt]{trazas.jpg}
+\includegraphics[width=140pt]{maxpos.pdf}
+\end{figure}
+
+\end{frame}
+
+\section{Resultados con $^{137}$Cs e Monte Carlo}
+
+\begin{frame}
+\begin{center}
+{\bf\azul{Resultados con $^{137}$Cs e Monte Carlo}}
+\end{center}
+\end{frame}
+
+\subsection{Resultados con $^{137}$Cs}
+
+\begin{frame}\frametitle{Resultados con $^{137}$Cs}
+
+\bi \justifying
+\item O cesio serve para demostrar que os resultados obtidos non dependen do isótopo usado. Tódalas propiedades vistas para o sodio son válidas para o cesio.
+\item O cesio produce un fotón algo máis enerxético que o sodio, polo que as trazas serán en xeral máis longas. Dado que o blob non se ensancha, será útil para estudar a parte da traza que non é blob.
+\ei
+
+\vspace{-0.5cm}
+
+\begin{figure}
+\centering
+\includegraphics[width=140pt]{profilecs.pdf}
+\includegraphics[width=140pt]{slicescs.pdf}
+\end{figure}
+
+\end{frame}
+
+\subsection{Resultados con Monte Carlo}
+
+\begin{frame}\frametitle{Resultados con Monte Carlo}
+
+\bi \justifying
+\item Os resultados preliminares do Monte Carlo (MC) son consistentes cos datos experimentais. A maioría dos resultados están en bo acordo cos reais.
+\item Pola contra o histograma do número de slices difire do analizado, pero non deixa de ser compatible.
+\ei
+
+%\vspace{-1cm}
+
+\begin{figure}
+\centering
+\includegraphics[width=180pt]{slicesmc.pdf}
+\end{figure}
+
+\end{frame}
+
+\section{Resumo e conclusións}
+
+\begin{frame}
+\begin{center}
+{\bf\azul{Resumo e conclusións}}
+\end{center}
+\end{frame}
+
+\begin{frame}[allowframebreaks]\frametitle{Resumo e conclusións}
+
+\vspace{1cm}
+
+\bi
+\item Se se atopa a \bbcn demostraríase que os neutrinos son partículas de Majorana.
+\item O experimento NEXT baséase nunha alta resolución en enerxía e un sinal topolóxico para a rexección do fondo.
+\item Demostrouse que a resolución do experimento é menor do 1\% @ $Q_{\beta\beta}$. 
+\item Comprobouse que o funcionamento da cámara era correcto mediante as relacións ánodo - cátodo e identificáronse efectos a ter en conta na reconstrucción das trazas:
+	\bi
+	\item SiPM ruidosos ou mortos.
+	\item Trazas que saen da cámara.
+	\ei
+
+\newpage
+\item É posible separar o blob do resto da traza mediante as súas propiedades:
+	\bi
+	\item Ten 8 - 10 mm de lonxitude.
+	\item Non se ensancha ao aumentar a enerxía.
+	\item É ata 10 veces máis enerxético que o resto da traza.
+	\item Tende a estar no extremo da traza ao aumentar o número de slices.
+	\ei
+\item Os resultados de Cs ratifican os resultados do Na.
+\item Os resultados preliminares do MC son consistentes cos datos reais.
+\item Traballo futuro:
+	\bi
+	\item Resconstrucción da posición (x,y,z) de cada un dos electróns mediante a información dos SiPM (intento preliminar: baricentro).
+	\ei
+\ei
+\end{frame}
+
+\section{}
+
+\begin{frame}
+\hspace{-0.89cm}
+\vspace{2mm}
+\begin{overpic}[width=111mm,height=85mm, unit=1mm]{camara.jpg}
+\put(20,10){ {\bf\Huge\cor{Grazas}} }
+\end{overpic}
+
+
+
+\end{frame}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

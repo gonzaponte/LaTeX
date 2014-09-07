@@ -1,0 +1,159 @@
+%GALILEO667.NET | AISNE
+%Curso LaTeX Ejercicio 4 - Tablas y Matrices
+
+\documentclass[a4paper,10pt]{article}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{bm} %letras griegas en negrita (uso: \bm{\alpha})
+\usepackage{graphicx}
+\usepackage{amsmath,amsfonts,latexsym,cancel,textcomp,anysize,color,eurosym}
+\marginsize{1.5cm}{1cm}{1.5cm}{1.5cm} %izq,der,sup,inf
+\parindent=0mm %sangría
+\parskip=3mm %espacio entre párrafos
+\usepackage{fancyhdr}  
+
+
+\pagestyle{fancy}
+
+%%% CONFIGURACIÓN DE LA PRIMERA PÁGINA.
+\fancypagestyle{plain}
+{%
+         \fancyhead[l]{} %CABECERA A LA IZQUIERDA PRIMERA PÁGINA
+         \fancyhead[r]{} %CABECERA A LA DERECHA PRIMERA PÁGINA
+         \fancyhead[c]{} %CABECERA EN EL CENTRO PRIMERA PÁGINA
+         \renewcommand{\headrulewidth}{0.5pt}
+         \fancyfoot[l]{} %PIÉ A LA IZQUIRDA PRIMERA PÁGINA 
+         \fancyfoot[c]{} %PIÉ EN EL CENTRO PRIMERA PÁGINA
+         \fancyfoot[r]{} %PIÉ A LA DERECHA PRIMERA PÁGINA
+         \renewcommand{\footrulewidth}{0.5pt}     %Estos comandos son para el grosor de la linea
+}
+%%% CONFIGURACIÓN DEL RESTO DE PÁGINAS.
+\lhead{Jorge Eiras} %CABECERA A LA IZQUIERDA RESTO DE PÁGINAS
+\chead{Curso de \LaTeX} %CABECERA EN EL CENTRO RESTO DE PÁGINAS
+\rhead{Sección  \leftmark} %CABECERA A LA DERECHA  RESTO DE PÁGINAS
+\renewcommand{\headrulewidth}{0.4pt}
+\lfoot{} %PIÉ A LA IZQUIERDA RESTO DE PÁGINAS
+\cfoot{\thepage} %PIÉ EN EL CENTRO RESTO DE PÁGINAS
+\rfoot{} %PIÉ A LA DERECHA RESTO DE PÁGINAS
+\renewcommand{\footrulewidth}{0.4pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%opening
+\title{Imágenes en \LaTeX}
+\author{Pepito Grillo}
+\date{Noviembre de 2012}
+
+\begin{document}
+
+\tableofcontents
+
+\newpage
+
+
+Como podemos leer en \cite{libro1} bla bla bla...
+
+\section{Primera sección}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc id tortor et diam blandit imperdiet. Nunc eu ligula libero, at egestas dolor. 
+Proin a massa in quam commodo venenatis sed id libero. Donec porttitor sem at erat facilisis vel porttitor elit vulputate. Etiam urna justo, 
+dictum sed commodo et, iaculis vel mauris. Nulla bibendum sollicitudin dui, et ultrices metus varius a. Aenean condimentum mi id nisl 
+venenatis tincidunt. Morbi scelerisque ultricies accumsan. Quisque pellentesque ullamcorper magna id cursus. Pellentesque scelerisque nisi 
+sed nibh volutpat imperdiet. Ut tellus lacus, pretium nec commodo id, ornare ut tellus. Mauris eu magna dui.
+
+\subsection{Una subsección cualquiera}
+Maecenas urna ligula, fringilla vel adipiscing vel, cursus non ligula. Nullam dapibus, quam ut egestas elementum, ligula leo vehicula arcu, 
+id tristique justo orci et arcu. Maecenas felis ipsum, gravida eu faucibus at, aliquam id nibh. Nunc viverra malesuada urna id iaculis. 
+Vivamus dignissim, neque sed eleifend pulvinar, nibh nibh condimentum nunc, nec cursus ligula nulla in lorem. Cras sagittis vulputate 
+malesuada. Sed leo purus, cursus eu egestas eget, tristique id est. Aliquam quis lorem eros. Phasellus quis orci vel nisl sagittis euismod 
+quis et odio. In eget scelerisque dui. Aliquam quis dolor ac mi tempus tempus. Suspendisse potenti.
+
+\section{Otra sección}
+Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi sit amet nulla at tortor sollicitudin 
+laoreet eget at mi. Donec vitae dolor eros, a ultricies magna. Etiam vel mauris tellus, eget mattis justo. Nulla non metus vitae ante 
+pellentesque tempus. Nunc nisl dolor, sodales sed bibendum vel, porttitor quis ante. Sed condimentum venenatis posuere. Ut id augue nec 
+tellus elementum euismod. Nulla scelerisque semper neque et tempor. Donec eleifend eleifend enim, eu malesuada magna malesuada eget. Nam a 
+ipsum elit, at interdum lorem. Cras tristique est in quam volutpat vitae elementum nibh eleifend. Praesent dignissim, ante ac facilisis 
+laoreet, metus arcu cursus sem, ac dignissim elit magna eget augue.
+
+Nullam varius tincidunt velit vitae imperdiet. Suspendisse sit amet nisi nisl. Nunc gravida consequat quam, eu ultrices enim varius in. 
+Nulla 
+pulvinar pulvinar dictum. Integer at erat vel nisl lacinia posuere. Sed sit amet dui erat. Praesent ac arcu orci, tincidunt ultricies 
+lorem. 
+Donec quis luctus mauris. Fusce ac sem urna, nec euismod elit. Curabitur aliquam tempor lorem, ut suscipit libero rhoncus vitae. Sed 
+tincidunt metus laoreet quam adipiscing porttitor. Duis tincidunt leo eu metus fringilla dictum. Curabitur vel risus orci, ac vehicula 
+tortor. Proin congue massa eget tortor lacinia non convallis arcu suscipit. Morbi adipiscing bibendum risus, tempus tempus quam egestas 
+ac. 
+Aenean euismod, nisi in interdum tincidunt, nisl diam tempor velit, nec lobortis ligula sem eget nulla.
+
+\subsection{otra subsección}
+Curabitur auctor arcu vitae risus scelerisque dapibus tempor mi lobortis. Vivamus ultrices pulvinar sem sit amet lobortis. Integer dictum 
+mi 
+ac felis sagittis porta. Suspendisse potenti. Ut tempor augue dictum ipsum pellentesque id fringilla dui fringilla. Pellentesque quis 
+metus 
+velit. Morbi in mauris quis libero elementum mollis. Aliquam hendrerit, lacus eget condimentum facilisis, neque nulla ornare purus, 
+laoreet 
+vulputate sem lectus vitae magna. Vestibulum ante leo, tempor vel laoreet ac, dignissim sed augue.
+
+
+\section{otra sección más}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc id tortor et diam blandit imperdiet. Nunc eu ligula libero, at egestas 
+dolor. 
+Proin a massa in quam commodo venenatis sed id libero. Donec porttitor sem at erat facilisis vel porttitor elit vulputate. Etiam urna 
+justo, 
+dictum sed commodo et, iaculis vel mauris. Nulla bibendum sollicitudin dui, et ultrices metus varius a. Aenean condimentum mi id nisl 
+venenatis tincidunt. Morbi scelerisque ultricies accumsan. Quisque pellentesque ullamcorper magna id cursus. Pellentesque scelerisque nisi 
+sed nibh volutpat imperdiet. Ut tellus lacus, pretium nec commodo id, ornare ut tellus. Mauris eu magna dui.
+
+\subsection{Una subsección cualquiera más}
+Maecenas urna ligula, fringilla vel adipiscing vel, cursus non ligula. Nullam dapibus, quam ut egestas elementum, ligula leo vehicula 
+arcu, 
+id tristique justo orci et arcu. Maecenas felis ipsum, gravida eu faucibus at, aliquam id nibh. Nunc viverra malesuada urna id iaculis. 
+Vivamus dignissim, neque sed eleifend pulvinar, nibh nibh condimentum nunc, nec cursus ligula nulla in lorem. Cras sagittis vulputate 
+malesuada. Sed leo purus, cursus eu egestas eget, tristique id est. Aliquam quis lorem eros. Phasellus quis orci vel nisl sagittis euismod 
+quis et odio. In eget scelerisque dui. Aliquam quis dolor ac mi tempus tempus. Suspendisse potenti.
+
+\section{Otra sección aún}
+Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi sit amet nulla at tortor sollicitudin 
+laoreet eget at mi. Donec vitae dolor eros, a ultricies magna. Etiam vel mauris tellus, eget mattis justo. Nulla non metus vitae ante 
+pellentesque tempus. Nunc nisl dolor, sodales sed bibendum vel, porttitor quis ante. Sed condimentum venenatis posuere. Ut id augue nec 
+tellus elementum euismod. Nulla scelerisque semper neque et tempor. Donec eleifend eleifend enim, eu malesuada magna malesuada eget. Nam a 
+ipsum elit, at interdum lorem. Cras tristique est in quam volutpat vitae elementum nibh eleifend. Praesent dignissim, ante ac facilisis 
+laoreet, metus arcu cursus sem, ac dignissim elit magna eget augue.
+
+Nullam varius tincidunt velit vitae imperdiet. Suspendisse sit amet nisi nisl. Nunc gravida consequat quam, eu ultrices enim varius in. 
+Nulla 
+pulvinar pulvinar dictum. Integer at erat vel nisl lacinia posuere. Sed sit amet dui erat. Praesent ac arcu orci, tincidunt ultricies 
+lorem. 
+Donec quis luctus mauris. Fusce ac sem urna, nec euismod elit. Curabitur aliquam tempor lorem, ut suscipit libero rhoncus vitae. Sed 
+tincidunt metus laoreet quam adipiscing porttitor. Duis tincidunt leo eu metus fringilla dictum. Curabitur vel risus orci, ac vehicula 
+tortor. Proin congue massa eget tortor lacinia non convallis arcu suscipit. Morbi adipiscing bibendum risus, tempus tempus quam egestas 
+ac. 
+Aenean euismod, nisi in interdum tincidunt, nisl diam tempor velit, nec lobortis ligula sem eget nulla.
+
+\subsection{otra subsección por último}
+Curabitur auctor arcu vitae risus scelerisque dapibus tempor mi lobortis. Vivamus ultrices pulvinar sem sit amet lobortis. Integer dictum 
+mi 
+ac felis sagittis porta. Suspendisse potenti. Ut tempor augue dictum ipsum pellentesque id fringilla dui fringilla. Pellentesque quis 
+metus 
+velit. Morbi in mauris quis libero elementum mollis. Aliquam hendrerit, lacus eget condimentum facilisis, neque nulla ornare purus, 
+laoreet 
+vulputate sem lectus vitae magna. Vestibulum ante leo, tempor vel laoreet ac, dignissim sed augue.
+
+\newpage
+
+\begin{thebibliography}{n}
+\bibitem{libro1}
+  \textsc{Vicente Pérez Muñuzuri, Irene Sendiña Nadal,} Fundamentos de Meteorología, \textit{Editorial USC}
+\bibitem{libro2}
+  \textsc{David J. Griffiths,} Introduction to electrodynamics, \textit{Editorial pepito}
+  
+\end{thebibliography}
+
+
+\end{document}
+
+
+
+  

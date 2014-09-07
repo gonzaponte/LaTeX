@@ -1,0 +1,472 @@
+
+%Tipo de documento
+\documentclass[10pt]{beamer}
+
+%Paquetes
+\usepackage{beamerthemesplit}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{bm} %letras griegas en negrita (uso: \bm{\alpha})
+\usepackage{graphicx} %paquete de imágenes
+\usepackage{ae,aecompl}
+\usepackage{amsmath,amsfonts,latexsym,cancel,color,textcomp,anysize,amsthm,multicol}
+
+%Tema
+\usetheme{Marburg}
+
+%Espaciados
+%\marginsize{2cm}{1.5cm}{2cm}{1.5cm} %MÁRGENES: izq,der,sup,inf
+%\parindent=8mm %sangría 
+%\parskip=4mm %espacio entre párrafos
+
+%Cabeceiras
+%\lhead{Fermións de Majorana} %CABECERA EN EL CENTRO RESTO DE PÁGINAS
+%\rhead{\rightmark}
+%\renewcommand{\headrulewidth}{0.4pt}
+
+%Comandos novos
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\bc}{\begin{cases}}
+\newcommand{\ec}{\end{cases}}
+\newcommand{\bbx}{\begin{boxed}}
+\newcommand{\ebx}{\end{boxed}}
+\newcommand{\bmx}{\left(\begin{array}}
+\newcommand{\emx}{\end{array}\right)}
+\newcommand{\barra}[1]{\overline{#1}}
+\newcommand{\h}[1]{#1^\dagger}
+\newcommand{\abs}[1]{\vert #1 \vert}
+\newcommand{\ac}[2]{\left\{ #1 , #2 \right\}}
+\newcommand{\cc}[2]{\left[ #1 , #2 \right]}
+\newcommand{\lvec}[1]{\overleftarrow{#1}}
+\newcommand{\rvec}[1]{\overrightarrow{#1}}
+\newcommand{\dvec}[1]{\overleftrightarrow{#1}}
+\newcommand{\chula}[1]{\mathcal{#1}}
+\newcommand{\slx}[1]{ #1\!\!\!/ }
+\newcommand{\derp}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\pdp}[1]{\footnotemark\footnotetext{#1}}
+
+
+%opening
+\title{Fermións de Majorana}
+\author{Gonzalo Martínez Lema}
+\date{30 / 01 / 13}
+
+\begin{document}
+
+\frame{\titlepage}
+
+
+\begin{frame}%[allowframebreaks]
+\tableofcontents
+\end{frame}
+
+\section{Introdución}
+
+\begin{frame} \frametitle{Introdución}
+\bi
+
+\item Os neutrinos son fermións, logo cumprirán a ecuación de Dirac:
+
+\beq
+(i \slx\partial - m) \nu = 0 \nonumber
+\eeq
+
+\item A aproximación habitual consiste en tomar $m_\nu \approx 0$
+
+\item No lagranxiano aparece un termo de masa que determina as propias masas, as mesturas de sabores e a súa natureza
+
+\ei
+\end{frame}
+
+\section{Termo de masa de Dirac}
+
+\begin{frame} \frametitle{Termo de Masa de Dirac}
+\bi
+
+\item O termo de masa de Dirac ten a seguinte forma para tres sabores:
+
+\beq
+L_{masa}^D = -\barra{\rvec\nu_L} M^D \rvec\nu_R + h.c. = \sum_{l'l} \barra\nu_{l'L} \, M_{l'l}^D \, \nu_{lR}+h.c. \nonumber
+\eeq
+
+\item Este lagranxiano é invariante baixo U(1):
+
+\beq
+\nu \rightarrow e^{i\phi} \nu \quad \Rightarrow \quad \chula L_{masa}^{D'} = \chula L_{masa}^D \nonumber
+\eeq
+
+\item Baixo a diagonalización da matriz $M^D = \h U m V$ obtéñense os campos mixtos de sabor que entran nas correntes neutras e cargadas do modelo estándar:
+
+\beq
+\nu_{lL} = \sum_{k=1}^{3} U_{lk} \, \nu_{kL} \qquad\qquad \nu_{lR} = \sum_{k=1}^{3} V_{lk} \, \nu_{kR}
+\qquad \qquad l = e, \mu, \tau \nonumber
+\eeq
+
+\ei
+
+\end{frame}
+
+\section{Teoría de Majorana}
+
+\begin{frame}[allowframebreaks] \frametitle{Teoría de Majorana}
+\bi
+
+\item Se no lagranxiano de Dirac facemos a descomposición en campos quirais $\psi = \psi_L + \psi_R$ chégase as ecuacións para estes campos:
+
+\beq
+\bc
+& i \slx\partial \psi_L = m \psi_R \\
+& i \slx\partial \psi_R = m \psi_L
+\ec \nonumber
+\eeq
+
+\item Estas ecuacións están acopladas pola masa $m$ da partícula. Se son neutrinos e tomamos a masa destes como nula obtéñense as ecuacións de Weyl e a solución son os espinores de Weyl (dúas compoñentes).
+
+\item Pódese manter a descripción de espinores de dúas compoñentes para partículas masivas?
+
+\item Si! Pero isto impón unha restricción: ambas ecuacións deben estar ligadas. Facendo transformacións obtense que esta condición é (condición de Majorana)\pdp{Outra forma de expresar esta relación é $\psi = \psi^C$\\}:
+
+\beq
+\psi_R = \psi_L^C = \chula C {\barra\psi_L}^T \qquad \qquad \chula C = i \gamma^2 \gamma^0 \nonumber
+\eeq
+
+\item De aquí chégase facilmente a ecuación de Majorana para o campo quiral $\psi_L$:
+
+\beq
+\bbx{ i \slx\partial \psi_L = m \chula C \barra\psi_L^T = m \psi_L^C }\ebx \nonumber
+\eeq
+
+\item A condición de Majorana implica que o fermión descrito debe ser a súa propia antipartícula $\Rightarrow$ Só se poden describir partículas neutras $\Rightarrow$ Os únicos fermións elementais neutros que coñecemos son os neutrinos. É sinxelo comprobar que baixo a condición de Majorana $\bbx{j^\mu = 0}\ebx$.
+
+\item Outra restricción dun fermión de Majorana aparece na descripción dos espinores: só pode haber dúas compoñentes independentes. Pódense expresar mediante as dúas expresións equivalentes:
+
+\beq
+\psi = \bmx{c} \chi \\ -i \sigma^2 \chi^* \emx \qquad \text{ou} \qquad \psi = \bmx{c} i\sigma^2 \omega^* \\ \omega \emx \nonumber
+\eeq
+
+En consecuencia o formalismo é máis simple que o de Dirac, pero a fenomenoloxía é distinta no caso de neutrinos masivos.
+
+\ei
+\end{frame}
+
+\subsection{Termo de masa de Majorana}
+
+\begin{frame}[allowframebreaks] \frametitle{Termo de masa de Majorana}
+\bi
+
+\item Cómo afecta a condición de Majorana ao lagranxiano? Operando cos campos quirais e aplicando a condición de Majorana obtense\pdp{Introdúcese o factor $\frac{1}{2}$ no lagranxiano debido a que $\nu_L$ e $\nu_L^C$\\ non son independentes}:
+
+\beq
+\bbx{
+\chula L_{masa}^M = -\frac{1}{2} m \barra{\nu_L^C} \nu_L - \frac{1}{2} m \nu_L^C \barra\nu_L = -\frac{1}{2} m \barra{\nu_L^C} \nu_L + h.c.
+}\ebx \nonumber
+\eeq
+
+\item Aplicando Euler - Lagrange obtense a ecuación de campo de Majorana de novo:
+
+\beq
+\bbx{
+i\slx\partial \nu_L = m \nu_L^C = m \chula C \barra\nu_L^T
+}\ebx \nonumber
+\eeq
+
+\item En base á definición $\nu = \nu_L + \nu_L^C$ pódese reescribir o lagranxiano total como:
+
+\beq
+\bbx{ \chula L^M = \frac{1}{2} \barra\nu \left( \frac{i}{2} \dvec{\slx\partial} -m\right) \nu }\ebx \nonumber
+\eeq
+
+\item O factor $\frac{1}{2}$ diferencia este lagranxiano do de Dirac. Aquí as propiedades de anticonmutación dos campo fermiónicos son esenciais, pois de non selo, o termo de masa do lagranxiano sería nulo.
+\ei
+\end{frame}
+
+\subsection{Graos de liberdade}
+
+\begin{frame}[allowframebreaks] \frametitle{Graos de liberdade}
+\bi
+
+\item Os lagranxianos de Dirac e Majorana son invariantes baixo CPT e transformacións de Lorentz. Isto deixa uns graos de liberdade que se poden determinar. A aplicación de C, P e T segue as seguintes regras:
+
+\beq \small
+P\bc t \rightarrow t \\ \rvec r \rightarrow -\rvec r \\  \rvec p \rightarrow -\rvec p \\  \rvec L \rightarrow \rvec L \\  \rvec s \rightarrow \rvec s \\ h \rightarrow -h \\  \nu \rightarrow \nu \ec \qquad
+T\bc t \rightarrow -t \\ \rvec r \rightarrow \rvec r \\  \rvec p \rightarrow -\rvec p \\  \rvec L \rightarrow -\rvec L \\  \rvec s \rightarrow -\rvec s \\ h \rightarrow h \\  \nu \rightarrow \nu \ec \qquad
+C\bc t \rightarrow t \\ \rvec r \rightarrow \rvec r \\  \rvec p \rightarrow \rvec p \\  \rvec L \rightarrow \rvec L \\  \rvec s \rightarrow \rvec s \\ h \rightarrow h \\  \nu \rightarrow \barra\nu \ec \nonumber
+\eeq
+
+\item Facendo tódalas transformacións posibles nun campo de Dirac obtense o seguinte esquema:
+
+\begin{figure}[h!]
+	\centering
+		\includegraphics[scale=.3]{TDirac.jpg}
+	\caption{ Posibles transformacións sobre un campo de Dirac}
+\end{figure}
+
+\item Para obter o caso de Majorana basta facer $\barra\nu \rightarrow \nu$:
+
+\begin{figure}[h!]
+	\centering
+		\includegraphics[scale=.4]{TMajorana.jpg}
+	\caption{ Posibles transformacións sobre un campo de Majorana}
+\end{figure}
+
+\item Isto dinos que no formalismo de Dirac hai 4 graos de liberdade:
+
+\beq
+\nu (\rvec p , h) \qquad \nu (\rvec p , -h) \qquad \barra\nu (\rvec p , h) \qquad \barra\nu (\rvec p , -h) \nonumber
+\eeq
+
+\item Mentres que no de Majorana só hai 2:
+
+\beq
+\nu ( \rvec p , h) \qquad \qquad \nu ( \rvec p , -h ) \nonumber
+\eeq
+
+\ei
+\end{frame}
+
+\subsection{Número leptónico}
+
+\begin{frame} \frametitle{Número leptónico}
+\bi
+
+\item Ao dicir que un neutrino é o mesmo que un antineutrino, o número leptónico perde sentido pois:
+
+\beq
+ L_\nu = 1 \qquad L_{\barra\nu}=-1 \qquad -1 \neq 1 \quad \forall \quad 1 \neq 0 \nonumber
+\eeq
+
+\item Debido a que a masa do neutrino é ínfima defínese un número leptónico efectivo en base á invariancia de $\chula L$ baixo U(1) resultando:
+
+\beq
+\bc
+h=-1 \rightarrow L_{ef} = +1 \\
+h=+1 \rightarrow L_{ef} = -1
+\ec \nonumber
+\eeq
+
+\item A pesar que de neutrino $\equiv$ antineutrino, distínguense pola súa helicidade
+\ei
+\end{frame}
+
+\subsection{Formalismo de dúas compoñentes}
+
+\begin{frame} \frametitle{Formalismo de dúas compoñentes}
+\bi
+
+\item Representando os espinores de Majorana como:
+
+\beq
+\nu_L = \bmx{c} \chi \\ 0 \emx \qquad \nu_L^C = \bmx{c} 0 \\ \omega \emx \qquad \rightarrow \qquad \nu = \bmx{c} \chi \\ \omega \emx \nonumber
+\eeq
+
+Obtense facilmente o lagranxiano en función dos espinores:
+
+\beq
+\chula L^M = \frac{-i}{2} \left[ \h\omega \tilde\sigma^\mu \dvec{\slx\partial} \omega + m \left( \omega^T \sigma^2 \omega  \h\omega \sigma^2 \omega^* \right) \right] \nonumber
+\eeq
+
+E ao aplicar Euler Lagrange obtense a ecuación de campo de Majorana dun campo de dúas compoñentes:
+
+\beq
+\tilde\sigma^\mu \partial_\mu \omega - m \sigma^2 \omega^* = 0 = \left( \partial_0 - \rvec\sigma \cdot \rvec\nabla \right) \omega + im \sigma^2 \omega^* \nonumber
+\eeq
+
+\ei
+\end{frame}
+
+\subsection{Masa de Majorana efectiva}
+
+\begin{frame} \frametitle{Masa de Majorana efectiva}
+\bi
+
+\item Non se pode construir un lagranxiano compatible co modelo estándar e co formalismo de Majorana simultaneamente debido a que non é renormalizable.
+
+\item Pódese construir un lagranxiano de dimensión 5 que debido á ruptura de simetría electrofeble xera un termo de masa similar ao de Majorana. Comparándoo con este obtense que a masa dun fermión de Majorana será da orde:
+
+\beq
+m \propto \frac{m_D^2}{M} \nonumber
+\eeq
+
+\ei
+\end{frame}
+
+\section{Mestura de tres neutrinos de Majorana}
+
+\begin{frame}[allowframebreaks] \frametitle{Mestura de tres neutrinos de Majorana}
+\bi
+
+\item Tomando as tres xeracións de neutrinos temos o vector de campos levóxiros:
+
+\beq
+\rvec{\nu_L'} = \bmx{ccc} \nu_{eL}' & \nu_{\mu L}' & \nu_{\tau L}' \emx^T \nonumber
+\eeq
+
+\item Con isto o lagranxiano adopta a forma:
+
+\beq
+\chula L_{masa}^M= -\frac{1}{2} \barra{\rvec\nu_L} M^M {\rvec\nu_L}^C +h.c. = -\frac{1}{2} \sum_{l,l' = e,\mu,\tau} \barra\nu_{l'L} M_{l'l}^M \nu_{l' L}^C + h.c. \nonumber
+\eeq
+
+\item $M^M$ é unha matriz simétrica que se diagonaliza mediante $M^M = U m U^T$ e de aquí pódese obter a relación entre os campos de sabor do modelo estándar e os de Majorana:
+
+\beq
+\bbx{
+\nu_{lL} = \sum_{k=1}^3 U_{lk} \nu_{lK}
+}\ebx \nonumber
+\eeq
+
+E o lagranxiano quedaría:
+
+\beq
+\bbx{
+\chula L = \frac{1}{2} \sum_k \barra\nu_k \left( i\slx\partial - m_k \right) \nu_k \nonumber
+}\ebx
+\eeq
+
+\ei
+\end{frame}
+
+\section{Dobre $\beta$ sen neutrinos}
+
+\begin{frame} \frametitle{Dobre $\beta$ sen neutrinos}
+\bi
+
+\item Debido a que un neutrino é igual a un antineutrino poderíamos ter que nunha desintegración $\beta$ un neutrino pase a ser un antineutrino desencadeando outra $\beta$.
+
+\item A $\beta\beta$ é un proceso único logo o cambio de helicidade necesario para que se produza debe ser virtual. O diagrama de Feynman correspondente é o seguinte:
+
+\begin{figure}[h!]
+	\centering
+		\includegraphics[scale=.5]{Dobre.jpg}
+	\caption{Diagrama de Feynman para a desintegración dobre $\beta$ sen neutrinos}
+\end{figure}
+
+\ei
+\end{frame}
+
+\section{Termo de masa de Dirac e Majorana}
+
+\begin{frame} \frametitle{Termo de masa de Dirac e Majorana}
+\bi
+
+\item Pódese construir un lagranxiano que leve simultaneamente o termo de masa de Dirac e o de Majorana. Escrito en forma matricial sería:
+
+\beq
+\bbx{
+\chula L_{masa}^{D+M} = - \frac{1}{2} \barra n_L M^{M+D} n_L^C + h.c.
+}\ebx \nonumber
+\eeq
+
+Onde:
+
+\beq
+n_L = \bmx{c} \nu_L \\ \nu_R^C \emx \qquad M^{M+D} = \bmx{cc} M_L^M & M^D \\ {M^D}^T & M_R^M \emx \nonumber
+\eeq
+
+\item Ao diagonalizar a matriz obtéñense os autoestados da masa:
+
+\beq
+\small
+\bbx{ m_{1,2}' = \frac{m_L + m_R \mp \sqrt{(m_R - m_L)^2 + 4m_D^2}}{2} = \eta_{1,2} \abs{m_{1,2}'} = \eta_{1,2} m_{1,2} }\ebx \nonumber
+\eeq
+
+\ei
+\end{frame}
+
+\subsection{Mecanismo do balancín}
+
+\begin{frame} \frametitle{Mecanismo do balancín}
+\bi
+
+\item É a teoría máis prometedora que explica a ínfima masa dos neutrinos. Baséase no termo de masa de Dirac e Majorana. Pártese de tres suposicións:
+\bi
+
+\item $m_L = 0$
+
+\item $m_D \approx$ masa dun quark/leptón da familia
+
+\item $m_R \equiv M_R \gg m_D$
+
+\ei
+
+\item Con estas condicións as masas que saen son:
+
+\beq
+m_{1,2} \approx
+\bc
+\frac{m_D^2}{M_R} \ll m_D \\
+M_R \gg m_D
+\ec \nonumber
+\eeq
+
+\item E finalmente para tres familias tense:
+
+\bea
+m_\nu = m_\ll &\approx& - m_D M_R^{-1} m_D^T \nonumber \\
+m_\gg &\approx& M_R \nonumber
+\eea
+
+\ei
+\end{frame}
+
+\section{Conclusións}
+
+\begin{frame} \frametitle{Conclusións}
+\bi
+
+\item Se o mecanismo do balancín se dá na natureza:
+
+\bi
+
+\item Os neutrinos son partículas de Majorana
+
+\item As masas son moitísimo menores que as dos quarks e leptóns
+
+\item Deben existir partículas de Majorana pesadas
+
+\ei
+
+\item Se se dá a condición de Majorana, os neutrinos son a súa propia antipartícula.
+
+\item A conservación do número leptónico depende da natureza dos neutrinos.
+
+\item Se as matrices de Dirac ou Majorana non son diagonais mestúranse distintos campos de sabor
+
+\item A observación experimental da $\beta\beta$ sería unha confirmación experimental de que os neutrinos son partículas de Majorana
+
+\ei
+\end{frame}
+
+\begin{frame} \frametitle{Bibliografía}
+
+\begin{thebibliography}{4}
+\bibitem{libro1}
+Fundamentals of neutrino physics and astrophysics - \textit{Giunti \& Kim}
+
+\bibitem{libro2}
+Introductory to the physics of massive and mixed neutrinos  - \textit{Bilenky}
+
+\bibitem{libro3}
+Gauge theory of weak interactions - \textit{Greiner}
+
+\bibitem{libro4}
+Gauge theory of elementary particle physics - \textit{Cheng - Li}
+
+\end{thebibliography}
+
+\end{frame}
+
+\end{document}
+
+
+
+
+
+
+
+

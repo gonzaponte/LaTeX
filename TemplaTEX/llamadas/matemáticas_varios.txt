@@ -1,0 +1,5 @@
+Raices n-ésimas \sqrt[n]{ecuación} : ej: \sqrt[3]{5x}  raíz cúbica de 5x
+
+Simbolo números reales, naturales... $\mathbb{R}$
+
+Límite cuando x tiene a cero: \lim_{x\rightarrow0}

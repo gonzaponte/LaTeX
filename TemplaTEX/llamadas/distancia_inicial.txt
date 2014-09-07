@@ -1,0 +1,4 @@
+Sustituir el sistema degeneral de control de márgenes por 
+
+
+en el encabezado, en sección \title poner \title{\vspace{-2cm} %«título que sea»}

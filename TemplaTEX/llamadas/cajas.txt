@@ -1,0 +1,3 @@
+\mbox{texto}  ~ Caja que contiene texto y que no se corta entre vaias lineas.
+\fbox{texto}  ~ Caja que contiene texto.
+\boxed{fórmula}  ~ enmarca una fórmula para destacarla. Se coloca dentro del $.

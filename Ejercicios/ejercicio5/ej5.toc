@@ -1,0 +1,9 @@
+\select@language {spanish}
+\contentsline {section}{\numberline {1}Primera secci\IeC {\'o}n}{2}
+\contentsline {subsection}{\numberline {1.1}Una subsecci\IeC {\'o}n cualquiera}{2}
+\contentsline {section}{\numberline {2}Otra secci\IeC {\'o}n}{2}
+\contentsline {subsection}{\numberline {2.1}otra subsecci\IeC {\'o}n}{2}
+\contentsline {section}{\numberline {3}otra secci\IeC {\'o}n m\IeC {\'a}s}{3}
+\contentsline {subsection}{\numberline {3.1}Una subsecci\IeC {\'o}n cualquiera m\IeC {\'a}s}{3}
+\contentsline {section}{\numberline {4}Otra secci\IeC {\'o}n a\IeC {\'u}n}{3}
+\contentsline {subsection}{\numberline {4.1}otra subsecci\IeC {\'o}n por \IeC {\'u}ltimo}{3}

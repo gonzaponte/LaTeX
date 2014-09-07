@@ -1,0 +1,38 @@
+GALILEO667.NET | AISNE
+Patrón de tablas curso LaTeX
+
+
+Tabla simple:
+
+\begin{tabular}{|c|l|}
+\hline
+\textbf{Nombre} & \textbf{Edad} \\
+\hline
+María & 20 años \\
+\hline
+Pepe & 25 años \\
+\hline
+Juan & 40 años \\
+\hline
+\end{tabular}
+
+
+Tabla con más opciones:
+
+\begin{table}[h!]
+\begin{center}
+{\setlength{\arrayrulewidth}{0.2mm} %grosor de las lineas de separación
+\hline	
+\begin{tabular}{| c | c | c | c | } %adjuntar tantos 'c' como número de columnas haya. Las | equivalen a las
+% lineas verticales. Las /hline lo hacen a las lineas horizontales. 
+% c:centrados r:a la derecha l:a la izquierda
+\hline
+\textbf{n1} & \textbf{n2} & \textbf{n3} & \textbf{n4} \\ \hline  %colocar uno por columna. Sustituir los n por  	
+   1 & 2 & 3 & 5\\ \hline       %Introducir datos                                                           nombre de las columnas.
+   4 & 5 & 6 & 5\\ \hline
+   7 & 8 & 9 & 5\\ 
+\hline
+}
+\end{tabular}
+\end{center}
+\end{table}

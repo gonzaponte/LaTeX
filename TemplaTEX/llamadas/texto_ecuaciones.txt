@@ -1,0 +1,3 @@
+Para introducir texto en ecuaciones:
+
+\text{}

@@ -1,0 +1,9 @@
+\pagestyle{plain}  ~ Opción por defecto, numeración parte inferior.
+\pagestyle{empty}  ~ Sin numeración de página.
+\pagestyle {headings}  ~ Número de página y nombre de sección en encabezado.
+\pagenumbering {roman}  ~ Numeración en números romanos.
+\setcounter{page}{«numero»}  ~ Poner el contador de páginas al valor «numero» 
+\pagestyle{headings} ~ headings: coloca toda la información 
+en el encabezado.
+\pagestyle{myheadings} ~ similar a headings pero permite edición
+con \markboth y \markright   MEJOR UTILIZAR FANCY

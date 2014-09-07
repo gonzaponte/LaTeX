@@ -1,0 +1,50 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{bm} %letras griegas en negrita (uso: \bm{\alpha})
+\usepackage{graphicx}
+\usepackage{amsmath,amsfonts,latexsym,cancel,textcomp,anysize,color}
+\marginsize{1.5cm}{1cm}{1.5cm}{1.5cm} %izq,der,sup,inf
+\parindent=0mm %sangría
+\parskip=3mm %espacio entre párrafos
+
+
+%opening
+\title{Imágenes en \LaTeX}
+\author{Pepito Grillo}
+\date{Noviembre de 2012}
+
+\begin{document}
+
+\maketitle
+
+\begin{center}
+\textsc{En este ejercicio se pueden sustituir las imágenes y los captions por los que desee el alumno.}
+\end{center}
+
+En este apartado hemos aprendido a añadir imágenes con caption y numeración automática:
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.35] %Tamaño
+{./images/acdc.jpg}  %descripción de la imagen
+\caption{AC/DC Es el mejor grupo de Rock de la historia.}
+\end{center}
+\end{figure}
+
+
+Y a insertar imágenes sin numerar y sin caption, en cualquier parte del documento:
+
+\begin{figure}[h!]
+\begin{flushright}
+\includegraphics[scale=0.15] %Tamaño
+{./images/harley.jpg}  %descripción de la imagen
+\end{flushright}
+\end{figure}
+
+
+\end{document}
+
+
+
+  

@@ -1,0 +1,44 @@
+%Plantilla estándar para texto en LaTeX
+
+%Tipo de documento
+\documentclass[a4paper,12pt]{article}
+
+%Paquetes
+%\usepackage[spanish]{babel}
+\usepackage[galician]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{bm} %letras griegas en negrita (uso: \bm{\alpha})
+\usepackage{graphicx,subfig} %paquete de imágenes
+\usepackage{amssymb,amsmath,amsfonts,latexsym,cancel,color,textcomp,anysize,amsthm,multicol}
+\usepackage{wasysym}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\pagestyle{fancy}
+
+%Espaciados
+\marginsize{2cm}{2cm}{1cm}{1cm} %MÁRGENES: izq,der,sup,inf
+\parindent=8mm %sangría 
+\parskip=4mm %espacio entre párrafos
+
+\input{/Users/Gonzalo/Dropbox/Gonzalo/LaTeX/Comandos.tex}
+
+\newcommand{\image}[4]%image,options,caption,label
+{
+\begin{figure}
+	\centering
+	\includegraphics[#2]{#1}
+	\caption{#3}
+	\label{#4}
+\end{figure}
+}
+
+\newcommand{\images}[6]%image,options,caption,label
+{
+\begin{figure}
+     \centering
+     \subfloat[a][]{\includegraphics[#2]{#1}}
+     \subfloat[b][]{\includegraphics[#4]{#3}}
+     \caption{#5}
+     \label{#6}
+\end{figure}
+}

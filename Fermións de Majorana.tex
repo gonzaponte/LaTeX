@@ -1,0 +1,967 @@
+%
+%
+%GALILEO667.NET - Base de archivo LaTeX-article con paquetes necesarios cargados
+%Jorge Eiras 2012 CC
+%Codificación adaptada S.O. Linux e iOS.
+
+%Tipo de documento
+\documentclass[a4paper,10pt]{article}
+
+%Paquetes
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{bm} %letras griegas en negrita (uso: \bm{\alpha})
+\usepackage{graphicx} %paquete de imágenes
+\usepackage{amsmath,amsfonts,latexsym,cancel,color,textcomp,anysize,amsthm,multicol}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+%Espaciados
+\marginsize{2cm}{1.5cm}{2cm}{1.5cm} %MÁRGENES: izq,der,sup,inf
+\parindent=8mm %sangría 
+\parskip=4mm %espacio entre párrafos
+
+%Cabeceiras
+\lhead{Fermións de Majorana} %CABECERA EN EL CENTRO RESTO DE PÁGINAS
+\rhead{\rightmark}
+\renewcommand{\headrulewidth}{0.4pt}
+
+%Comandos novos
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\bc}{\begin{cases}}
+\newcommand{\ec}{\end{cases}}
+\newcommand{\bbx}{\begin{boxed}}
+\newcommand{\ebx}{\end{boxed}}
+\newcommand{\bmx}{\left(\begin{array}}
+\newcommand{\emx}{\end{array}\right)}
+\newcommand{\barra}[1]{\overline{#1}}
+\newcommand{\h}[1]{#1^\dagger}
+\newcommand{\abs}[1]{\vert #1 \vert}
+\newcommand{\ac}[2]{\left\{ #1 , #2 \right\}}
+\newcommand{\cc}[2]{\left[ #1 , #2 \right]}
+\newcommand{\lvec}[1]{\overleftarrow{#1}}
+\newcommand{\rvec}[1]{\overrightarrow{#1}}
+\newcommand{\dvec}[1]{\overleftrightarrow{#1}}
+\newcommand{\chula}[1]{\mathcal{#1}}
+\newcommand{\slx}[1]{ #1\!\!\!/ }
+\newcommand{\derp}[2]{\frac{\partial#1}{\partial#2}}
+\newcommand{\pdp}[1]{\footnotemark\footnotetext{#1}}
+
+
+%opening
+\title{\vspace{4.0cm}\Huge \bf Fermións de Majorana}
+\author{\large Gonzalo Martínez Lema\\[0.2cm]
+\large Teoría cuántica de campos\\
+\\
+ 4º, grao en física}
+\date{22/01/2013}
+
+%\input{Portada.tex}
+
+\begin{document}
+%Título
+\maketitle %Introduce title, author y date en el texto.
+\newpage
+
+%Índice
+\tableofcontents
+\newpage
+
+%Comezamos
+\section{Introdución}
+
+	A masa do neutrino é a parte máis estudada na física de neutrinos. O neutrino ten o seu “nacemento” cando Pauli propuxo unha nova partícula fermiónica sen apenas masa e sen carga para que se conservara a enerxía e o momento na desintegración $\beta$ do neutrón.
+	No marco da teoría cuántica a descripción dos neutrinos vén dada pola ecuación de onda de Dirac:
+
+\beq
+(i \slx\partial -m) \nu = (i \gamma^\mu \partial_\mu -m) \nu = 0
+\eeq
+
+O termo de masa do lagranxiano é de gran importancia no estudo dos neutrinos pois determina as masas destes, a forma na que se mesturan os distintos sabores e a natureza (neutrinos de Dirac ou de Majorana). As teorías modernas relacionan este termo de masa cunha ruptura de simetría subxacente.
+
+\section{Termo de masa de Dirac}
+
+O termo de masa de Dirac é $ L_{masa}^D = -m \barra\nu \nu = -m \barra\nu_L \nu_R + h.c. $.\pdp{Demostración da igualdade máis adiante.} Isto pódese xeralizar para varios sabores como:
+
+\beq
+L_{masa}^D = -\barra{\rvec\nu_L} M^D \rvec\nu_R + h.c. = \sum_{l'l} \barra\nu_{l'L} \, M_{l'l}^D \, \nu_{lR}+h.c.
+\eeq
+
+	Este lagranxiano é invariante baixo transformacións gauge U(1) \pdp{Coa transformación $\nu \rightarrow e^{i\phi} \nu$ o campo $\nu_L$ aporta $e^{-i\phi}$ e o campo $\nu_R$ aporta $e^{i\phi}$ que se anulan}. Esta invariancia tradúcese nunha conservación do número leptónico total, que é o mesmo para tódolos leptóns cargados e neutrinos. A diagonalización desta matriz mediante $M^D = \h U m V$ (onde $ m_{ik} = m_i \delta_{ik} $ é unha matriz diagonal de masas), relaciona os campos dos neutrinos cos campos mixtos de sabor que son os que entran nas correntes neutras e cargadas:
+
+\beq
+\nu_{lL} = \sum_{k=1}^{3} U_{lk} \, \nu_{kL} \qquad\qquad \nu_{lR} = \sum_{k=1}^{3} V_{lk} \, \nu_{kR}
+\qquad \qquad l = e, \mu, \tau
+\eeq
+
+A matriz $U$ coñécese como matriz de mestura de Pontecorvo – Maki – Nakagawa – Sakata.
+
+\section{Teoría de Majorana}
+
+A descomposición da función de onda do neutrino en parte á esquerdas e parte a dereitas ($ \psi = \psi_L + \psi_R $) da lugar a dúas ecuacións para os campos quirais. Se tomamos o lagranxiano de Dirac con esta descomposición:
+
+\beq
+\chula{L} = \barra\psi (i \slx\partial - m) \psi = ( \barra\psi_L + \barra\psi_R) (i \slx\partial - m) ( \psi_L + \psi_R )
+\eeq
+
+Utilizando os proxectores de quiralidade e as súas propiedades\pdp{Os proxectores de quiralidade están definidos como: $P_L = \frac{1-\gamma^5}{2}$ e $P_R = \frac{1 + \gamma^5}{2}$ e teñen as seguintes propiedades, tense que para os campos quirais: \\
+\bea
+\h P_{L,R} &=& \left( \frac{1 \mp \gamma^5}{2} \right)^\dag =  \frac{1 \mp {\gamma^5}^\dag}{2} = \frac{1 \mp \gamma^5}{2} = P_{L,R} \nonumber\\
+P{L,R} \gamma^\mu &=& \frac{1 \mp \gamma^5}{2} \gamma^\mu = \gamma^\mu \frac{1 \pm \gamma^5}{2} = \gamma^\mu P_{R,L} \nonumber\\
+P_L P_R &=& \frac{1 - \gamma^5}{2} \frac{1 + \gamma^5}{2} = \frac{1 -1}{4} = 0 = P_R P_L \nonumber \eea}:
+
+\bea
+\psi_L &=& P_L \psi \qquad\qquad\quad \psi_R = P_R \psi \\
+\barra\psi_L &=& ( P_L \psi )^\dag \gamma^0 = \h\psi P_L^\dag \gamma^0 = \h\psi P_L \gamma^0 = \h\psi \gamma^0 P_R = \barra\psi P_R \\
+\barra\psi_R &=& ( P_R \psi )^\dag \gamma^0 = \h\psi P_R^\dag \gamma^0 = \h\psi P_R \gamma^0 = \h\psi \gamma^0 P_L = \barra\psi P_L
+\eea
+
+Obtido isto, o lagranxiano escríbese como:
+
+\bea
+\chula L &=& ( \barra\psi_L + \barra\psi_L ) ( i \slx\partial - m ) ( \psi_L + \psi_R ) \nonumber \\
+&=& \barra\psi ( P_R + P_L )( i \slx\partial - m) ( P_L + P_R ) \psi =
+\begin{boxed} 1 \end{boxed} + \begin{boxed} 2 \end{boxed}
+\eea
+
+\bea
+\begin{boxed} 1 \end{boxed} &\rightarrow& ( P_R + P_L ) i \slx\partial ( P_L + P_R ) = i \slx\partial (P_L +P_R )( P_L + P_R ) \nonumber \\
+\begin{boxed} 2 \end{boxed} &\rightarrow& ( P_R + P_L ) m ( P_L + P_R ) = m ( P_R + P_L )( P_L + P_R ) \nonumber
+\eea
+
+Os termos con $P_L P_R$ ou $P_R P_L$ son nulos e estes correspóndense con:
+
+\beq
+\barra\psi_R \slx\partial \psi_L = \barra\psi_L \slx\partial \psi_R = \barra\psi_L \psi_L = \barra\psi_L\psi_L = 0
+\eeq
+
+E o lagranxiano redúcese á seguinte expresión:
+
+\beq
+\chula L = \barra\psi_R i \slx\partial \psi_R + \barra\psi_L i \slx\partial \psi_L - m ( \barra\psi_L \psi_R + \barra\psi_R \psi_L )
+\eeq
+
+Utilizando a ecuación de Euler Lagrange:
+
+\beq\label{Euler}
+\partial_\mu \left[ \derp{\chula L}{ (\partial_\mu \barra\psi_{L,R}) } \right] = \derp{ \chula L}{ \barra\psi_{L,R} }
+\eeq
+
+Obtense o seguinte resultado:
+
+\bea
+\partial_\mu \left[ \derp{\chula L}{ ( \partial_\mu \barra\psi_{L,R} ) } \right] &=& 0\\
+\derp{\chula L}{ \barra\psi_{L,R} } &=& i \slx\partial \psi_{L,R} - m \psi_{R,L}
+\eea
+
+Xuntando todo chégase ás ecuacións de Dirac dos campos quirais:
+
+\beq
+\bc
+& i \slx\partial \psi_L = m \psi_R \\
+& i \slx\partial \psi_R = m \psi_L
+\ec
+\eeq
+
+Que están acopladas pola masa $m$ do neutrino. Vendo isto é obvio que as ecuacións se desacoplan se a masa é nula:
+
+\beq
+\bc
+& i \slx\partial \psi_L =0 \\
+& i \slx\partial \psi_R =0
+\ec
+\eeq
+
+Estas ecuacións son coñecidas como ecuacións de Weyl e aos espinores $\psi_L$ e $\psi_R$ que son solución desta ecuación chámaselles espinores de Weyl. Ao principio descartáronse estas posibles solucións porque levaban a unha violación da paridade, pero ao descubrirse que esta era violada nos procesos febles, volvéronse considerar.  En concreto, posto que non había evidencias da masa do neutrino e como só participaba nas interaccións febles a través da súa compoñente a esquerdas, propúxose unha teoría de espinores de Weyl  chamada teoría de dúas compoñentes de neutrinos sen masa.
+
+A pregunta obvia é se sigue sendo válida unha descripción de fermións masivos cun espinor de dúas compoñentes e o que descubriu Majorana foi que si. Se isto é certo, as ecuacións acopladas deben ser equivalentes, polo que se deduce que $\psi_L$ e $\psi_R$ deben ter algo que as relacione. Escollendo un dos espinores independente, por exemplo $\psi_L$ pódese obter a outra ecuación do seguinte xeito:
+
+\bea
+(i \gamma^\mu \partial_\mu \psi_L )^\dag = -i \psi_L^\dag \lvec\partial_\mu {\gamma^\mu}^\dag = -i \h\psi_L\lvec\partial_\mu \gamma^0 \gamma^\mu \gamma^0 &=& -i \barra\psi_L \lvec\partial_\mu \gamma^\mu \gamma^0 = m \h\psi_R \nonumber \\
+-i \barra\psi_L \lvec\partial_\mu \gamma^\mu \gamma^0 \gamma^0 &=& -i \barra\psi_L \lvec\partial_\mu \gamma^\mu = m\h\psi_R \gamma^0 = m \barra\psi_R
+\eea
+
+Traspoñendo e multiplicando por $\chula C$ pola esquerda:
+
+\bea
+\left(-i \barra\psi_L \lvec\partial_\mu \gamma^\mu \right)^T &=& -i {\gamma^\mu}^T \partial_\mu \barra\psi_L^T = m \barra\psi_R^T \nonumber \\
+-i \chula C {\gamma^\mu}^T \partial_\mu \barra\psi_L^T &=& i \gamma^\mu \partial_\mu \chula C \barra\psi_L^T = i \gamma^\mu \partial_\mu \chula C \psi_L^C = m \chula C \barra\psi_R^T = \psi_R^C
+\eea
+
+Entón tomando $ \psi_R = \psi_L^C = \chula C \barra\psi_L^T $  teríamos a segunda ecuación. Isto coñécese condición de Majorana
+\pdp{En realidade na definición de $\psi_R$ poderíase engadir unha fase $\xi$ arbitraria, pero como as fases globais non teñen sentido físico, pódense incluir dentro das funcións de onda como $\psi \rightarrow \xi^{1/2} \psi$.}.
+ Ten sentido pois $\chula C \barra\psi_L^T$ é dextróxira. Introducindo esta condición na ecuación de Dirac:
+ 
+\beq
+\bbx{
+i \slx\partial \psi_L = m \chula C \barra\psi_L^T = m \psi_L^C
+}\ebx
+\eeq
+
+Tense a ecuación de Majorana para o campo quiral $\psi_L$. Por outro lado na descomposición dos campos\pdp{ $ {\psi^C}^C = \chula C \barra{\psi^C}^T = \chula C \left( {\psi^C}^\dag \gamma^0 \right)^T = \chula C \gamma^0 {\psi^C}^* = \chula C \gamma^0 \left( \chula C \barra\psi^T \right)^* = \chula C \gamma^0 \chula C^* \h{\barra\psi} = \chula C \gamma^0 \chula C \h{\barra\psi} = \chula C \gamma^0 \chula C \gamma^0 \psi = -\chula C {\gamma^0}^2 \chula C \psi = -{\chula C}^2 \psi = \psi $ }:
+
+\beq
+\psi = \psi_L + \psi_L^C \rightarrow \psi^C = \psi_L^C + \psi_L = \psi
+\eeq
+
+Esta ecuación é a que distingue as partículas de Dirac das de Majorana. Un fermión de Majorana é a súa propia antipartícula, polo tanto as únicas partículas que se poden describir por este formalismo son os fermións neutros. Isto confírmase ao considerar un fermión nun campo electromagnético. As ecuacións de Dirac serán neste caso son:
+
+\beq
+\bc
+& (i \gamma^\mu \partial_\mu - q \gamma^\mu A_\mu - m) \psi = 0 \qquad \text{partícula} \\
+& (i \gamma^\mu \partial_\mu + q \gamma^\mu A_\mu - m) \psi = 0 \qquad \text{antipartícula}
+\ec
+\eeq
+
+Se $ \psi = \psi^C $ (condición de Majorana) ambas ecuacións deben ser idénticas\pdp{Un campo non pode seguir dúas ecuacións diferentes}. Isto só se cumpre se $q=0$. Tamén se pode demostrar que independentemente do valor de $q$ a corrente electromagnética asociada é cero:
+  
+\beq
+\barra\psi \gamma^\mu \psi = \barra{\psi^C} \gamma^\mu \psi^C =
+\pdp{Úsase $\barra{\psi^C}=\barra{\chula C \barra\psi^T}=\left[ \chula C (\h\psi \gamma^0)^T\right]^\dag \gamma^0 = (\chula C \gamma^0 \psi^*)^\dag \gamma^0 = \psi^T \gamma^ 0 \chula C^\dag \gamma^0 = \psi^T \chula C$}
+= \psi^T \chula C \gamma^\mu \chula C \barra\psi^T = - (\psi^T \chula C \gamma^\mu \chula C \barra\psi^T )^T = - \barra\psi \chula C^T {\gamma^\mu}^T \chula C^T \psi = \barra\psi \chula C {\gamma^\mu}^T \chula C^{-1} \psi = - \barra\psi \gamma^\mu \psi = 0
+\eeq
+
+Os neutrinos son os únicos fermións elementais neutros que se coñecen e polo tanto son os únicos descritibles por esta teoría. Pódese calcular agora cómo debe ser un espinor de Majorana impoñendo a condición $\psi = \psi^C$ \pdp{Usando a representación quiral das matrices $\gamma^\mu$}:
+
+\bea
+\psi = \bmx{c} \chi \\ \omega \emx \rightarrow \barra\psi &=& \h\psi \gamma^0 = \bmx{cc} \h\chi & \h\omega \emx \bmx{cc} 0 & -1 \\ -1 & 0 \emx = - \bmx{cc} \h\omega & \h\chi \emx \nonumber \\
+\psi^C &=& \chula C \barra\psi^T = -i \bmx{cc} \sigma^2 & 0 \\ 0 & -\sigma^2 \emx \bmx{c} -\omega^* \\ -\chi^* \emx = \bmx{c} i \sigma^2 \omega^* \\ -i \sigma^2 \chi^* \emx \nonumber\\
+\psi &=& \psi^C \Rightarrow \bc \bbx{i \sigma^2 \omega^* = \chi }\ebx \\ \bbx{-i \sigma^2 \chi^* = \omega }\ebx \ec
+\eea
+
+Entón o espinor de Majorana pódese expresar das seguintes maneiras equivalentes:
+
+\beq
+\psi = \bmx{c} \chi \\ -i \sigma^2 \chi^* \emx \qquad \text{ou} \qquad \psi = \bmx{c} i\sigma^2 \omega^* \\ \omega \emx
+\eeq
+
+	Polo tanto o espinor de Majorana só ten dúas compoñentes independentes e en consecuencia o formalismo é máis simple. A fenomenoloxía sen embargo é diferente no caso de neutrinos masivos. En neutrinos sen masa a única diferenza atópase na condición de Majorana pois as compoñentes quirais seguen ambas as mesmas ecuacións, só que no caso de Majorana imponse unha restrición a miores. Posto que a única compoñente relevante para as interaccións é a compoñente a levóxira mentres que a dextróxira é estéril, o que pase con esa é irrelevante e fai ambas teorías fisicamente equivalentes. Por outra banda se un quere determinar experimentalmente se un neutrino é de Dirac ou de Majorana debe buscar un efecto debido a súa masa. Este non podería ser cinemático pois esta parte do lagranxiano coincide. Tampouco se pode determinar polas oscilacións de neutrinos, pero si coas desintegracións $\beta\beta$ sen neutrinos, como se comprobará.
+
+\subsection{Termo de masa de Majorana}
+
+Imos agora comprobar como se xera a masa a partir dun termo de masa no lagranxiano. Como os neutrinos teñen helicidade negativa poderíase intentar obter este termo dependendo só da compoñente quiral a esquerdas de $\nu$: $\nu_L$. O termo de masa de Dirac é:
+
+\beq
+\chula L_{masa}^D = - m \barra\nu \nu = - m (\barra\nu_L + \barra\nu_R)(\nu_L + \nu_R)
+\eeq
+
+De aquí non sobreviven tódolos termos pois:
+
+\bea
+\barra\nu_L &=& \barra{P_L \nu_L} = \h\nu_L P_L \gamma^0 = \h\nu_L \gamma^0 P_R = \barra\nu_L P_R \quad \rightarrow \quad \barra\nu_L \nu_L = \barra\nu_L P_R P_L \nu_L = 0 \\
+\barra\nu_R &=& \barra{P_R \nu_R} = \h\nu_R P_R \gamma^0 = \h\nu_R \gamma^0 P_L = \barra\nu_R P_L \quad \rightarrow \quad \barra\nu_R \nu_R = \barra\nu_R P_L P_R \nu_R = 0
+\eea
+
+Queda polo tanto:
+
+\beq
+\chula L_{masa}^D = - m (\barra\nu_L \nu_R + \barra\nu_R \nu_L) + h.c.
+\eeq
+
+Onde se usou que $(\barra\nu_R \nu_L)^\dag = \h\nu_L (\h\nu_R \gamma^0)^\dag = \h\nu_L \gamma^0 \nu_R = \barra\nu_L \nu_R$. Pódese comprobar que é un escalar de Lorentz; se o campo se transforma como:
+
+\beq
+\nu_{L,R}' (x') = P_{L,R} \nu' (x') = P_{L,R} \chula S \nu (x) = \chula S P_{L,R} \nu (x) = \chula S \, \nu_{L,R} (x)
+\eeq
+
+entón o campo conxugado transfórmase como:
+
+\beq
+\barra{\nu_{L,R}'} = {\nu_{L,R}'}^\dag (x') \gamma^0 = \left(\chula S \nu_{L,R} (x) \right)^\dag \gamma^0 = \h\nu_{L,R} \h{\chula S} \gamma^0 = \h\nu_{L,R} \chula S^{-1} \gamma^0 = \h\nu_{L,R} \gamma^0 \chula S^{-1} = \barra\nu_{L,R} \chula S^{-1}
+\eeq
+
+Para escribir o termo de masa de Majorana en función só de $\nu_L$ hai que atopar unha expresión con $\nu_L$ a dereitas que se transforme como $\nu_L$ baixo transformacións de Lorentz. O campo antes definido $\nu_R=\nu_L^C$ $\nu_L$ cumpre estes requisitos. Xa está probado que sexa a dereitas e para ver que se transforma como $\nu_L$:
+
+\beq
+{\nu'}_{L,R}^C (x') = \chula C \barra{\nu'}_{L,R}^T = \chula C \left( \barra\nu_{L,R} S^{-1}\right)^T = \chula C {\chula S^{-1}}^T \chula C^{-1} \chula C \barra\nu_{L,R}^T = \chula S \nu_{L,R}^C
+\eeq
+
+Onde se usou que $\chula C {\sigma^{\mu\nu}}^T \chula C^{-1} = - \sigma^{\mu\nu}$ para $\chula C {\chula S^{-1}}^T \chula C^{-1} = \chula S $ pois para unha transformación conectada coa identidade $ \chula S = e^{\frac{i}{4} \sigma_{\mu\nu} \omega^{\mu\nu} } \approx 1 - \frac{i}{4} \sigma_{\mu\nu} \omega^{\mu\nu}$. Do mesmo xeito compróbase que para $\barra{\nu^C_{L,R}}$\pdp{Usando $\barra{AB} = (AB)^\dag \gamma^0 = \h B \h A \gamma^0 = \h B \gamma^0 \gamma^0 \h A \gamma^0 = \barra B \gamma^0 \barra A $ e $ \h{\chula S} = \gamma^0 \chula S^{-1} \gamma^0 \rightarrow \chula S^{-1} = \gamma^0 \h{\chula S} \gamma^0 $}:
+
+\beq
+\barra{\nu'^C_{L,R}} (x') = \barra{ \chula S \nu_{L,R}^C} = \barra{\nu_{L,R}^C} \gamma^0 \h{\chula S} \gamma^0 = \barra{\nu_{L,R}^C} \chula S^{-1}
+\eeq
+
+Unha vez comprobado que $\nu_L^C$ ten as propiedades adecuadas pódese usar no lagranxiano que agora será de Majorana por ter imposto a súa condición\pdp{Introdúcese o factor $\frac{1}{2}$ no lagranxiano debido a que $\nu_L$ e $\nu_L^C$ non son independentes e de non introducilo estaríamos sumando dúas veces o mesmo. Este factor afecta tamén ao lagranxiano total}:
+
+\beq
+\bbx{
+\chula L_{masa}^M = -\frac{1}{2} m \barra{\nu_L^C} \nu_L - \frac{1}{2} m \nu_L^C \barra\nu_L = -\frac{1}{2} m \barra{\nu_L^C} \nu_L + h.c.
+}\ebx
+\eeq
+
+Introducindo esta parte do lagranxiano no total obtense:
+
+\beq
+\chula L^M = \frac{1}{2} \left[ \barra\nu_L i\slx\partial \nu_L + \barra{\nu_L^C} i\slx\partial \nu_L^C - m \left( \barra{\nu_L^C} \nu_L + \barra\nu_L \nu_L^C \right) \right] = \frac{1}{4} \left[ \barra\nu_L i \dvec{\slx\partial} \nu_L + \barra{\nu_L^C} i\dvec{\slx\partial} \nu_L^C - 2m \left( \barra\nu_L^C \nu_L + \barra\nu_L \nu_L^C \right) \right]
+\eeq
+
+Aplicando a ecuación de Euler Lagrange (\ref{Euler}):
+
+\beq
+\partial_\mu \derp{\chula L^M}{(\partial_\mu \barra\nu_L)} = 0 \qquad \qquad
+\frac{\partial \chula L}{ \partial \barra\nu_L} = \frac{1}{2} i\slx\partial \nu_L - \frac{1}{2} m \nu_L^C
+\eeq
+
+Con isto chegamos a ecuación de campo de Majorana:
+
+\beq
+\bbx{
+i\slx\partial \nu_L = m \nu_L^C = m \chula C \barra\nu_L^T
+}\ebx
+\eeq
+
+Por outro lado coa definición do campo de Majorana
+
+\beq
+\nu = \nu_L + \nu_L^C
+\eeq
+
+Tense que o lagranxiano se pode escribir como:
+
+\bea
+\chula L^M &=& \frac{1}{4} \left[ \barra\nu_L i \dvec{\slx\partial} \nu_L + \barra{\nu_L^C} i\dvec{\slx\partial} \nu_L^C - 2m \left( \barra\nu_L^C \nu_L + \barra\nu_L \nu_L^C \right) \right] \nonumber \\
+&=& \frac{1}{4} \left[ \barra\nu_L i \rvec{\slx\partial} \nu_L - \barra\nu_L i \lvec{\slx\partial} \nu_L +  \barra{\nu_L^C} i\rvec{\slx\partial} \nu_L^C - \barra{\nu_L^C} i\lvec{\slx\partial} \nu_L^C - 2m \left( \barra\nu_L^C \nu_L + \barra\nu_L \nu_L^C \right) \right] \nonumber \\
+&=&\frac{1}{4} \left[ \left( \barra\nu_L + \barra{\nu_L^C} \right) \left( i\dvec{\slx\partial} - 2m \right) \left( \nu_L + \nu_L^C\right) \right]= \frac{1}{2} \barra\nu \left( \frac{i}{2} \dvec{\slx\partial} - m \right) \nu
+\eea
+
+O factor $\frac{1}{2}$ diferencia este lagranxiano do de Dirac. A propiedade de anticonmutación dos campos fermiónicos é esencial neste lagranxiano pois se conmutaran:
+
+\bea
+\barra\nu_L \nu_L^C &=& \barra\nu_L \chula C \barra\nu_L^T = \left( \barra\nu_L \chula C \barra\nu_L^T \right)^T = \barra\nu_L \chula C^T \barra\nu_L = - \barra\nu_L \chula C \barra\nu_L = 0 \nonumber \\
+\barra{\nu_L^C} &=& \barra{ \chula C \barra\nu_L^T} = \barra{ \chula C \gamma^0 \nu_L^* } = \nu_L^T \gamma^0 \chula C^\dag \gamma^0 = \nu_L^T \chula C \nonumber \\
+\barra{\nu_L^C} \nu_L &=& \left( \barra{\nu_L^C} \nu_L\right)^T = \nu_L^T \barra{\nu_L^C}^T = \nu_L^T \chula C \nu_L = - \barra{\nu_L^C} \nu_L = 0 \nonumber
+\eea
+
+E o termo de masa sería identicamente nulo. Como os campos fermiónicos son anticonmutativos baixo trasposición na parte cinemática ocorre o seguinte:
+
+\beq
+\barra{\nu_L^C} i\dvec{\slx\partial} \nu_L^C = \nu_L^T \chula C i\dvec{\slx\partial} \chula C \barra{\nu}_L^T = - \left( \nu_L^T \chula C i \dvec{\slx\partial} \chula C \barra\nu_L^T \right)^T = - \barra\nu_L \chula C^T i \dvec{\slx\partial}^T \chula C^T \nu_L = \barra\nu_L \chula C i\dvec{\slx\partial}^T \chula C^{-1} \nu_L = \barra\nu_L i\dvec{\slx\partial} \nu_L
+\eeq
+
+Polo tanto o lagranxiano pódese escribir como:
+
+\beq
+\chula L^M = \frac{1}{2} \left[ \barra\nu_L i \dvec{\slx\partial} \nu_L - m \left( \nu_L^T \chula C \nu_L + \barra\nu_L \chula C \barra\nu_L^T \right) \right]
+\eeq
+
+\subsection{Graos de liberdade}
+
+	O feito de que o lagranxiano sexa o mesmo baixo as transformacións de Lorentz e baixo simetría CPT mostra os graos de liberdade que ten cada neutrino (de Dirac e Majorana). Considérese un neutrino de momento $\rvec p$ e helicidade $h$. Aplicando as simetrías e as transformacións o resultado debe ser o mesmo. O número de graos de liberdade virá dado polo número de estados co mesmo momento. As transformacións teñen o efecto mostrado a continuación. O momento angular definido como $\rvec L = \rvec r \times \rvec p$ transformarase como o produto de posición e momento e, tendo en conta que o spin $\rvec s$ é un momento angular terá a mesma transformación que $\rvec L$; por outro lado $h$ está definido por $h = \frac{\vec s \vec p}{\abs{\vec p}}$ e transformarase como o produto deses operadores. Temos entón que as transformacións seguen as seguintes regras.
+\beq
+P\bc t \rightarrow t \\ \rvec r \rightarrow -\rvec r \\  \rvec p \rightarrow -\rvec p \\  \rvec L \rightarrow \rvec L \\  \rvec s \rightarrow \rvec s \\ h \rightarrow -h \\  \nu \rightarrow \nu \ec \qquad
+T\bc t \rightarrow -t \\ \rvec r \rightarrow \rvec r \\  \rvec p \rightarrow -\rvec p \\  \rvec L \rightarrow -\rvec L \\  \rvec s \rightarrow -\rvec s \\ h \rightarrow h \\  \nu \rightarrow \nu \ec \qquad
+C\bc t \rightarrow t \\ \rvec r \rightarrow \rvec r \\  \rvec p \rightarrow \rvec p \\  \rvec L \rightarrow \rvec L \\  \rvec s \rightarrow \rvec s \\ h \rightarrow h \\  \nu \rightarrow \barra\nu \ec \qquad
+\eeq
+
+Entón no caso de Dirac baixo CPT:
+
+\beq
+\nu (\rvec p , h) \; ^{CPT}_{\longrightarrow} \; \barra\nu ( \rvec p , -h) 
+\eeq
+
+Un boost de Lorentz apropiado pode inverter o momento e a helicidade:
+
+\beq
+\barra\nu (\rvec p , -h) \; ^{boost}_{\longrightarrow} \; \barra\nu ( -\rvec p , h) 
+\eeq
+
+Facendo outra CPT:
+
+\beq
+\nu (-\rvec p , h) \; ^{CPT}_{\longrightarrow} \; \nu ( -\rvec p , -h) 
+\eeq
+
+E con outro boost poderíase volver inverter o momento e a helicidade:
+
+\beq
+\nu (-\rvec p , -h) \; ^{boost}_{\longrightarrow} \; \barra\nu ( \rvec p , h) 
+\eeq
+
+Recuperando o estado inicial. Sen facer isto e volvendo aos puntos anteriores pódese facer unha rotación de $\pi$ rad, que deixa invariante a helicidade:
+
+\bea
+\barra\nu (-\rvec p , h) \; &^{\pi \;\text{rot}}_{\longrightarrow}& \; \barra\nu ( \rvec p , h) \\
+\nu (-\rvec p , -h) \; &^{\pi \;\text{rot}}_{\longrightarrow}& \; \barra\nu ( \rvec p , -h)
+\eea
+
+Polo tanto o número de graos de liberdade no caso de Dirac é 4:
+
+\beq
+\nu (\rvec p , h) \qquad \nu (\rvec p , -h) \qquad \barra\nu (\rvec p , h) \qquad \barra\nu (\rvec p , -h)
+\eeq
+
+Isto queda resumido na figura 1:
+
+\begin{figure}[h!]
+	\centering
+		\includegraphics[scale=.6]{TDirac.jpg}
+	\caption{ Posibles transformacións sobre un campo de Dirac}
+\end{figure}
+
+Para o caso de Majorana impoñendo a condición $\nu = \barra\nu$ teremos o mesmo esquema pero facendo $\barra\nu \rightarrow \nu$ o cal o deixa máis simple como se ve na figura 2: 
+
+\begin{figure}[h!]
+	\centering
+		\includegraphics[scale=.6]{TMajorana.jpg}
+	\caption{ Posibles transformacións sobre un campo de Majorana}
+\end{figure}
+
+Aquí obsérvase que o neutrino de Majorana ten a metade de graos de liberdade que o de Dirac, consecuencia directa da condición de Majorana. Os dous posibles estados son:
+
+\beq
+\nu ( \rvec p , h) \qquad \qquad \nu ( \rvec p , -h )
+\eeq
+
+\subsection{Campo de Majorana cuantizado}
+
+O campo de Majorana ten as mesmas propiedades que o campo de Dirac, pero coa ligadura que impón Majorana. Esta condición impón unha relación entre os operadores de creación e destrución: $b_h (p) = a_h (p)$. De modo que a expansión en modos de Fourier quedaría:
+
+\beq
+\nu (x) = \int \frac{d^3 p}{ (2\pi)^3 2 \omega_p} \sum_{h= \pm 1} \left[ a_h (p) u_h (p) e^{-i p \cdot x} + \h a_h (p) v_h (p) e^{i p \cdot x} \right]
+\eeq
+
+Ao cuantizar con anticonmutadores $a$ e $\h a$ son operadores e cumpren as seguintes relacións:
+
+\bea
+\ac{a_h (p)}{\h a_{h'} (p')} &=& (2\pi)^3 2\omega_p \delta^3 (\rvec p - \rvec p') \delta_{hh'} \\
+\ac{a_h (p)}{a_{h'} (p')} &=& \ac{\h a_h (p)}{\h a_{h'} (p')} = 0
+\eea
+
+Posto que non hai máis que un operador non se distingue entre partículas e antipartículas, como era de esperar. Adóitase sen embargo, distinguir entre ambas mediante a helicidade. O lagranxiano leptónico de interacción para correntes cargadas febles é o seguinte:
+
+\beq
+\chula L_{I,L}^{CC} = - \frac{g}{\sqrt{2}} \left[ \barra\nu_L \gamma^\mu l_L W_\mu + \barra l_L \gamma^\mu \nu_L \h W_\mu \right]
+\eeq
+
+Onde $l_L$ é o campo leptónico cargado. A hermitificación da corrente cargada leptónica ${j_{W,L}^\mu}^\dag = 2 \bar l_L \gamma^\mu \nu_L$ produce antineutrinos na teoría de Dirac mentres que na de Majorana crea neutrinos ultrarelativistas con helicidade positiva. Neste último caso tamén se producen neutrinos con helicidade negativa, pero están suprimidos estatísticamente por un factor $\frac{m}{E}$ que é moi pequeno debido á ínfima masa do neutrino. De xeito análogo ocorre con $j_{W,L}^\mu$: crea neutrinos ultrarelativistas de helicidade negativa estando suprimidos polo factor $\frac{m}{E}$ os de helicidade positiva. Debido a que os neutrinos de Majorana con $h=+1$ interaccionan como antineutrinos de Dirac con $h=+1$ e os neutrinos de Majorana con $h=-1$ o fan como neutrinos de Dirac con $h=-1$, aos neutrinos de Majorana con $h=+1(-1)$ chámaselles (anti) neutrinos.
+
+\subsection{Número leptónico}
+
+O número leptónico na teoría de Dirac vese conservado debido a simetría baixo transformacións gauge U(1) globais. Isto non pasa no caso dos neutrinos de Majorana debido á forma do termo de masa do lagranxiano:
+
+\beq
+L_{masa}^M = \frac{1}{2} m \left( \nu_L^T \chula C^\dag \nu_L + \h\nu_L \chula C \nu_L^* \right)
+\eeq
+
+Ao facer a transformación gauge $\nu_L \rightarrow e^{i\phi} \nu_L$ tense:
+
+\beq
+\chula L_{masa}^M \rightarrow \frac{1}{2} m \left( e^{2i\phi} \nu_L^T \chula C^\dag \nu_L + e^{-2i\phi} \nu_L^\dag \chula C \nu_L^*\right)
+\eeq
+
+E prodúcese un desfase de $4\phi$ entre os dous termos. Isto non pasaba con Dirac porque a  transformación era sobre o campo fermiónico total $\nu \rightarrow e^{i\phi} \nu$ e $ m \barra\nu \nu \rightarrow m e^{-i\phi} e^{i\phi} \barra\nu \nu = m \barra\nu \nu$. Polo tanto é natural preguntarse se esta transformación é válida para o lagranxiano de Majorana. Non fai falta comprobalo pois a condición de Majorana impide facer esta transformación:
+
+\beq
+\nu^C \rightarrow \chula C \barra{e^{i\phi} \nu}^T = e^{-i\phi} \nu^C \neq e^{i\phi} \nu^C
+\eeq
+
+Por outro lado os neutrinos de Dirac teñen $L=+1$ e os antineutrinos $L=-1$; se no formalismo de Majorana neutrino $\equiv$ antineutrino o número leptónico perde a súa definición. \\
+
+Sen embargo, como as masas dos neutrinos son moi pequenas e o resto do lagranxiano é invariante baixo U(1), pódeselle asignar un número leptónico efectivo aos leptóns considerando os neutrinos non masivos. Este obtense a partir da invariancia do lagranxiano efectivo baixo U(1). A carga conservada efectiva contén información sobre a helicidade dos neutrinos pois:
+
+\beq
+\bc
+h=-1 \rightarrow L_{ef} = +1 \\
+h=+1 \rightarrow L_{ef} = -1
+\ec
+\eeq
+
+Que coinciden cos números leptónicos de Dirac. Este  número leptónico efectivo si que se conserva en tódolos procesos febles que non son sensibles ao termo de masa de Majorana, pois neste caso un leptón (antileptón) cargado con $L_{ef} = +1 (-1)$ só produce neutrinos de helicidade negativa (positiva). Ao tratar o termo de masa de Majorana como unha perturbación ao lagranxiano non leptónico non masivo, ese xera transicións coa condición $\Delta L_{ef} = \pm 2$. Estas transicións verificaríanse experimentalmente coas desintegracións $\beta\beta$ sen neutrinos, pois estas implicarían unha cambio de helicidade no neutrino de Majorana.
+
+\subsection{Formalismo de dúas compoñentes}
+
+A representación do espinor de Majorana pódese facer como:
+
+\beq
+\nu = \bmx{c} \chi \\ \omega \emx = \nu_L + \nu_L^C = \bmx{c} \chi \\ 0 \emx + \bmx{c} 0 \\ \omega \emx
+\qquad \rightarrow \qquad \nu_L = \bmx{c} \chi \\ 0 \emx \qquad \nu_L^C = \bmx{c} 0 \\ \omega \emx
+\eeq
+
+De onde se obtén, recordando a relación entre as compoñentes do campo:
+
+\beq
+\barra{\nu_L^C} = {\nu_L^C}^\dag \gamma^0 = \bmx{cc} 0 & \h\omega \emx \bmx{cc} 0 & -1 \\ -1 & 0 \emx = 
+\bmx{cc} -\h\omega & 0 \emx
+\eeq
+
+Entón o lagranxiano pódese escribir en función dos espinores de dúas compoñentes\pdp{$ \sigma^\mu = (1,\rvec\sigma)$ e $\tilde\sigma^\mu = (1,-\rvec\sigma)$ onde $\rvec\sigma$ son as Matrices de Pauli.}:
+
+\bea
+\chula L^M &=&\frac{1}{4} \barra\nu \left( i\dvec{\slx\partial} -2 m \right) \nu = \frac{i}{4} \left( \barra\nu \slx\partial \nu - \slx\partial \barra\nu \nu \right) - \frac{m}{2} \barra\nu \nu \\
+\barra\nu \gamma^\mu \partial_\mu \nu &=& \bmx{cc} -\h\omega & -\h\chi \emx \bmx{cc} 0 & \tilde\sigma^\mu \\ -\sigma^\mu & 0 \emx \partial_\mu \bmx{c} \chi \\ \omega \emx = -\h\omega \tilde\sigma^\mu \partial_\mu \omega + \h\chi \sigma^\mu \partial_\mu \chi \\
+\partial_\mu \barra\nu \gamma^\mu \nu &=& \partial_\mu \bmx{cc} -\h\omega & -\h\chi \emx \bmx{cc} 0 & \tilde\sigma^\mu \\ -\sigma^\mu & 0\emx \bmx{c} \chi \\ \omega \emx = -\partial_\mu \h\omega \tilde\sigma^\mu \omega + \partial_\mu \h\chi \sigma^\mu \chi \\
+\barra\nu \nu &=& \bmx{cc} -\h\omega & -\h\chi \emx \bmx{c} \chi \\ \omega \emx = -\h\omega \chi - \h\chi \omega = -\h\omega \chi + h.c.
+\eea
+
+Usando $\chi = i \sigma^2 \omega^* \rightarrow \h\chi = - i \omega^T {\sigma^2}^\dag = -i \omega^T \sigma^2$:
+
+\bea
+\barra\nu \gamma^\mu \partial_\mu \nu &=& -\h\omega \tilde\sigma^\mu \partial_\mu \omega + \omega^T \sigma^2 \sigma^\mu \partial_\mu \sigma^2 \omega^* \\
+\partial_\mu \barra\nu \gamma^\mu \nu &=& -\partial_\mu \h\omega \tilde\omega^\mu \omega + \partial_\mu \omega^T \sigma^2 \sigma^\mu \sigma^2 \omega^* \\
+\barra\nu \nu &=& -\h\omega i \sigma^2 \omega^* + i \omega^T \sigma^2 \omega
+\eea
+
+E xuntando todo:
+
+\bea
+\chula L^M &=& \frac{i}{4} \left( -\h\omega \tilde\sigma^\mu \partial_\mu \omega + \partial_\mu \h\omega \tilde\sigma^\mu \omega \right) - \frac{m}{2} \left( i\omega^T \sigma^2 \omega - \h\omega i \sigma^2 \omega^* \right) \nonumber \\
+&=& \frac{-i}{2} \left[ \h\omega \tilde\sigma^\mu \dvec{\slx\partial} \omega + m \left( \omega^T \sigma^2 \omega  \h\omega \sigma^2 \omega^* \right) \right]
+\eea
+
+Aplicando a ecuación de Euler – Lagrange (\ref{Euler}):
+
+\beq
+\derp{\chula L^M}{(\partial_\mu \h\omega)} = \frac{i}{2} \tilde\sigma^\mu \omega \qquad
+\derp{\chula L^M}{\h\omega} = - \frac{i}{2} \tilde\sigma^\mu \partial_\mu \omega + im \sigma^2 \omega^*
+\eeq
+
+Obtense a ecuación de campo de Majorana para un campo de dúas compoñentes:
+
+\beq
+\tilde\sigma^\mu \partial_\mu \omega - m \sigma^2 \omega^* = 0 = \left( \partial_0 - \rvec\sigma \cdot \rvec\nabla \right) \omega + im \sigma^2 \omega^*
+\eeq
+
+A expansión en modos de Fourier para $\omega$ é:
+
+\beq
+\omega (x) = \int \frac{d^3p}{(2\pi)^3 2\omega_p} \sum_{h=\pm 1} \left[ \sqrt{E-h\abs{\rvec p}} a_h (p) \chi_h (\rvec p) e^{-ip \cdot x} - h \sqrt{E+h\abs{\rvec p}} \h a_h (p) \chi_{-h} (\rvec p) e^{ip \cdot x}\right]
+\eeq
+
+De aquí pódese obter o operador de enerxía – momento a partir da expresión xeral:
+
+\beq
+\chula P^\mu = \int d^3x \h\omega (x) i \dvec\partial \omega
+\eeq
+
+Manipulando as derivadas, facendo cambios $\chi_{-h} (-\rvec p) = \eta \chi_h (\rvec p ) $ \pdp{$\eta$ é unha fase: $\eta = \eta (\rvec p , h)$} e definindo $p_P^\mu = (E, -\rvec p)$ obtense a seguinte expresión:
+
+\bea
+\chula P^\mu = \int \frac{d^3p}{(2\pi)^6 4 \omega_p^2} \sum_{h=\pm 1} &\{& p^\mu \left[ (E - h \abs{\rvec p}) \h a_h (p) a_h (p) - (E+h\abs{\rvec p}) a_h (p) \h a_h (p) \chi_{-h} (\rvec p) \right] \nonumber \\
+&+& hm \left( \frac{p_P^\mu - p^\mu}{2}\right) \left[ \eta \h a_h (p) \h a_h (p_P) e^{2iEt} + \eta^* a_h (p) a_h (p_P) e^{-2iEt}\right] \}
+\eea
+
+Pódese demostrar que este último termo é nulo. Poñéndoo na orde normal quedaría:
+
+\beq
+:\chula P^\mu : = \int \frac{d^3p}{(2\pi)^3 2\omega_p} p^\mu \sum_h \h a_h (p) a_h (p)
+\eeq
+
+Volvendo a expansión en modos, esta adquire unha forma sinxela no caso ultrarelativista. Facendo a aproximación $ E \approx \abs{\rvec p} + \frac{m^2}{2 \abs{\rvec p}}$:
+
+\beq
+\omega_{ef} = \int_{\abs{\rvec p} \gg m} \frac{d^3p}{(2\pi)^3 \sqrt{2 \abs{\rvec p}}} \left[ a_- (p) \chi_- (\rvec p) e^{-i p \cdot x} - \h a_+ (p) \chi_+ (\rvec p) e^{i p \cdot x} \right]
+\eeq
+
+Onde se desprezan termos con $\frac{m^2}{\abs{\rvec p}^2}$. Aquí vese como o campo efectivo destrúe neutrinos de helicidade negativa e créaos de helicidade positiva.
+
+\subsection{Masa de Majorana efectiva}
+
+O termo de masa de Majorana contén só a compoñente quiral a esquerdas, que é a mesma que aparece no modelo estándar, sen embargo non os neutrinos do modelo estándar non teñen termo de masa de Majorana porque $\nu_L$ ten $I_3 = 1/2$ e $Y = -1$ e o termo de masa:
+
+\beq
+\barra{\nu_L^C} \nu_L = \nu_L^T \chula C \nu_L
+\eeq
+
+Terá entón $I_3 = 1$ e $Y = -2$ e non podería incluirse no modelo estándar. Para que poida entrar o termo do lagranxiano debe ter  dimensión 4 ou menor e isto non é posible co termo de masa de Majorana. Pódese construir un termo de dimensión 5:
+
+\beq
+\chula L_5 = \frac{g}{2M} \left( L_L^T \sigma_2 \Phi \right) \chula C^\dag \left( \Phi^T \sigma_2 L_L \right) + h.c.
+\eeq
+
+Onde $g$ é unha constante de acoplamento e $M$ unha constante con dimensións de masa. $L_L$ é o dobrete leptónico do modelo estándar e $\Phi$ o dobrete de Higgs. Debido á ruptura de simetría electrofeble, $\chula L_5$ xera o termo de masa de Majorana:
+
+\beq
+\chula L_5^\star = \frac{gv^2}{2M} \nu_L^T \chula C^\dag \nu_L + h.c.
+\eeq
+
+Por comparación dedúcese que a masa de Majorana é:
+
+\beq
+m=\frac{gv^2}{M}
+\eeq
+
+$v$ é da orde da ruptura de simetría electrofeble, polo que se pode expresar o anterior como:
+
+\beq
+\bbx{
+m \propto \frac{m_D^2}{M}
+}\ebx
+\eeq
+
+Onde $m_D$ é unha masa de Dirac típica que será da orde da masa dun leptón cargado ou dun quark da mesma xeración.
+
+\section{Mestura de tres neutrinos de Majorana}
+
+Tomando as tres xeracións de neutrinos pódese formar un vector de campos levóxiros:
+
+\beq
+\rvec{\nu_L'} = \bmx{c} \nu_{eL}' \\ \nu_{\mu L}' \\ \nu_{\tau L}' \emx
+\eeq
+
+E construir así o termo de masa de Majorana como:
+
+\beq
+\chula L^M= -\frac{1}{2} \barra{\rvec\nu_L} M^M {\rvec\nu_L}^C +h.c. = -\frac{1}{2} \sum_{l,l' = e,\mu,\tau} \barra\nu_{l'L} M_{l'l}^M \nu_{l' L}^C + h.c.
+\eeq
+
+Onde $M^M$ é unha matriz simétrica como se pode comprobar:
+
+\beq
+\barra{\rvec\nu_L} M^M {\rvec\nu_L}^C = \barra{\rvec\nu_L} M^M \chula C {\barra{\rvec\nu_L}}^T = -\barra{ \rvec\nu_L} {M^M}^T \chula C^T {\barra{\rvec\nu_L}}^T = \barra{ \rvec\nu_L} {M^M}^T \chula C {\barra{\rvec\nu_L}}^T = -\barra{ \rvec\nu_L} {M^M}^T {\rvec\nu_L}^C
+\eeq
+
+Logo ${M^M}^T = M^M $, e a matriz é simétrica. Para diagonalizar esta matriz faise a seguinte transformación:
+
+\beq
+M^M = U m U^T \qquad \dim U = \dim m = 3 \, \times \, 3 \qquad m_{ik} = m_i \delta_{ik}
+\eeq
+
+Introducindo isto no lagranxiano:
+
+\beq
+\chula L^M = -\frac{1}{2} \barra{\rvec\nu_L} U m U^T {\rvec\nu_L}^C + h.c. = - \frac{1}{2} \barra{\h U \rvec\nu_L} m \left( \h U \rvec\nu_L \right)^C + h.c.
+\eeq
+
+Definindo:
+
+\beq
+\rvec\nu^M = \rvec\nu_L^M + \rvec\nu_R^M = \h U \vec\nu_L + \left( \h U \rvec\nu_L \right)^C =
+\bmx{c} \nu_1 \\ \nu_2 \\ \nu_3 \emx
+\eeq
+
+por similitude co campo de Majorana tense:
+
+\beq
+\chula L^M = -\frac{1}{2} \barra{\rvec\nu^M} m \rvec\nu^M = -\frac{1}{2} \barra{\h U \rvec\nu_L} m \left( \h U \rvec\nu_L  \right)^C - \frac{1}{2} \barra{\left( \h U \rvec\nu_L \right)^C} m \h U \rvec\nu_L = -\frac{1}{2} \barra{\h U \rvec\nu_L} m \left( \h U \rvec\nu_L \right)^C + h.c.
+\eeq
+
+Da definición de $\nu^M$ é obvio que:
+
+\beq
+{\rvec\nu^M}^C = \left( \h U \rvec\nu_L \right)^C + \h U \rvec\nu_L = \rvec\nu^M
+\eeq
+
+Esta condicón cumprirase para cada elemento: $\nu_i^C=\nu_i$. Por outro lado da definición de $\rvec\nu_L^M$:
+
+\beq
+\rvec\nu_L^M = \h U \rvec\nu_L \rightarrow U \barra\nu_L^M = U \h U \rvec\nu_L = \rvec\nu_L \rightarrow \rvec\nu_L = U \rvec\nu_L^M
+\eeq
+
+Separando en compoñentes:
+
+\beq
+\bbx{
+\nu_{lL} = \sum_{k=1}^3 U_{lk} \nu_{lK}
+}\ebx
+\eeq
+
+Isto relaciona as compoñentes a esquerdas de sabor do modelo estándar $\nu_{lL}$ coas compoñentes a esquerdas dos campos de Majorana. \\
+Para o lagranxiano cinético a expresión sería a seguinte:
+
+\beq
+\chula L_0 = \barra{\rvec\nu_L} i \slx\partial \rvec\nu_L = \sum_l \barra\nu_{lL} i \slx\partial \nu_{lL} = \barra{U \rvec\nu_L^M} i \slx\partial \barra{U\nu_L^M} = \barra{\rvec\nu_L^M} \h U i \slx\partial U \rvec\nu_L^M = \barra{\rvec\nu_L^M} i \slx\partial \rvec\nu_L^M = \sum_k \barra\nu_{kL} i \slx\partial \nu_{kL}
+\eeq
+
+Por outro lado:
+
+\beq
+\barra\nu_{kL} i \slx\partial \nu_{kL} = - \nu_{kL}^T i \lvec{\slx\partial}^T {\barra\nu_{kL}}^T = - \nu_{kL}^T \chula C^{-1} \chula C i \lvec{\slx\partial}^T \chula C^{-1} \chula C {\barra\nu_{kL}}^T = - \barra{\nu_{kL}^C} i \lvec{\slx\partial} \nu_{kL}^C
+\eeq
+
+Sacando a derivada total:
+
+\beq
+-\barra{\nu_{kL}^C} i \lvec{\slx\partial} \nu_{kL}^C = -\partial_\mu \left( -\barra{\nu_{kL}^C} \gamma^\mu \nu_{kL}^C \right) + \barra{\nu_{kL}^C} i \rvec{\slx\partial} \nu_{kL}^C
+\eeq
+
+A derivada total pódese obviar no lagranxiano, pois este non é único e non afecta ás ecuacións do movemento. Definindo o campo de Majorana como $\nu_k = \nu_{kL} + \nu_{kL}^C $:
+
+\beq %FTWWWWW????
+\chula L_0 = \sum_k \barra{\nu_{kL}^C} i \slx\partial \nu_{kL}^C = \frac{1}{2} \sum_k \barra{\nu_{kL}^C} i \slx\partial \nu_{kL}^C + \frac{1}{2} \sum_k \barra{\nu_{kL}^C} i \slx\partial \nu_{kL}^C = \frac{1}{2} \sum_k \barra\nu_k i \slx\partial \nu_k
+\eeq
+
+Finalmente o lagranxiano total quedaría:
+
+\beq
+\bbx{
+\chula L = \frac{1}{2} \sum_k \barra\nu_k \left( i\slx\partial - m_k \right) \nu_k
+}\ebx
+\eeq
+
+\section{Dobre $\beta$ sen neutrinos}
+
+Na desintegración $\beta\beta$ (negativa) dous neutróns pasan a dous protóns emitindo cada un un electrón e un antineutrino electrónico. Por exemplo no xermanio:
+
+\beq
+_{32}^{76}Ge \rightarrow  \, _{34}^{76}Se + 2e^- + 2\barra\nu_e
+\eeq
+
+	Se os neutrinos son de Majorana, cúmprese a propiedade $\nu \equiv \barra\nu$ e un neutrino podería aniquilarse con outro. Podería darse por tanto unha $\beta\beta$ sen neutrinos. Para que isto sexa certo a helicidade non pode conservarse. Se isto é certo os neutrinos deben ser masivos. O diagrama de Feynman deste proceso sería o da figura 3:
+
+\begin{figure}[h!]
+	\centering
+		\includegraphics[scale=1]{Dobre.jpg}
+	\caption{Diagrama de Feynman para a desintegración dobre $\beta$ sen neutrinos}
+\end{figure}
+
+	Interésanos construír un lagranxiano que acople a compoñente a dereitas coa súa conxugada de carga, que é a compoñente a esquerdas, e viceversa. Se só existe a compoñente levóxira, o termo de masa de Majorana pódese escribir como
+	
+\beq
+\chula L_{masa}^{ML} = -\frac{1}{2} m_L \barra{\nu_L^C} \nu_L + h.c.
+\eeq
+
+E o neutrino sería de Majorana, pero se tamén existe $\nu_R$ pódese incluir un termo de masa de Dirac:
+
+\beq
+\chula L_{masa}^D = - m_D \barra\nu_R \nu_L + h.c.
+\eeq
+
+Así como un termo de masa de Majorana do campo dextróxiro:
+
+\beq
+\chula L_{masa}^{MR} = -\frac{1}{2} m_R \barra{\nu_R^C} \nu_R + h.c.
+\eeq
+
+Definindo $\psi_L = \nu_L \nu_L^C$ e $\psi_R = \nu_R + \nu_R^C$ o lagranxiano total sería:
+
+\bea
+-\chula L_{masa}^{D+M} &=& m_D \barra\nu_L \nu_R + \frac{1}{2} m_L \barra{\nu_L^C} \nu_L + \frac{1}{2} m_R \barra{\nu_R^C} \nu_R + h.c. \nonumber \\
+&=& \frac{1}{2} D \left( \barra\psi_L \psi_R + \barra\psi_R \psi_L \right) + A \barra\psi_L \psi_L + B \barra\psi_R \psi_R \nonumber \\
+&=& \bmx{cc} \barra\psi_L & \barra\psi_R \emx \bmx{cc} A & D/2 \\ D/2 & B \emx \bmx{c} \psi_L \\ \psi_R \emx
+\eea
+
+Diagonalizando a matriz:
+
+\beq
+\det{\bmx{cc} A-\lambda & D/2 \\ D/2 & B-\lambda \emx} = 0 = (A-\lambda)(B-\lambda) - D^2/4 =
+\eeq
+
+\beq
+\lambda= \frac{(A+B) \pm \sqrt{(A-B)^2 + D^2}}{2} = \bc + \rightarrow M_1 \\- \rightarrow M_2 \ec
+\eeq
+
+Pódense obter os autoestados:
+
+\beq
+\bc
+\eta_1 = \cos \theta \psi_L - \sin \theta \psi_R \\
+\eta_2 = \sin \theta \psi_L + \cos \theta \psi_R
+\ec
+\qquad
+\tan (2\theta) = \frac{D}{A-B}
+\eeq
+
+E en función destes, os valores de $A$, $B$ e $D$:
+
+\beq
+\bc
+D = (M_1 - M_2) \sin (2\theta)\\
+A = M_1 \cos^2 \theta + M_2 \sin^2 \theta\\
+B = M_1 \sin^2 \theta + M_2 \cos^2 \theta
+\ec
+\eeq
+
+Debido ao acoplamento de campos de diferente quiralidade os termo de masa de Majorana violan a conservación de calquera número aditivo que leven os campos, como é a carga. Dado que a carga segue unha das leis máis fundamentais de conservación, só os neutrinos, por carecer dela poden ter $A = B = 0$. O mesmo termo tamén provoca  tamén a violación da conservación do número leptónico. Se existen os neutrinos de Majorana, as desintegracións $\beta\beta$ débense poder observar na práctica.
+
+\section{Termo de masa de Dirac e Majorana}
+
+O termo de masa máis xeral que se pode construír correspóndese coa xeralización do caso anterior:
+
+\beq
+\chula L_{masa}^{M+D} = - \frac{1}{2} \barra{\rvec\nu_L} M_L^M {\rvec\nu_L}^C -\frac{1}{2} \barra{{\barra\nu_R}^C} M_R^M \rvec\nu_R - \barra{\rvec\nu_L} M^D \rvec\nu_R + h.c.
+\eeq
+
+Onde agora $M_{L,R}^M$ son matrices $ 3 \, \times \, 3 $ complexas non diagonais e simétricas correspondentes aos termos de Majorana e $M^D$ outra matriz $ 3 \, \times \, 3 $ complexa e non diagonal. $\rvec\nu_R$ vén dado por $\bmx{ccc} \nu_{eR} & \nu_{\mu R} & \nu_{\tau R} \emx^T$. Debido a que o termo de masa de Majorana non é invariante baixo transformacións do gauge U(1), tampouco o será este termo e en consecuencia tampouco se conservará o número leptónico. Pódese expresar dun xeito máis curto esta ecuación usando a seguinte notación:\pdp{${M^D}^T$ sae de considerar a anticonmutación dos campos fermiónicos baixo trasposición.}
+
+\beq
+n_L = \bmx{c} \nu_L \\ \nu_R^C \emx \qquad M^{M+D} = \bmx{cc} M_L^M & M^D \\ {M^D}^T & M_R^M \emx \qquad
+\dim M^{M+D} = 6 \, \times \, 6
+\eeq
+
+O lagranxiano queda:
+
+\beq
+\bbx{
+\chula L_{masa}^{D+M} = - \frac{1}{2} \barra n_L M^{M+D} n_L^C + h.c.
+}\ebx
+\eeq
+
+Facendo a transformación habitual: $M^{M+D} = U m U^T$ con $\dim U = \dim m = 6 \, \times \, 6$ obtense ao igual que antes:
+
+\beq
+\chula L^{D+M} = -\frac{1}{2} \barra{\rvec\nu_M} m \rvec\nu^M = -\frac{1}{2} \sum_{k=1}^6 m_k \bar\nu_k \nu_k \qquad \rvec\nu^M = \bmx{cccccc} \nu_1 &\nu_2 &\nu_3 &\nu_4 &\nu_5 &\nu_6  \emx^T
+\eeq
+
+E obtéñense tamén as mesmas relacións:
+
+\beq
+\nu_L^M = \h U n_L \qquad {\nu^M}^C = \nu^M \qquad \nu_k^C = \nu_k \qquad n_L = U \nu_L^M
+\eeq
+
+\beq
+\nu_{lL} = \sum_{k=1}^6 U_{lk} \nu_{kL} \qquad \nu_{lR}^C = \sum_{k=1}^6 U_{\barra l k} \nu_{kL}
+\eeq
+
+Pódese particularizar para o caso de dous neutrinos da mesma xeración. O lagranxiano sería o calculado na sección da dobre beta sen neutrinos. Se asumimos ademais invariancia CP, $m_{L,R,D}$  serán reais. Quedará entón:
+
+\beq
+\chula L_{masa}^{D+M} = -\frac{1}{2} \barra n_L M^{D+M} n_L^C \qquad \text{con} \qquad M^{D+M} =
+\bmx{cc} m_L & m_D \\ m_D & m_R \emx
+\eeq
+
+Que se pode reescribir como:
+
+\bea
+M^{D+M} &=& \frac{1}{2} Tr M^{D+M} + M \\
+M &=& \bmx{cc} -(m_R - m_L)/2 & m_D \\ m_D & (m_R - m_L)/2 \emx \rightarrow Tr M = 0
+\eea
+
+Unha transformación ortogonal permite diagonalizar as matrices $M$ e $M^{D+M}$ resultando:
+
+\bea
+M= O \tilde m O^T \qquad O = \bmx{cc} \cos \theta & \sin \theta \\ -\sin \theta & \cos \theta \emx\\
+\tilde m_{1,2} = \mp \frac{1}{2} \sqrt{(m_R - m_L)^2 + 4m_D^2} \qquad \tan (2\theta) = \frac{2 m_D}{m_R-m_L}
+\eea
+
+E para $M^{D+M}$:
+
+\beq
+M^{D+M} = O m' O^T \qquad \bbx{ m_{1,2}' = \frac{m_L + m_R \mp \sqrt{(m_R - m_L)^2 + 4m_D^2}}{2} = \eta_{1,2} \abs{m_{1,2}'} = \eta_{1,2} m_{1,2} }\ebx
+\eeq
+
+Dando lugar a unha forma compacta do lagranxiano:
+
+\beq
+L^{D+M} = -\frac{1}{2} \barra{\rvec\nu}^M m \rvec\nu^M = -\frac{1}{2} \sum_{k=1}^2 m_k \barra\nu_k \nu_k
+\qquad \nu^M = \bmx{c} \nu_1 \\ \nu_2 \emx
+\eeq
+
+De isto resulta que os campos dependen dos ángulos de mestura e as masas $m_{1,2}$ dependen dos parámetros $m_{D,L,R}$ da seguinte forma:
+
+\bea
+\nu_L &=& \cos \theta \sqrt{\eta_1} \nu_{1L} + \sin \theta \sqrt{\eta_2} \nu_{2L} \\
+\nu_R^c &=& - \sin \theta \sqrt{\eta_1} \nu_{1L} + \cos \theta \sqrt{\eta_2} \nu_{2L}
+\eea
+
+Considerando agora unha mestura de 2 sabores, por exemplo $\nu_\mu$ e $\nu_\tau$:
+
+\bea
+\nu_L &=& \bmx{c} \nu_{\mu L} \\ \nu{_\tau L} \emx \qquad M^M = \bmx{cc} m_{\mu\mu} & m_{\mu\tau} \\ m_{\tau\mu} & m_{\tau\tau}  \emx \nonumber \\
+m_{1,2} &=& \Bigg| \frac{m_{\tau\tau} + m_{\mu\mu} \mp \sqrt{(m_{\tau\tau}-m_{\mu\mu})^2 + 4 m_{\mu\tau}^4} }{2} \Bigg| \nonumber \\
+\bmx{c} \nu_{\mu L} \\ \nu_{\tau L} \emx &=& \bmx{cc} \cos \theta & \sin \theta \\ -\sin \theta & \cos \theta \emx \bmx{c} \sqrt{\eta_1} \nu_{1L} \\ \sqrt{\eta_2} \nu_{2L} \emx \qquad \tan (2\theta) = \frac{ 2 m_{\mu\tau}}{m_{\tau\tau} - m_{\mu\mu}} \nonumber
+\eea
+
+\subsection{Mecanismo do balancín}
+
+Este mecanismo baséase no termo de masa de Dirac e Majorana e plantéxase como o mellor mecanismo para darlle masa aos neutrinos. Para desenvolver este mecanismo hai que facer unha serie de suposicións:
+
+\bi
+
+\item O termo de masa de Majorana levóxiro é nulo: $m_L = 0$
+
+\item O termo de masa de Dirac é xerado polo mecanismo de Higgs e polo tanto $m_D$ é da orde da masa dun quark ou leptón da mesma familia.
+
+\item O termo de masa dextróxiro de Majorana provoca unha ruptura na conservación do número leptónico. Tamén se asume $m_R \equiv M_R \gg m_D$
+
+\ei
+
+Da ecuación que da as masas podemos obter:
+
+\beq
+m_{1,2} = \Bigg| \frac{M_R \mp \sqrt{M_R^2 + 4 m_D^2}}{2} \Bigg| \approx \Bigg| \frac{M_R \mp M_R \left( 1 + \frac{ m_D^2}{M_R^2}\right)}{2} \Bigg|  \approx
+\bc
+\frac{m_D^2}{M_R} \ll m_D \\
+M_R \gg m_D
+\ec
+\eeq
+
+E da ecuación para o ángulo:
+
+\beq
+\tan (2\theta) = \frac{2 m_D}{M_R} \ll 1 \rightarrow \tan (2\theta) \approx 2\theta \rightarrow \theta \approx \frac{m_D}{M_R}
+\eeq
+
+Obtense polo tanto:
+
+\bea
+\eta_2 &=& - \eta_1 = 1 \\
+\nu_L &=& i \nu_{1L} + \frac{m_D}{M_R} \nu_{2L} \\
+\nu_R^C &=& - i \frac{m_D}{M_R} \nu_{1L} + \nu_{2L}
+\eea
+
+A supresión efectuada por $\frac{m_D}{M_R}$ vén dada polo ratio da escala electrofeble e a escala de violación do número leptónico. Por exemplo con $m_D = m_{top} \approx 170 Gev $ e $m_1 = m_\tau \approx 50 meV $ resulta:
+
+\beq
+M_R \approx \frac{m_{top}^2}{m_\tau} \approx \frac{170^2}{50 \cdot 10^{-12}} \approx 10^{15} GeV
+\eeq
+
+Para tres familias tense a matriz:
+
+\beq
+M = \bmx{cc} 0 & m_D \\ m_D^T & M_R \emx \qquad \dim m_D = \dim M_R = 3 \, \times \, 3 \qquad M_R^T = M_R \gg m_D
+\eeq
+
+Introdúcese a matriz $m$ como $m = U^T M U$ sendo $U$:
+
+\beq
+U = \bmx{cc} 1 & m_D^* {M_R^{-1}}^\dag \\ - M_R^{-1} m_D^T & 1 \emx
+\eeq
+
+Así tense:
+
+\bea
+\h U &=& \bmx{cc} 1 & m_D^* {M_R^{-1}}^\dag \\ - M_R^{-1} m_D^T & 1 \emx = U^T = U \rightarrow \h U U = 1 \\
+m &=& U M U \approx \bmx{cc} -m_D M_R^{-1} m_D^T & 0 \\ 0 & M_R \emx
+\eea
+
+E as masas das partículas:
+
+\bea
+m_\nu = m_\ll &\approx& - m_D M_R^{-1} m_D^T \\
+m_\gg &\approx& M_R
+\eea
+
+Isto indica que a masa dos neutrinos debe ser varias ordes de magnitude inferior a dos seus correspondentes leptóns ou quarks. Se este mecanismo se atopa na natureza, haberá as seguintes consecuencias:
+
+\bi
+
+\item Os neutrinos son partículas de Majorana
+
+\item As masas destes serán moitísimo menores que as dos quarks e leptóns
+
+\item Deben existir partículas de Majorana pesadas que provoquen a ínfima masa dos neutrinos
+
+\ei
+
+\section{Conclusións}
+
+\bi
+\item Se se dá na natureza a condición de Majorana, os neutrinos son a súa propia antipartícula.
+\item Os neutrinos con masa definida poden ser partículas de Dirac ou de Majorana. Serán de Dirac se o lagranxiano é invariante baixo transformacións gauge e de Majorana no caso contrario. Isto tradúcese nunha conservación ou non do número leptónico. Se $L = L_e + L_\mu + L_\tau$ se conserva serán de Dirac, se non de Majorana.
+\item Se as matrices de masa de Dirac ou Majorana non son diagonais, os diferentes campos de sabor dos neutrinos mesturaranse. Neste caso a matriz é $ 3 \, \times \, 3$, mentres que no caso de Dirac + Majorana a matriz será $ 6 \, \times \, 6$. O número mínimo de neutrinos masivos é igual ao número de sabores; se hai máis de 3 neutrinos lixeiros, deben existir os neutrinos estériles.
+\item A observación experimental da $\beta\beta$ sen neutrinos sería unha confirmación de que os neutrinos son partículas de Majorana.
+\item A masa dos neutrinos estaría explicada en base a masas maiores como a dos leptóns ou quarks.
+\ei
+
+\begin{thebibliography}{4}
+\bibitem{libro1}
+Fundamentals of neutrino physics and astrophysics - \textit{Giunti \& Kim}
+
+\bibitem{libro2}
+Introductory to the physics of massive and mixed neutrinos  - \textit{Bilenky}
+
+\bibitem{libro3}
+Gauge theory of weak interactions - \textit{Greiner}
+
+\bibitem{libro4}
+Gauge theory of elementary particle physics - \textit{Cheng - Li}
+
+\end{thebibliography}
+
+\end{document}

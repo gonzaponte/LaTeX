@@ -1,0 +1,9 @@
+\input{«archivo.tex»}
+
+Evidentemente hay que introducir el archivo con ruta...
+
+
+Probar también las opciones de 
+
+\include{«file.tex»}
+

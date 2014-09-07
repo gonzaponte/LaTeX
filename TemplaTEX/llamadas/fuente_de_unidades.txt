@@ -1,0 +1,4 @@
+Como recomendó Sanchez de Santos, no es correcto que para las unidades en las ecuaciones, se use la misma fuente por defecto en ellas para las
+letras. A las unidades, poner:
+
+\mathrm{«uds»} 

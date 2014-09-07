@@ -1,0 +1,42 @@
+GALILEO667.NET | AISNE   CURSO LaTeX
+PATRÓN PARA IMPLEMENTAR CABECERA Y PIE DE PÁGINA
+
+NOTA: Poner como margen superior e inferior de página muy poco, para que se ajuste bien.
+
+%%%%%%paquete fancy hdr para cabecera y pie
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+%%% CONFIGURACIÓN DE LA PRIMERA PÁGINA.
+\fancypagestyle{plain}
+{%
+         \fancyhead[l]{} %CABECERA A LA IZQUIERDA PRIMERA PÁGINA
+         \fancyhead[r]{} %CABECERA A LA DERECHA PRIMERA PÁGINA
+         \fancyhead[c]{} %CABECERA EN EL CENTRO PRIMERA PÁGINA
+         \renewcommand{\headrulewidth}{0.5pt}
+         \fancyfoot[l]{} %PIÉ A LA IZQUIRDA PRIMERA PÁGINA 
+         \fancyfoot[c]{} %PIÉ EN EL CENTRO PRIMERA PÁGINA
+         \fancyfoot[r]{} %PIÉ A LA DERECHA PRIMERA PÁGINA
+         \renewcommand{\footrulewidth}{0.5pt}     %Estos comandos son para el grosor de la linea
+}
+%%% CONFIGURACIÓN DEL RESTO DE PÁGINAS.
+\lhead{} %CABECERA A LA IZQUIERDA RESTO DE PÁGINAS
+\chead{} %CABECERA EN EL CENTRO RESTO DE PÁGINAS
+\rhead{} %CABECERA A LA DERECHA  RESTO DE PÁGINAS
+\renewcommand{\headrulewidth}{0.4pt}
+\lfoot{} %PIÉ A LA IZQUIERDA RESTO DE PÁGINAS
+\cfoot{} %PIÉ EN EL CENTRO RESTO DE PÁGINAS
+\rfoot{} %PIÉ A LA DERECHA RESTO DE PÁGINAS
+\renewcommand{\footrulewidth}{0.4pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Podemos usar, para que implemente automáticamente secciones y subsecciónes o página,
+en donde queramos
+\thepage %número de la página
+\thesection %número de la sección
+\thesubsection %número de la subsección
+\leftmark %título de la y sección
+\rightmark %títulos especiales (indice, bibliografía.)
+
+
+

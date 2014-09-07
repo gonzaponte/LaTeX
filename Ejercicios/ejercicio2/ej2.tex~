@@ -1,0 +1,53 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{bm} %letras griegas en negrita (uso: \bm{\alpha})
+\usepackage{graphicx}
+\usepackage{amsmath,amsfonts,latexsym,cancel,textcomp,anysize,color}
+\marginsize{1.5cm}{1cm}{1.5cm}{1.5cm} %izq,der,sup,inf
+\parindent=0mm %sangría
+\parskip=3mm %espacio entre párrafos
+
+
+%opening
+\title{}
+\author{}
+\date{}
+
+\begin{document}
+
+\section{Ecuaciones Importantes}
+
+\subsection{El teorema de Bernoulli}
+El teorema de Bernoulli es un teorema fundamental de la \textit{Hidrodinámica}. Es un ``Teorema de Conservación'' que
+explica el comportamiento de un flujo laminar:
+
+\begin{equation}
+\frac{V^2 \rho}{2}+P+\rho\cdot g \cdot h=\mathrm{constante}
+\end{equation}
+
+\subsection{El teorema de Euler}
+
+El teorema de Euler $e^{i \theta}=\cos\theta+i \sen\theta$ es un teorema trigonométrico básico.
+
+\subsection{Electomagnetismo}
+
+Estas son algunas de las ecuaciones de determinan el comportamiento electromagnético:
+
+$$\nabla\cdot \vec{E}=\frac{\rho}{\epsilon_0} $$
+$$\oint \vec{E} \cdot d\vec{S}=\frac{Q_{enc}}{\epsilon_0} $$
+$$\nabla \vec{B}=-\frac{\partial \vec{E}}{\partial t}$$
+
+\subsection{Una integral sencillita}
+
+\begin{equation}
+\int\limits_1^2 \frac{1}{x} dx=\log(2)\approx 0.69
+\end{equation}
+
+
+
+\end{document}
+
+
+
+  

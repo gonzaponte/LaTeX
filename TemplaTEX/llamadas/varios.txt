@@ -1,0 +1,1 @@
+\noindent : Elimina la sangría inicial al comienzo de ese párrafo.

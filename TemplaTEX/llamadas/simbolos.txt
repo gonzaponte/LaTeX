@@ -1,0 +1,7 @@
+grado:
+\degree
+con el paquete
+\usepackage{gensymb}
+
+amstrong:
+$\mathrm{\AA}$

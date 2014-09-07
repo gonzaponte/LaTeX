@@ -1,0 +1,20 @@
+Definir nuevos comandos:
+
+**Uso simple
+en encabezado:
+\newcommand{\loquesea}{hola muy buenas que tal}
+
+Si se pone en el texto \loquesea imprime  "hola muy buenas que tal"
+
+
+**Uso dinámico
+
+Sintaxis:  \newcommand{\loquesea}[nºParámetros]{Acciones marcando con #i }
+  llamada: \loquesea{acción 1}{acción 2}...
+
+Ej:
+\newcommand{\prueba}[3]{La primera palabra escrita es #1, la segunda #2 y
+la tercera, subrayada es \underline{#3}}
+
+LLamando   \prueba{casa}{niño}{coche} escribe "La primera palabra es casa, 
+la segunda es niño y la tercera, subrayada es casa(esta la subraya)".

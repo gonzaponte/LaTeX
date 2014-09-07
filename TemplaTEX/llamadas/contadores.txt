@@ -1,0 +1,5 @@
+Iniciar contadores en un número dado:
+
+\setcounter{page}{«numero»}
+
+en vez de page puede ser section. 

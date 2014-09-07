@@ -1,0 +1,12 @@
+Para alinear ecuaciones: entorno split
+es muy bueno
+
+\begin{equation}
+\begin{split} 
+x &= 2 + 2\\ 
+&= 2 + 2 + 3 - 3\\ 
+&= 4. 
+\end{split}
+\end{equation}
+
+Se alinean donde se ponga el & 

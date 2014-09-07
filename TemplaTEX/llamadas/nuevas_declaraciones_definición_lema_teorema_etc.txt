@@ -1,0 +1,12 @@
+\newtheorem{deff}{Definici\'on}[section]
+\newtheorem{teo}{Teorema}[section]
+\newtheorem{cor}{Corolario}[section]
+\newtheorem{lema}{Lema}[section]
+
+Así, e.g. al poner
+
+\begin{deff}[cosa a definir]
+ lo que sea 
+\end{deff} 
+
+pone Definición 1.1 (Cosa a definir): tal tal tal 

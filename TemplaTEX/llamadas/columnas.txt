@@ -1,0 +1,17 @@
+Paquete especial: \usepackage{multicol} 
+
+\begin{multicols}{2}
+
+Texto a columnas
+
+\end{multicols} 
+
+
+Para insertar imágnes en columnas, mejor usar:
+
+\hspace{2.7cm}
+\includegraphics[width=100pt]%
+{./pasivo.jpg}
+\vspace{-0.8cm}\begin{center}
+Figura 1: Tag pasivo
+\end{center}

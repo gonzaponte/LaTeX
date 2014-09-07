@@ -1,0 +1,589 @@
+\documentclass[a4paper,12pt]{article}
+
+%Paquetes
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{bm}
+\usepackage{graphicx,subfig}
+\usepackage{amsmath,amsfonts,latexsym,cancel,color,textcomp,anysize,amsthm,multicol}
+\usepackage{wasysym}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\definecolor{mycor}{rgb}{1,0,0}
+\newcommand{\cor}[1]{\textcolor{mycor}{#1}}
+
+\marginsize{2.5cm}{2cm}{2.5cm}{2cm}
+\parindent=8mm
+\parskip=4mm
+
+%\lhead{Reconstrucción de trazas de electróns}
+\lhead{Reconstrucción de trazas de electróns}
+%\rhead{\rightmark}
+\rhead{Gonzalo Martínez Lema}
+\renewcommand{\headrulewidth}{0.4pt}
+
+%\input{/home/gonzalo/Escritorio/LaTeX/Comandos.tex}
+\input{/Users/Gonzalo/Dropbox/Comandos.tex}
+\newcommand{\bbcn}[0]{$\beta\beta0\nu$ }
+\newcommand{\bbdn}[0]{$\beta\beta2\nu$ }
+
+\renewenvironment{abstract}
+{
+\begin{center} \textbf{Resumo}\end{center}
+\noindent
+}
+%\renewcommand{\abstractname}{Resumo}
+
+\begin{document}
+
+\begin{titlepage}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.2]{logo_usc.pdf}
+\end{figure}
+\vspace{2cm}
+
+\begin{center}
+{\large\bf
+Traballo de Fin de Grao \\
+Grao en Física \\
+Facultade de Física \\
+Universidade de Santiago de Compostela}
+\end{center}
+
+
+\vspace{2cm}
+\noindent
+{\begin{center}\huge\bf Reconstrucción de trazas de electróns \\no experimento  NEXT - DEMO \end{center}}
+
+\vspace{3cm}
+\begin{center}
+\begin{tabular}{cc}
+{\Large{\bf Autor}}: & \large{Gonzalo Martínez Lema}\\
+{\Large{\bf Director}}: & \large{José Ángel Hernando Morata}
+\end{tabular}
+\end{center}
+
+\vspace{2cm}
+
+
+\end{titlepage}
+
+\newpage
+\thispagestyle{empty} 
+\tableofcontents
+\newpage
+
+\thispagestyle{empty} 
+\setcounter{page}{0}
+%Este traballo consiste na análise de datos do experimento NEXT-DEMO. Concretamente búscase caracterizar as trazas de electróns producidas, clasificalas e obter parámetros de interés que permitan identificalas.
+\begin{center} \textbf{Resumo}\end{center}
+\noindent
+Neste traballo lévase a cabo unha caracterización e identificación das trazas de electróns producidas nunha TPC con xenon do experimento NEXT-DEMO, o cal se usa como prototipo para o experimento final, NEXT. Este tratará de esclarecer a natureza dos neutrinos a través da busca da desintegración dobre beta sen emisión de neutrinos no isótopo $^{136}$Xe, fenómeno que nunca foi observado. O traballo aquí realizado contribúe á demostración da validez do método experimental de NEXT.
+
+\vspace{3cm}
+\begin{center} \textbf{Resumen}\end{center}
+\noindent
+En este trabajo se aborda una caracterización e identificación de las trazas de electrones producidas en una TPC con xenon del experimento NEXT-DEMO, el cual se usa como prototipo para el experimento final, NEXT. Este tratará de esclarecer la naturaleza de los neutrinos a través de la búsqueda de la desintegración doble beta sin emisión de neutrinos en el isótopo $^{136}$Xe, fenómeno que nunca ha sido observado. El trabajo aquí realizado contribuye a la demostración de la validez del método experimental de NEXT.
+
+\vspace{3cm}
+\begin{center} \textbf{Abstract}\end{center}
+\noindent
+This report addresses a characterization and identification of electron tracks produced in a TPC with xenon of NEXT-DEMO experiment, which is used as a prototype for the final experiment, NEXT. This one will attempt to determine the nature of neutrinos through the search of neutrinoless double beta decay on the $^{136}$Xe isotope, phenomenon that has never been detected. In this report we validate the experimental method of NEXT.
+\newpage
+
+%\begin{multicols}{2}
+\section{Introdución}\label{intro}
+
+No Modelo Estándar (SM) os neutrinos son partículas non masivas, pero no 2001 os experimentos KamLand e SNO confirmaron definitivamente a existencia das oscilacións de neutrinos que establecen a non nulidade da masa do neutrino\pdp{Aínda que ínfima, como se discute posteriormente.}. A partir disto reavivouse o interés por coñecer a natureza dos neutrinos, é dicir, se este é ou non a súa propia antipartícula, xa que o xeito de darlle masa no lagranxiado do SM depende de aquela. Un dos experimentos propostos para tal efecto é NEXT, que buscará o decaemento dobre beta sen neutrinos, ao cal se ciñe este traballo. Este experimento ten previsto entrar en operación en 2015, no Laboratorio Subterráneo de Canfranc (LSC) en España.
+
+O neutrino ten o seu “nacemento” cando Pauli propuxo unha nova partícula fermiónica sen apenas masa e sen carga para que se conservara a enerxía e o momento na desintegración $\beta$ do neutrón\pdp{Ademais de explicar por qué se vía un espectro continuo.}. Hoxe en día sabemos que os neutrinos só interaccionan mediante a interacción feble\pdp{Debido á que a masa é tan pequena a gravitatoria é desprezable.} e aparecen en 3 sabores agrupados a pares (cada neutrino co outro leptón do seu sabor). No SM os neutrinos agrúpanse en dobretes de isospín feble co seu correspondente leptón:
+
+$$ \bmx{c} \nu_e \\ e \emx \qquad \bmx{c} \nu_\mu \\ \mu \emx \qquad \bmx{c} \nu_\tau \\ \tau \emx$$ 
+
+Os neutrinos, ao ser fermións de espín 1/2, descríbense na teoría cuántica de campos mediante a ecuación de Dirac:
+
+\beq
+(i \slx\partial -m) \psi_\nu = (i \gamma^\mu \partial_\mu -m) \psi_\nu = 0
+\eeq
+
+Existen dúas posibles formas de introducir un termo de masa para os neutrinos: de Dirac, se o neutrino é un leptón similar aos demais; ou de Majorana, o que implicaría que é a súa propia antipartícula. A maiores os neutrinos teñen unha masa extraordinariamente pequena (menor de 1 eV) que contrasta coa masa do leptón máis lixeiro, o $e^-$, con 511 keV. Existe unha forma ``natural'' de explicar tal diferenza de masas, coñecido como o mecanismo de see-saw, dentro do formalismo de Majorana. Este mecanismo introduce unhas partículas súper masivas que poderían explicar non só a pequena masa dos neutrinos, se non outras incógnitas abertas de outros campos da física como é a cosmoloxía. %No formalismo de Dirac o xeito de darlles masa aos neutrinos sería o mesmo que o das demáis partículas: o mecanismo de Higgs.
+
+\subsection{Motivación}\label{motivacion}
+
+A única forma de coñecer a natureza dos neutrinos é saber se existe a desintegración dobre beta sen neutrinos (\bbcn) nos núcleos atómicos. De ser detectado este fenómeno, habería grandes consecuencias como que atoparíamos unha nova forma de materia, posto que os neutrinos serían os únicos fermións de Majorana coñecidos e, como seguen un formalismo distinto, representan formas distintas de materia. Especúlase que isto pode ter unha relación moi estreita coa materia escura, pois podería ser unha contribución importante a esta. Por outra banda este achado confirmaría a non conservación do número leptónico total\pdp{A oscilación de neutrinos implica unha non conservación do número leptónico de sabor, pero non establece nada sobre o número leptónico total $L = L_e + L_\mu + L_\tau$}, que podería dar unha explicación á asimetría materia/antimateria que atopamos no universo actual. %Finalmente isto abriría a porta a unha nova escala de masas na física pois o mecanismo usado para dar masa aos neutrinos (de Majorana) implica uns ``neutrinos pesados'' que teñen unha masa enorme comparada coa das demais partículas elementais\pdp{Os detalles son esclarecidos na sección \ref{seesaw}}.
+
+
+\subsection{Obxectivos}\label{obxectivos}
+Para a observación do \bbcn en NEXT utilízase unha Time Projection Chamber (TPC) de Xenon a moi alta presión cuxo funcionamento se describe na sección \ref{TPC}. Con esta cámara preténdese reconstruir as trazas dos electróns emitidos na desintegración obtendo información da súa posición (x,y,z) e da súa enerxía co fin de detectar a presenza de dous electróns cuxa enerxía se corresponda coa da desintegración dobre beta sen neutrinos (sinal de que tivo lugar este fenómeno). Aquí a labor cíñese a caracterizar o funcionamento da cámara, así como obter información das trazas, reconstruilas e analizalas. Tamén se analizan os datos para distintos isótopos e os datos simulados mediante Monte Carlo. Estes últimos permítennos identificiar os posibles efectos que ocorren na cámara. Con esta traballo realízase un aporte ao método de análise dos datos producidos no experimento, así como á caracterización do detector.
+
+\section{Teoría de neutrinos masivos}\label{masivos}
+
+%Actualmente vivimos un periodo no cal se trata de coñecer e de determinar mellor as características dos neutrinos. A masa do neutrino é a parte máis estudada na física de neutrinos e segundo a súa natureza temos un xeito ou outro de darlles masa. A teoría de Dirac dalles masa do xeito ``tradicional'', é dicir, igual que ao resto de leptóns, mentres que a teoría de Majorana precisa de todo un formalismo novo para facelos masivos.
+
+Dos experimentos de oscilación de neutrinos sabemos que, aínda que ínfima, os neutrinos teñen masa. O feito de que existan oscilacións indícanos que os autoestados de masa non son os mesmos que os autoestados de sabor, é dicir, as partículas que observamos son combinacións lineais das partículas que ``levan'' a masa. Podemos representar isto como:
+
+\beq
+\bmx{c} \nu_e \\ \nu_\mu \\ \nu_\tau \emx =
+\bmx{ccc} U_{e1} & U_{e2} & U_{e3} \\ U_{\mu 1} & U_{\mu 2} & U_{\mu 3} \\ U_{\tau 1} & U_{\tau 2} & U_{\tau 3} \emx \bmx{c} \nu_1 \\ \nu_2 \\ \nu_3 \emx
+\eeq
+
+Onde a matriz $U$ se coñece como a matriz de Pontecorvo – Maki – Nakagawa – Sakata (PMNS). Esta matriz é unitaria e, posto que existen oscilacións, é distinta da unidade. Esta distinción implica que as funcións de onda dos autoestados de sabor se solapan e polo tanto nun momento dado podemos atopar un neutrino dun sabor distinto ao inicial. Isto tamén quere dicir que os neutrinos observables non teñen unha masa ben definida, pois non son autoestados de masa. Obviamente as oscilacións de neutrinos implican unha violación do número leptónico de sabor, sen embargo non implica unha violación do número leptónico total. 
+
+A matriz PMNS adoitase parametrizar en función de tres ángulos de Euler: $\theta_1, \theta_2, \theta_3$ e 3 fases: $\delta, \alpha_{21}, \alpha_{31}$. No SM só a fase $\delta$ é observable e sería a responsable da violación CP nos leptóns. Sen embargo no formalismo de Majorana, as outras dúas tamén serían, en principio, observables.
+
+Nas oscilacións de neutrinos non se poden medir os valores absolutos das masas dos neutrinos, se non as diferenzas cuadráticas. Concretamente nos experimentos de neutrinos solares mídese e obtense:
+
+$$ \Delta m_{\astrosun}^2 = m_2^2-m_1^2 \approx 7.58 \cdot 10^{-5} \text{ eV}^2 $$
+
+E nos experimentos atmosféricos e en reactores obtense:
+
+$$ \abs{ \Delta m_{atm}^2} = \abs{ m_3^2 - \frac{m_1^2+m_2^2}{2} } \approx 2.35 \cdot 10^{-3} \text{ eV}^2$$
+
+É dicir: $m_1 \approx m_2 \neq m_3$. As posibles xerarquías\pdp{Ordenación de neutrinos segundo a súa masa.} son dúas: a normal ou a invertida (ver figura \ref{xerarquias}). A xerarquía normal considera que $\quet{\nu_3}$ é o máis pesado mentres que a invertida considera que é o máis lixeiro. Actualmente non sabemos discernir cal das dúas xerarquías é a que está presente na natureza. %Segundo sexa unha ou outra a matriz PMNS ten uns valores ou outros, aínda que a diferenza é pequena:
+%
+%\bea
+%\text{normal} \quad &\rightarrow& \quad \bmx{ccc} 0.822& 0.547 & -0.150 + 0.038i \\ -0.356 + 0.198i & 0.704 + 0.0131i & 0.614 \\ 0.442 + 0.0248i & -0.452 + 0.0166 i & 0.774 \emx \nonumber\\
+%\text{invertida} \quad &\rightarrow& \quad \bmx{ccc} 0.822& 0.547 & -0.150 + 0.0429i \\ -0.354 + 0.224i & 0.701 + 0.0149i & 0.618 \\ 0.444 + 0.0278i & -0.456 + 0.0186 i & 0.770 \emx \nonumber
+%\eea
+
+\begin{figure}[!]
+\centering
+\includegraphics[width=300pt]{xerarquias.pdf}
+\caption{Posibles xerarquías dos autoestados de masa dos neutrinos. Á esquerda xerarquía normal; á dereita xerarquía invertida.}
+\label{xerarquias}
+\end{figure}
+
+Finalmente a escala absoluta da masa dos neutrinos pode ser medida vía experimentos de desintegración $\beta$ e $\beta\beta$ e mediante medidas cosmolóxicas. Esta última dá unha medida da suma da masa das 3 familias:
+
+$$ m_{cosmo} = \sum m_i $$
+
+\subsection{Neutrinos de Dirac}\label{Dirac}
+
+%Quiralidade casi igual helicidade
+
+No estudo da masa das partículas, a atención céntrase no termo de masa do lagranxiano. O termo de masa de Dirac é $ \chula L_{masa}^D = -m \barra\nu \nu$. Que se adoita poñer en forma das compoñentes quirais:
+
+\beq \label{masaDirac}
+ \chula L_{masa}^D = -m \barra\nu_L \nu_R + h.c.
+\eeq
+
+Isto pódese xeralizar para varios sabores como:
+
+\beq
+\chula L_{masa}^D = -\barra{\rvec\nu_L} M^D \rvec\nu_R + h.c. = \sum_{l'l} \barra\nu_{l'L} \, M_{l'l}^D \, \nu_{lR}+h.c.
+\eeq
+
+Onde $M^D$ é a matriz de masas, que non ten por que ser diagonal (de feito non o é). Este lagranxiano é invariante baixo transformacións gauge U(1)\pdp{Coa transformación $\nu \rightarrow e^{i\phi} \nu$ o campo $\nu_L$ aporta $e^{-i\phi}$ e o campo $\nu_R$ aporta $e^{i\phi}$ que se anulan.}. Esta invariancia tradúcese nunha conservación do número leptónico total, que é o mesmo para tódolos leptóns cargados e neutrinos. A diagonalización desta matriz mediante a transformación $M^D = \h U m V$ (onde $ m_{ik} = m_i \delta_{ik} $ é unha matriz diagonal de masas), relaciona os campos de masa cos campos de sabor:
+
+\beq
+\nu_{lL} = \sum_{k=1}^{3} U_{lk} \, \nu_{kL} \qquad\qquad \nu_{lR} = \sum_{k=1}^{3} V_{lk} \, \nu_{kR}
+\qquad \qquad l = e, \mu, \tau
+\eeq
+
+A matriz $U$ é a matriz PMNS.
+
+\subsection{Neutrinos de Majorana}\label{Majorana}
+
+\subsubsection{Ecuación de Majorana}\label{ecuacionmajorana}
+A teoría desenvolta por Majorana é consecuencia de impoñer algunhas condicións sobre o formalismo visto. O seguinte lagranxiano é o que representa a un fermión de Dirac:
+
+\beq
+\chula L = \bar \psi (i\slx\partial - m) \psi =  (\bar \psi_L + \bar \psi_R) (i\slx\partial - m) (\psi_L + \psi_R)
+\eeq
+
+Se desagrupamos os termos e usamos as propiedades dos proxectores de quiralidade o lagranxiano reexprésase como:
+
+\beq
+\chula L = \barra\psi_R i \slx\partial \psi_R + \barra\psi_L i \slx\partial \psi_L - m ( \barra\psi_L \psi_R + \barra\psi_R \psi_L )
+\eeq
+
+Ao aplicar a ecuación de Euler - Lagrange\pdp{\beq\label{Euler} \partial_\mu \left[ \derp{\chula L}{ (\partial_\mu \barra\psi_{L,R}) } \right] = \derp{ \chula L}{ \barra\psi_{L,R} } \eeq} para obter as ecuacións de movemento, obtense unha para cada campo quiral:
+
+\bea\label{ecsquirais}
+i\slx\partial \psi_L &=& m \psi_R \nonumber \\
+i\slx\partial \psi_R &=& m \psi_L
+\eea
+
+Obviamente estas ecuacións están acopladas pola masa da partícula. Se consideramos neutrinos non masivos as ecuacións desacóplanse e a solución a estas ecuacións son os espinores de Weyl. Inicialmente esta solución descartouse porque implicaban unha violación da paridade. En concreto, posto que non había evidencias da masa do neutrino e como só participaba nas interaccións febles a través da súa compoñente a esquerdas, propúxose unha teoría de espinores de Weyl chamada teoría de dúas compoñentes de neutrinos sen masa.
+
+O traballo de Majorana consiste en manter o formalismo para partículas masivas. Isto impón que ambas ecuacións sexan equivalentes. Escollendo un dos espinores independente, por exemplo a proxección a esquerdas, temos que para a primeira ecuación de \refeq{ecsquirais}:
+
+\bea
+(i \gamma^\mu \partial_\mu \psi_L )^\dag = -i \psi_L^\dag \lvec\partial_\mu {\gamma^\mu}^\dag = -i \h\psi_L\lvec\partial_\mu \gamma^0 \gamma^\mu \gamma^0 &=& -i \barra\psi_L \lvec\partial_\mu \gamma^\mu \gamma^0 = m \h\psi_R \nonumber \\
+-i \barra\psi_L \lvec\partial_\mu \gamma^\mu \gamma^0 \gamma^0 &=& -i \barra\psi_L \lvec\partial_\mu \gamma^\mu = m\h\psi_R \gamma^0 = m \barra\psi_R
+\eea
+
+Traspoñendo e conxungando a carga:
+
+\bea
+\left(-i \barra\psi_L \lvec\partial_\mu \gamma^\mu \right)^T &=& -i {\gamma^\mu}^T \partial_\mu \barra\psi_L^T = m \barra\psi_R^T \nonumber \\
+-i \chula C {\gamma^\mu}^T \partial_\mu \barra\psi_L^T &=& + i \gamma^\mu \partial_\mu \chula C \barra\psi_L^T  = m \chula C \barra\psi_R^T
+\eea
+
+Introducindo agora a seguinte notación:
+
+$$ \psi^C = \chula C \barra\psi^T $$
+
+Obtemos que o resultado final é:
+
+\beq
+ i \gamma^\mu \partial_\mu \psi_L^C  = m \psi_R^C
+\eeq
+
+Buscamos que esta última ecuación sexa igual á segunda ecuación de \refeq{ecsquirais} que é o que se coñece como condición de Majorana. Isto conséguese con:
+
+\beq\label{condmajorana}
+\psi_R = \psi_L^C
+\eeq
+
+O resultado obtido ten sentido, pois $\chula C \barra\psi_L^T$ é a dereitas, ao igual que $\psi_R$.
+
+Introducindo esta condición na ecuación de Dirac:
+ 
+\beq\label{ecmajorana}
+\bbx{ i \slx\partial \psi_L = m \psi_L^C }\ebx
+\eeq
+
+A ecuación \refeq{ecmajorana} é a ecuación de Majorana para o campo quiral $\psi_L$.
+
+ Finalmente obsérvase que na descomposición dos campos\pdp{ $ {\psi^C}^C = \chula C \barra{\psi^C}^T = \chula C \left( {\psi^C}^\dag \gamma^0 \right)^T = \chula C \gamma^0 {\psi^C}^* = \chula C \gamma^0 \left( \chula C \barra\psi^T \right)^* = \chula C \gamma^0 \chula C^* \h{\barra\psi} = \chula C \gamma^0 \chula C \h{\barra\psi} = \chula C \gamma^0 \chula C \gamma^0 \psi = -\chula C {\gamma^0}^2 \chula C \psi = -{\chula C}^2 \psi = \psi $ }:
+
+\beq
+\psi = \psi_L + \psi_L^C \rightarrow \psi^C = \psi_L^C + \psi_L = \psi
+\eeq
+ 
+Isto significa que unha partícula é a súa propia antipartícula, pois o campo conxugado (campo da antipartícula) é o mesmo que o orixinal. Esta é unha das propiedades máis impactantes do formalismo de Majorana. Ao mesmo tempo a definición de número leptónico perde sentido, pois mentres lle asignamos a un fermión $L=1$, tamén lle asignamos ao antifermión $L=-1$ e este resultado dinos que ambos deben ser iguais, polo que claramente xa non ten sentido falar de número leptónico.
+
+\subsubsection{Termo de masa de Majorana}
+
+Analizase agora o termo de masa de Majorana no lagranxiano. Recordando que o termo de masa de Dirac era o expresado en \refeq{masaDirac}, obtense o termo de masa de Majorana impoñendo a condición \refeq{condmajorana}. Ao operar introdúcese un factor $\onehalf$ no lagranxiano debido a que $\nu_L$ e $\nu_L^C$ non son independentes e de non introducilo estaríamos sumando dúas veces o mesmo\pdp{Este factor afecta tamén ao lagranxiano total.}. O resultado é o seguinte:
+
+\beq
+\bbx{ \chula L_{masa}^M = -\frac{1}{2} m \barra{\nu_L^C} \nu_L - \frac{1}{2} m \nu_L^C \barra\nu_L = -\frac{1}{2} m \barra{\nu_L^C} \nu_L + h.c. }\ebx
+\eeq
+
+Introducindo esta parte do lagranxiano no total obtense:
+
+\beq
+\chula L^M = \frac{1}{2} \left[ \barra\nu_L i\slx\partial \nu_L + \barra{\nu_L^C} i\slx\partial \nu_L^C - m \left( \barra{\nu_L^C} \nu_L + \barra\nu_L \nu_L^C \right) \right] = \frac{1}{4} \left[ \barra\nu_L i \dvec{\slx\partial} \nu_L + \barra{\nu_L^C} i\dvec{\slx\partial} \nu_L^C - 2m \left( \barra\nu_L^C \nu_L + \barra\nu_L \nu_L^C \right) \right]
+\eeq
+
+E aplicando a ecuación de Euler Lagrange \refeq{Euler}:
+
+\beq
+\partial_\mu \derp{\chula L^M}{(\partial_\mu \barra\nu_L)} = 0 \qquad \qquad
+\frac{\partial \chula L}{ \partial \barra\nu_L} = \frac{1}{2} i\slx\partial \nu_L - \frac{1}{2} m \nu_L^C
+\eeq
+
+Con isto chegamos de novo a ecuación de campo de Majorana:
+
+\beq
+\bbx{i\slx\partial \nu_L = m \nu_L^C }\ebx
+\eeq
+
+Por outro lado coa definición do campo de Majorana
+
+\beq
+\nu = \nu_L + \nu_L^C
+\eeq
+
+Tense que o lagranxiano se pode escribir como:
+
+\beq
+%\chula L^M &=& \frac{1}{4} \left[ \barra\nu_L i \dvec{\slx\partial} \nu_L + \barra{\nu_L^C} i\dvec{\slx\partial} \nu_L^C - 2m \left( \barra\nu_L^C \nu_L + \barra\nu_L \nu_L^C \right) \right] \nonumber \\
+%&=& \frac{1}{4} \left[ \barra\nu_L i \rvec{\slx\partial} \nu_L - \barra\nu_L i \lvec{\slx\partial} \nu_L +  \barra{\nu_L^C} i\rvec{\slx\partial} \nu_L^C - \barra{\nu_L^C} i\lvec{\slx\partial} \nu_L^C - 2m \left( \barra\nu_L^C \nu_L + \barra\nu_L \nu_L^C \right) \right] \nonumber \\
+%&=&\frac{1}{4} \left[ \left( \barra\nu_L + \barra{\nu_L^C} \right) \left( i\dvec{\slx\partial} - 2m \right) \left( \nu_L + \nu_L^C\right) \right]= \frac{1}{2} \barra\nu \left( \frac{i}{2} \dvec{\slx\partial} - m \right) \nu
+\chula L^M = \frac{1}{2} \barra\nu \left( \frac{i}{2} \dvec{\slx\partial} - m \right) \nu
+\eeq
+
+O factor $\frac{1}{2}$ diferencia este lagranxiano do de Dirac. A propiedade de anticonmutación dos campos fermiónicos é esencial neste lagranxiano pois se conmutaran o termo de masa sería idénticamente 0.
+
+
+\section{Decaemento dobre beta}\label{dobrebeta}
+
+O decaemento dobre beta (\bbdn) é un proceso nuclear moi improbable que consiste en dúas desintegracións $\beta$ simultáneas (de xeito que non hai un núcleo fillo intermedio). A desintegración $\beta^-$ do neutrón é representada polo seguinte proceso (ver figura \ref{bbcn}):
+
+$$ n \rightarrow p \, e^- \, \bar\nu_e $$
+
+Neste proceso un núcleo (Z,A) pasa a ser un núcleo (Z+1,A) e do mesmo xeito na dobre beta teríamos (Z,A) $\rightarrow$ (Z+2,A). Para que estes procesos sexan posibles o núcleo inicial debe ter unha enerxía de ligadura menor (unha masa maior) que o núcleo fillo\pdp{Esta condición só a cumpren uns 35 núcleos na natureza. A forza de emparellamento é a responsable deste resultado.}. No caso da dobre beta é de especial interés cando a $\beta$ simple está prohibida por ter un valor Q negativo. Nestas condicións o núcleo só podería decaer vía $\beta\beta$ e non habería contribucións non desexadas á hora de realizar medidas.
+
+É un proceso de segunda orde nos diagramas de Feynman  e polo tanto o elemento de matriz da transición é proporcional a $G_F^4$. De feito experimentalmente obtense que as semividas dos elementos que sofren este proceso é da orde de $10^{19} - 10^{21}$ anos, moitas ordes de magnitude por riba da idade do universo. Como se mencionou anteriormente, o experimento céntrase nun modo hipotético do decaemento dobre beta: aquel no que non se emiten neutrinos (\bbcn).
+
+\subsection{Dobre beta sen neutrinos}
+
+No \bbcn un núcleo realizaría o seguinte proceso (ver figura \ref{bbcn}):
+
+\begin{figure}[!]
+\centering
+\includegraphics[width=300pt]{bb0nu.jpg}
+\caption{Diagramas de Feynman da \bbdn (esquerda) e da \bbcn (dereita) onde se amosa a interacción dos neutrinos virtuais mediante unha cruz. }
+\label{bbcn}
+\end{figure}
+%http://www2.warwick.ac.uk/study/csde/gsp/eportfolio/directory/crs/phsgbu/research/phdresearch/theory/betadecay/double/feynman2.gif
+$$ (Z,A) \quad \rightarrow \quad (Z+2,A) + 2e^- $$
+
+Este proceso estaría prohibido no SM pois violaría o número leptónico total e a súa observación sería a confirmación directa de que os neutrinos son partículas de Majorana. Este proceso distínguese do \bbdn en dúas características:
+
+\bi
+\item Os neutróns que se desintegran deben estar relacionados, pois os neutrinos deben interaccionar (virtualmente) para dar lugar ao decaemento sen neutrinos. Na \bbdn os neutróns considéranse totalmente descorrelacionados. \newpage
+\item O espectro enerxético dos electróns da \bbdn é continuo pois hai 4 partículas lixeiras que se reparten a enerxía (enerxía de retroceso do núcleo despreciable). Sen embargo a \bbcn mostra unicamente un pico en $Q_{\beta\beta}$\pdp{Algunhas teorías consideran que podería ser emitido no proceso un bosón de Goldstone chamado Majoron ($\chi$). Neste caso o espectro volvería ser contínuo.} %A información sobre os posibles decaementos na \bbcn detállase no apéndice \ref{modosbbcn}.}.
+
+%Esta distribución pica preto $Q_{\beta\beta}/2$ (sendo isto o valor Q da reacción). Na \bbcn isto non é así pois só saen dous electróns, que ao ter a mesma masa, se repartirán a enerxía a partes iguais e a distribución ideal sería unha delta de Dirac en $Q_{\beta\beta}$
+\ei
+
+\section{Experimento NEXT}\label{NEXT}%POÑER O ESPECTRO DE NEXT E A RELACION CO APÉNDICE
+
+O experimento NEXT (Neutrino Experiment with a Xenon TPC) ten como obxetivo de atopar o proceso \bbcn en $^{136}$Xe usando unha TPC cuns 100 kg de xenon a alta presión enriquecido ao 96\% (HPXe)\pdp{En adiante, chamaremos a este experimento NEXT-100 debido á que hai varios prototipos que tamén levan o nome do proxecto.}. A diferenza doutros experimentos da mesma índole, este conta cunha excelente resolución en enerxía ( $<$ 1 \% FWHM @ $Q_{\beta\beta}$ ) ademais de poder obter información topolóxica para a reconstrucción de trazas. Estas trazas son tortuosas debido á dispersión co HPXe e producen unha serie de electróns secundarios, dos cales se pode obter a información espacial e enerxética coa TPC.
+
+\subsection{Time Projection Chamber}\label{TPC}
+
+A TPC é unha cámara especializada en reconstrucción tridimensional de trazas cargadas. A cámara do experimento NEXT é cilíndrica e está tapada por un lado cun plano que contén unha rede de PMT's (Photo Multiplier Tube) (figura \ref{pmtsipm}a) que son os que recollen luz para obter a enerxía dos electróns. Esta zona está protexida cunha zona de baleiro para que non se danen os detectores. No outro lado a cámara está pechada cun plano cunha rede de SiPM's (Silicon Photo Multiplier) (figura \ref{pmtsipm}b) que recollen luz para reconstruir a posición\pdp{Os SiPM son pezas de 1 mm$^2$ e están dispostos cunha separación de 1 cm entre eles} (tracking). Ademais a cámara conta con dúas zonas con campos eléctricos. Uns milimetros antes do plano de tracking hai unha reixa transparente para producir ambos campos. Entre o plano de enerxía (cátodo) e a reixa hai unha diferencia de potencial que produce un campo da orde de 0.4 kV/cm que arrastra os electróns secundarios\pdp{O campo apenas afecta ao electrón primario porque a súa enerxía é moito maior que a que lle proporciona o campo.} e impide que se recombinen. Entre a reixa e o ánodo hai outra diferencia de potencial que produce un campo moito maior ($\sim$3 kV/cm/bar), de xeito que os electróns se aceleran moito excitando fortemente o medio. A desexcitación dos átomos produce luz; este fenómeno coñécese como electroluminiscencia. A luz é emitida de xeito isótropo (o proceso non ten memoria), de modo que a metade da luz chega ao plano de enerxía, obténdose así esta información de cada electrón secundario e a outra metade ao plano de tracking. Ao estar a reixa tan preto do plano de tracking a luz terá un certo carácter de confinamento, polo que na análise dos datos se pode chegar a reconstruir a posición do electrón.
+
+\begin{figure}[!]
+\centering
+\subfloat[]{\includegraphics[width=200pt,height=170pt]{PMT.jpg}}
+\subfloat[]{\includegraphics[width=220pt,height=170pt]{SiPM.jpeg}}
+\caption{Planos de detección da cámara de NEXT-DEMO. Á esquerda o plano de enerxía cos PMT's e á dereita o plano de tracking cos SiPM.}
+\label{pmtsipm}
+\end{figure}
+
+\subsubsection{Dinámica dos eventos}
+
+O proceso de reconstrucción é o seguinte:
+
+\bi
+\item Cando se produce un electrón, este recorre a cámara ionizando átomos e perdendo enerxía debido ás colisións co HPXe, deixando tras de si unha marea de electróns secundarios que forman a traza. Ao final o electrón é absorbido, pero como ten aínda moita enerxía, excita unha gran cantidade de electróns producindo o que coñecemos como ``blob''. Este proceso tradúcese nun destello UV que chega ao plano de enerxía dando lugar á orixe do evento ($t_0$). O conxunto de datos recollidos correspondente con esta parte do evento coñécese como S1.
+\item Os electróns produto da ionización derivan baixo un campo eléctrico cunha velocidade da orde de 1 mm/$\mu$s .
+\item Ao chegar á reixa producen a electroluminiscencia de xeito isótropo.
+\item A metade da luz reflíctese ata chegar ao cátodo obtendo así a enerxía. A outra metade proxéctase nun cono cara o plano de tracking.
+\item Os SiPM máis próximos ao electrón recibirá máis luz, permitindo reconstruir a posición deste. O sinal recibido polos PMT  denomínase S2 e proporciona a enerxía do electrón primario como a suma de tódolos secundarios.
+%\item A adquisición de datos faise en intervalos de 1 $\mu$s (slices) onde se recolle a luz emitida.
+%\item A información trátase mediante un software informático para obter as variables de interés (E, $\vec r$, etc.)
+\ei
+\begin{figure}[!]
+\centering
+\includegraphics[width=300pt]{event.pdf}
+\caption{Esquema dun evento na cámara de NEXT e a súa reconstrucción.}
+\label{event}
+\end{figure}
+
+\subsection{Prototipo NEXT - DEMO}\label{NEXTDEMO}
+
+Para saber se o proxecto NEXT é viable, fíxose un propotipo do proxecto a escala. Este prototipo contén só 1- 2 kg de xenon (non enriquecido) e ten unhas dimensións reducidas. Este modelo foi construido para comprobar a efectividade na reconstrucción de trazas, medir a resolución en enerxía e demostrar que o método de análise (extrapolable á escala do experimento NEXT-100) é válido. 
+
+\begin{figure}[!]
+\centering
+\includegraphics[width=300pt]{camara.jpg}
+\caption{Fotografía da cámara do experimento NEXT dentro da sala branca no IFIC, Valencia, España.}
+\label{camara}
+\end{figure}
+
+A cámara do experimento NEXT-DEMO (ver figura \ref{camara}) foi construida no Instituto de Física Corpuscular da universidade de Valencia (IFIC) e realizou a toma de datos durante os meses de marzo e maio. Posúe 30 cm de volume activo e contén un tubo de sección hexagonal feito de PTFE que mellora a recollida de luz. A TPC é introducida nun contenedor de aceiro inoxidable a presión de 60 cm de longo e 30 de diámetro que soporta ata 15 bar. O xenon móvese por un circuito pechado onde se filtra e se purifica. O detector non é radiopuro nin está protexido da radiactividade natural, pero atópase nunha sala branca no IFIC. 
+
+A cámara posúe unha ventá onde se pon unha fonte radiactiva de $^{22}$Na que emite positróns ($\beta^+$). Os positróns aniquílanse case instantaneamente cun electrón do entorno producindo dous fotóns da mesma enerxía que comparten a dirección pero levan sentidos opostos. Fronte á ventá hai un detector, entón cando a dirección destes fotóns coincida coa do detector, detectarase un dos fotóns, sabéndose que o outro debe ir na dirección da cámara.
+
+O fotón que entra na cámara pode entón sufrir un dos tres seguinte procesos:
+
+\bi
+\item Efecto fotoeléctrico: absorción total dun fotón por parte dun átomo. A enerxía transferida é usada para emitir un electrón. Este proceso ten unha enerxía limiar dada pola enerxía de ligadura do electrón; a enerxía restante iría esencialmente na enerxía cinética do electrón. É dominante a baixas enerxías ($<$ 1 MeV) e no espectro observarase como unha acumulación no fotopico (ver figura \ref{Espectro}).
+\item Efecto Compton: dispersión dun fotón por un electrón. O fotón perde enerxía cedéndolla ao electrón. É dominante a enerxías medias (1 - 10 MeV). No espectro veríase como un continuo coñecido como continuo Compton (ver figura \ref{Espectro}). 
+\item Raios X: O xenon cando está excitado pode emitir fotóns duns 30 keV para caer ao estado fundamental. Isto correspóndese co pico de máis baixa enerxía que se pode apreciar na figura \ref{Espectro}.
+\ei
+
+Calquera destes procesos arranca un electrón que será o que provoque a traza a reconstruir. Os datos de cada suceso\pdp{Sinal de cada un dos 19 PMT e 250 SiPM.} gárdanse en disco e son procesadas mediante un software que produce datos máis elaborados. En cada suceso dispoñemos dos datos de enerxía dos PMT's e o sinal dos SiPM en intervalos de 1 $\mu$s calibrada convenientemente.
+
+Os resultados deste traballos foron obtidos cos datos desta cámara. 
+
+\begin{figure}[!]
+\centering
+\includegraphics[width=400pt]{espectro_Na.pdf}
+\caption{Espectro enerxético dos fotóns de 511 keV do $^{22}$Na obtido coa cámara de NEXT-DEMO.}
+\label{Espectro}
+\end{figure}
+
+\section{Análise dos datos co isótopo $^{22}$Na}\label{analise}
+
+A análise de datos de NEXT-DEMO faise mediante un complexo software informático que procesa a información que vén do detector e elabora obxectos e clases que conteñen información de máis alto nivel. A análise céntrase en propiedade globais das trazas e non en características concretas. Mediante histogramas póñense de manifesto os fenómenos físicos que ocorren na cámara.
+
+Algunhas das labores máis importantes realizadas durante o traballo foron as seguintes:
+
+\bi
+\item Observar as distribucións das diferentes características das trazas: enerxía, carga, lonxitude, etc.
+\item Análise de efectos do detector que dificulten a caracterización das trazas.
+%\item Obter relacións básicas entre enerxía e carga ou sinal detectados.
+\item Buscar dependencias entre a enerxía e a posición.
+\item Identificación e criterios de selección do ``blob''.
+\item Comparación de resultados con outros datos.
+\ei
+
+A continuación discútese cada sección en detalle.
+
+\subsection{Caracterización das trazas}
+
+%Os datos amosan unha amplia gama de firmas topolóxicas, polo que se estudaron tódalas características posibles para poder clasificalas e aproveitar tales propiedades para realizar outros estudos máis profundos.
+
+O espectro enerxético é de gran interés, pois permítenos particularizar o estudo nuns certos rangos. Como se pode ver na figura \ref{Espectro}, o histograma amosa unha distribución espectral típica dunha fonte gamma. De menor a maior enerxía podemos observar un primeiro pico correspondente aos raios X, o continuo Compton, o borde Compton, o pico de escape simple e o fotopico. %Cada un destes rangos (agás o borde Compton) serve para seleccionar un tipo de trazas co obxetivo de facer máis limpos outros estudos.
+
+Un dos histogramas fundamentais é o da distribución do número de seccións ou slices das trazas (figura \ref{nslices}). Esta permítenos clasificar as trazas en curtas, medias e longas segundo percorreran máis ou menos lonxitude en ``z'', que tomamos como eixo horizontal. En principio unha traza será máis longa ou menos en función de varios parámetros, como é a enerxía. Sen embargo, para unha enerxía suficientemente alta hai unha interpretación xeométrica importante: as trazas longas irán paralelas ao eixo de simetría, mentres que as curtas serán máis ben radiais ou acimutais. 
+
+\begin{figure}[!]
+\centering
+\includegraphics[width=400pt]{nslices.pdf}
+\caption{Histograma do número de slices. Vese como as trazas máis longas teñen ao sumo 5 cm. Neste histograma a contribución dos raios X vese enmascarada pois o sodio produce moitas trazas da mesma lonxitude que os raios X.}
+\label{nslices}
+\end{figure}
+
+Sabemos que a lonxitude da traza ten unha certa dependencia coa enerxía, de xeito que os raios X serán unicamente trazas practicamente puntuais e o fotoeléctrico poderá ter trazas longas. Aproveitando isto, pódese repetir a análise segundo o rango enerxético:
+
+\bi
+\item Raios X: enerxías entre 400 e 700 pes\pdp{Úsase o termo pes como abreviatura de ``photoelectrons''.} ($\sim$30 keV). Trazas curtas que serán unha deposición prácticamente instantánea de toda a enerxía. Serán moi útiles para estudar o tracking porque os datos dos SiPM serán unha distribución pouco dispersa espacialmente. %Será igualmente útil para caracterizar o blob.
+\item Fotoeléctrico: enerxías entre 9750 e 10150 pes ($\sim$511 keV). Por ser altamente enerxético, as trazas poden ter unha ampla gama de lonxitudes. Debido a isto farase unha subselección destas trazas: curtas, medias e longas. As curtas estarán caracterizadas igual que os raios X, pero cunha maior deposición enerxética, que complementará o estudo do blob para altas enerxías. As trazas longas serán moi útiles para estudar o recorrido do electrón polo medio, onde deposita unha cantidade de enerxía pequena por unidade de lonxitude. Tamén será moi útil na identificación do blob, pois ao ser longa non fará recorridos moi retorcidos que compliquen a reconstrucción. As trazas intermedias serán probablemente traxectorias máis complexas que se envolven sobre si mesmas e estudaríanse igual que o Compton.
+\item  Compton: enerxías entre  700 e 9750 pes. Unha vez realizado o estudo dos dous casos anteriores, pódese analizar o Compton, que pode dar lugar a trazas moi diversas, pero que en xeral serán máis curtas que no fotopico, pero rematando igualmente en ``blob''.
+\ei
+
+
+\subsection{Comportamento do detector}\label{comportamento}
+
+Nesta sección analízase o comportamento do detector, as relacións entre os distintos planos de detección e algúns efectos topolóxicos.
+
+Un dos primeiros estudos realizados foi o da relación sinal (carga) no cátodo (enerxía) fronte a sinal do ánodo. Intuitivamente un agarda que esta relación sexa bastante lineal, posto que a carga é unha medida do número de fotoelectróns e a enerxía é proporcional a este. Nas figuras \ref{EQ}a e \ref{EQ}b podemos ver como esta relación se cumpre en boa aproximación para a traza completa e para cada slice respectivamente.  No plot por slice hai unha maior dispersión nos datos debido a que hai SiPM's ruidosos e algúns dos SiPM poden saturar, así como un notable incremento de estatística. O plot de toda a traza é moito máis limpo aínda que segue habendo unha dispersión, en parte debida ás relacións anteriores.
+
+\begin{figure}[!]
+\centering
+\subfloat[]{\includegraphics[height=170pt]{EQTraza.pdf}}
+\subfloat[]{\includegraphics[height=170pt]{EQSlice.pdf}}
+\caption{Histograma 2D onde se representa a enerxía (cátodo) e carga (ánodo) dunha a traza (a) ou dunha slice (b). En vermello móstrase o promedio en carga para pequenos intervalos de carga e pódese ver como segue claramente unha relación lineal.}
+\label{EQ}
+\end{figure}
+
+Outro resultado semellante é a relación entre a enerxía dunha slice e o número de SiPM tocados. Un agarda que a relación entre o número de SiPM tocados e a enerxía sexa lineal, posto que canto máis área cubra máis sinal haberá. Esta relación, aínda que con gran dispersión, cúmprese; se se toma o promedio para cada bin a linealidade cúmprese perfectamente en practicamente todo o rango de interés. Neste caso a dispersión vén dada porque non sempre se deposita a mesma carga nos detectores pois as trazas teñen diferentes enerxías e a deposición de carga durante a traza non é constante. Ademais depende tamén da orientación espacial da traza, pois non distribuirá a enerxía do mesmo xeito unha traza oblícua que unha radial, aínda que tocasen o mesmo número de SiPM.
+
+Mentres se estudaba o comportamento do detector atopouse que había unha acumulación de eventos que tiñan como primeira ou última slice unha no borde da cámara. Interprétase que estes sucesos son trazas que se saen da cámara, polo que poden ser enganosos para algunhas gráficas dando menos enerxía da que lle corresponde, por exemplo. Con isto introdúcese un corte que escolle os sucesos que non teñan como última ou primeira slice as do borde da cámara. Así definimos unha rexión fiducial onde as trazas comezan ou rematan a 5 cm ou máis do principio ou final da cámara. Isto supón unha perda de estatística, pero non é significativa tendo en conta que é un corte necesario para a  boa interpretación dos resultados. Finalmente débese facer o mesmo coa variable radial: débese esixir que a traza esté contida nun certo raio para asegurar que non hai perdas polos bordes.
+
+Un dos principais problemas que presenta o detector é que no plano de tracking hai SiPM ruidosos que dan un sinal esaxerado ante unha pequena perturbación. Isto complica a reconstrucción da traza posto que cando un intenta calcular o baricentro\pdp{O baricentro é  a posición media en X e Y calculada mediante a ponderación de cada SiPM co sinal que emite.} dun sinal nunha slice o SiPM ruidoso desprazaríao e estaría dando unha mala reconstrucción espacial. Como se pode ver na figura \ref{ruidosos}, en primeira aproximación son 2 SiPM os ruidosos, aínda que dependendo da precisión que se esixa, débese (ou non) considerar máis. Durante a evolución do proxecto propuxéronse varias solucións a este problema:
+
+\bi
+\item Enmascarar: non usar o sinal deses SiPM á hora de facer os cálculos.
+\item Interpolar: usar o sinal dos SiPM do entorno e interpolar o valor do SiPM ruidoso.
+\item Substituir: cambiar o plano de tracking por un novo. (inviable)
+\ei
+
+Tamén se dá a situación inversa. Atópase que no detector hai algúns SiPM ``mortos'', é dicir, que non dan sinal. Isto supón o mesmo problema que os SiPM ruidosos, xa que se perde información da traza. Neste caso a única solución sería substituir os SiPM (inviable) ou interpolar o seu valor. De novo na figura \ref{ruidosos} podemos ver que son 26 os SiPM inhabilitados.
+
+\begin{figure}[!]
+\centering
+\includegraphics[width=400pt]{planosipm.pdf}
+\caption{Plano de tracking do detector onde se indica a carga que ve cada SiPM segundo a cor. En vermello os SiPM ruidosos e os ocos en branco correspóndense cos mortos.}
+\label{ruidosos}
+\end{figure}
+
+%\subsection{Relación enerxía - posición}\label{enerxiaposicion}
+
+
+\subsection{Identificación e caracterización do blob}\label{blob}
+
+O blob é de gran importancia na reconstrucción da traza pois contén máis do 90\% da enerxía da traza e polo tanto do electrón inicial. Inicialmente queremos saber como é o perfil enerxético, polo que se representa a enerxía da slice fronte á diferenza temporal respecto á máis enerxética. Escóllese na representación da figura \ref{perfil} os eventos do fotoeléctrico por seren máis limpos, pero o mesmo resultado se obtén para todo o rango enerxético. Vese polo tanto que o blob ten unha forma ``promedio'' bastante característica que permitirá identificalo enerxéticamente con facilidade. Cabe destacar que en promedio ten 8 - 10 slices, que é simétrico e que a slice máis enerxética ten unhas 10 veces máis enerxía que unha slice que non pertence ao blob. Ademais, aínda que sutiles, aprécianse dous efectos nesta gráfica:
+
+\bi
+\item Lixeira asimetría nos datos: parece que as trazas prefiren deixar máis enerxía preto do cátodo que do ánodo. O motivo desta asimetría non está totalmente esclarecido e segue baixo investigación actualmente.
+\item Lixeiro val entre o blob e a traza: os datos parecen reflexar en promedio que antes de que o electrón sexa absorbido pasa por unha etapa na que perde moi pouca enerxía. Unha explicación bastante plausible a este efecto é que como se están considerando tanto trazas que van en dirección ao ánodo como ao cátodo, a enerxía do final do blob (a poucas slices do máximo) contribuirá con pouca enerxía (debido á difusión dos electróns secundarios na súa deriva cara o ánodo) facendo que a media sexa menor do que lle correspondería.
+\ei
+
+\begin{figure}[!]
+\centering
+\includegraphics[width=400pt]{perfil.pdf}
+\caption{Representación da enerxía dunha slice en función da súa distancia á slice máis enerxética. En vermello amósase o promedio de enerxía para unha distancia dada. Pódese ver como o blob ten entorno a 8 - 10 slices, que hai ata un factor 10 entre o resto da traza e a simetría no blob. Resultados no rango enerxético do fotoeléctrico.}
+\label{perfil}
+\end{figure}
+
+Ao representar a enerxía da slice máis enerxética fronte ao número de slices da traza pódese ver que, en promedio, inicialmente segue unha linealidade que torna nun máximo arredor de 15 slices e comeza a decaer. Isto ten unha interpretación bastante clara: canta máis enerxía ten un electrón máis distancia pode recorrer antes de ser absorbido, polo que ao principio é lineal, sen embargo a medida que se sube en enerxía o blob ten unha enerxía máis ou menos constante\pdp{O electrón é absorbido nun rango enerxético non demasiado amplo}. Se unha traza de alta enerxía é máis longa quere dicir que perdeu máis enerxía, polo que cando se produza o blob quedará menos enerxía dispoñible, sen embargo se a traza (da mesma enerxía) é máis curta perdeu menos enerxía e o blob é máis enerxético. En consecuencia as trazas curtas altamente enerxéticas producen un máximo na distribución e as mesmas trazas longas fan que tenda a diminuir segundo aumenta o número de slices. O mesmo se pode observar en outros histogramas como da enerxía da slice máis enerxética fronte á enerxía da traza ou fronte a posición do máximo.
+
+Convén agora analizar como se comporta segundo a extensión da traza. Vendo os histogramas da figura \ref{perfil} para raio X, fotoeléctrico curto, medio e longo, pódese medir a anchura típica (no eixo lonxitudinal) do blob que coincide en todas dentro das incertezas e fluctuacións estatísticas  e resulta ser duns 8 mm. Por outro lado outra representando o número de slices cunha enerxía menor que a metade da máxima\pdp{É un criterio posto de xeito heurístico para obter unha primeira aproximación} fronte ao número de slices total pódese ver que segue unha perfectamente lineal ata aproximadamente 10 mm (da orde do tamaño do blob) e a partir de aí a distribución, aínda que mantén certa linealidade, comeza a producirse unha dispersión que indica que o blob si que ten unha certa dispersión no tamaño lonxitudinal, aínda a este efecto hai que sumarlle que a condición do histograma é fortemente dependente do tipo de traza: un fotoeléctrico curto terá moitas slices cunha enerxía menor da metade da máxima, mentres que un fotoeléctrico longo non tantas.
+
+Como xa se comentou anteriormente, o blob depende to tipo de traza. Os estudos amosan que os raios X son trazas moi curtas (duns 8 - 12 mm) que habitualmente son case todo blob e este ten pouca enerxía. O fotoeléctrico curto son trazas tipo raio X pero de moi alta enerxía e as fotoeléctricas longas serán trazas de moitas slices e de alta enerxía. As trazas longas deben ser trazas moi lonxitudinais que apenas teñan cambios de dirección bruscos, polo que un agarda que o blob nestas trazas estea no extremo da traza, mentres que cando as trazas son medias ou curtas se atope máis distribuída. Este resultado confírmase na figura \ref{maxpos} onde se representa a posición da slice máis enerxética fronte ao número de slices e dinos claramente que as trazas longas teñen o blob ao final.
+
+\begin{figure}[!]
+\centering
+\includegraphics[width=400pt]{maxpos.pdf}
+\caption{Posición da slice máis enerxética en función do número de slices da traza. Segundo se aumenta o número de slices dunha traza o blob tende a corresponderse coas primeiras ou últimas slices, é dicir, as trazas tenden a ser máis horizontais.}
+\label{maxpos}
+\end{figure}
+
+
+%Distintas análises (X,P,Ps,Pm,Pl,compton) explicando diferenzas e similitudes
+
+
+\section{Comparación de resultados con $^{137}$Cs e Monte Carlo}
+
+A análise repetíuse para o isótopo $^{137}$Cs. Este isótopo produce un $\gamma$ de 662 keV que é o que se usa para a producción do electrón primario. Serán polo tanto trazas de máis enerxía e máis longas.
+
+Os resultados obtidos para o sodio mantéñense para este outro isótopo: o blob segue tendo 8 - 10 mm e está claramente diferenciado do resto da traza en enerxía. Estas trazas ao ser máis longas tamén verifican, e de xeito máis claro incluso, a relación entre a horizontalidade e posición do blob. O blob segue sen ensancharse coa enerxía, polo que estas trazas serán moi útiles para analizar a parte da traza que non pertence ao blob. En efecto un histograma do número de slices (figura  \ref{slicescs}) mostra que o cesio pode chegar a producir trazas de 8.5 cm mentres que no sodio apenas se chegaba a 5 cm.
+
+%\begin{figure}[!]
+%\centering
+%\includegraphics[width=300pt]{perfilcs.pdf}
+%\caption{Perfil da traza para o cesio onde se amosa como de novo o blob ten 8 - 10 mm e se distingue claramente do resto da traza cun factor 10 en enerxía. En negro os datos e en vermello o promedio en enerxía por seccións.}
+%\label{perfilcs}
+%\end{figure}
+
+\begin{figure}[!]
+\centering
+\includegraphics[width=400pt]{slicescs.pdf}
+\caption{Histograma do número de slices para o cesio onde se pode ver como as trazas poden acadar ata 8.5 cm de lonxitude. Aquí a contribución dos raios X é claramente distinguible no pico de baixa enerxía da distribución.}
+\label{slicescs}
+\end{figure}
+
+Os resultados do Monte Carlo (MC) son compatibles cos datos reais, pois repetindo tódolos histogramas para os datos producidos con MC a similitude é moi boa. Isto interprétase como que a física que ocorre dentro da cámara é a que se está usando para analizar os resultados e polo tanto é unha comprobación de que a análise feita é correcta. Cabe destacar o bo resultado do plot da figura \ref{perfil}, pois o Monte Carlo predí a asimetría comentada na sección \ref{blob}, e o mesmo ocorre co ``val'' ao redor do blob; parece confirmar a hipótese proposta. Por outro lado o histograma do número de slices (ver figura \ref{slicesmc}) é diferente do atopado na realidade, pero non deixa de ser compatible co observado.
+
+\begin{figure}[!]
+\centering
+\includegraphics[width=400pt]{slicesmc.pdf}
+\caption{Histograma do número de slices para o sodio simulado por Monte Carlo. A forma da distribución difire da obtida experimentalmente (ver figura \ref{nslices}), pero é perfectamente compatible cos datos.}
+\label{slicesmc}
+\end{figure}
+
+\section{Conclusións}\label{conclusions}
+
+A análise realizada permítenos concluir que o funcionamento do detector é moi bo e cumpre as espectativas esperadas. Aínda que non se aborda a seguinte cuestión neste traballo, a resolución en enerxía co $^{22}$Na extrapólase ao 1 \% @ $Q_{\beta\beta}$, que era un dos principais obxetivos do experimento. En canto á reconstrucción de trazas pódese dicir que se conseguiu separar claramente a parte da traza que é blob da que non.
+
+Neste traballo comprobamos a linearidade entre enerxía e carga a través da relación entre ánodo e cátodo. Esta relación cúmprese tanto para cada slice como para a traza completa. Por outro lado conseguíuse unha boa identificación do blob, pois comprobouse que levaba entorno ao 90\% da enerxía e que ten unha extensión duns 8 - 10 mm diferenciándose do resto da traza en ata un factor 10 en enerxía. Finalmente verificouse que as trazas horizontais tenden a ter o blob nas primeiras ou últimas slices, efecto que se agarda de xeito intuitivo.
+
+Fixéronse estudos preliminares co isótopo $^{137}$Cs que demostran que os resultados son propiedades globais para tódalas trazas que ocorren na cámara: o blob non se ensancha e ten entre 8 e 10 mm e hai unha diferencia de enerxía de ata un factor 10. Os estudos preliminares con datos simulados con Monte Carlo están en bo acordo cos experimentais, o cal confirma o bo funcionamento do experimento.
+
+%\section{Apéndice: Mecanismo de see-saw}\label{seesaw}
+
+%\section{Apéndice: Modos de decaemento na \bbcn}\label{modosbbcn}
+
+\begin{thebibliography}{12}
+\bibitem{JJ}
+``The search for neutrinoless double beta decay ''- \textit{J.J. Gómez-Cadenas et al.} - arXiv:1109.5515v2 [hep-ex]
+
+\bibitem{meu}
+``Operation and first results of the NEXT-DEMO prototype using a silicon photomultiplier tracking array ''- \textit{The NEXT Collaboration} - arXiv:1306.0471
+
+\bibitem{}
+``Initial results of NEXT-DEMO, a large-scale prototype of the NEXT-100 experiment'' - \textit{V. Álvarez et al.} - arXiv:1211.4838
+
+\bibitem{TDR}
+``NEXT-100 Technical Design Report (TDR). Executive summary ''- \textit{V. Álvarez et al.} - 2012 JINST \ngt{7} T06001
+
+
+\bibitem{Kim}
+``Fundamentals of neutrino physics and astrophysics ''- \textit{Giunti \& Kim}
+
+\bibitem{Bilenky}
+``Introductory to the physics of massive and mixed neutrinos''  - \textit{Bilenky}
+
+\bibitem{Greiner}
+``Gauge theory of weak interactions ''- \textit{Greiner}
+
+\bibitem{Cheng}
+``Gauge theory of elementary particle physics ''- \textit{Cheng - Li}
+\end{thebibliography}
+
+%\end{multicols}
+\end{document}
+

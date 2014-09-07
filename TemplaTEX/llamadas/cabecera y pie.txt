@@ -1,0 +1,39 @@
+La manera más sencilla de obtener una cabecera y un pié de 
+página es con la 
+
+NOTA: Poner como margen superior e inferior muy poco, para que se ajuste bien.
+
+%%%%%%paquete fancy hdr para cabecera y pie
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+%%%primera página
+\fancypagestyle{plain}
+{%
+         \fancyhead[l]{}
+         \fancyhead[r]{}
+         \fancyhead[c]{}
+         \renewcommand{\headrulewidth}{0.5pt}
+         \fancyfoot[l]{}
+         \fancyfoot[c]{}
+         \fancyfoot[r]{}
+         \renewcommand{\footrulewidth}{0.5pt}     %Estos comandos son para el grosor de la linea
+}
+%%%demás páginas
+\lhead{}
+\chead{}
+\rhead{}
+\renewcommand{\headrulewidth}{0.4pt}
+\lfoot{}
+\cfoot{}
+\rfoot{}
+\renewcommand{\footrulewidth}{0.4pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Notas:
+\thepage{escribe número de página}  se puede poner -\thepage- para como me gusta a mí
+\leftmark: Capítulo.
+\rightmark: Sección.
+
+
+Si se quiere jugar con página par o impar, poner al lado de l,r,c  E:para par y O:para impar.

@@ -1,0 +1,11 @@
+Para que Latex escriba tal cual lo puesto, sin interpretar, e.g. para hacer un manual de LaTeX y poder poner códigos sin que los interprete:
+
+
+Entorno verbatim:
+
+\begin{verbatim}
+
+texto y cosas...
+
+\end{verbatim}
+

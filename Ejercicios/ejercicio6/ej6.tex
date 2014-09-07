@@ -1,0 +1,65 @@
+%GALILEO667.NET | AISNE
+%Curso LaTeX Ejercicio 4 - Tablas y Matrices
+
+\documentclass[a4paper,10pt]{article}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{bm} %letras griegas en negrita (uso: \bm{\alpha})
+\usepackage{graphicx}
+\usepackage{amsmath,amsfonts,latexsym,cancel,textcomp,anysize,color,eurosym,amsthm}
+\marginsize{1.5cm}{1cm}{1.5cm}{1.5cm} %izq,der,sup,inf
+\parindent=0mm %sangría
+\parskip=3mm %espacio entre párrafos
+\usepackage{fancyhdr}  
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\newint}[2]{$\displaystyle \int_0^{\pi} \ln(#1)\cdot \cos(#1) d#2$}
+\newtheorem{coro}{Corolario Importante:}
+
+\begin{document}
+
+\begin{center}
+\textsc{ATENCIÓN, PARA RESOLVER ESTE EJERCICIO HAY QUE COPIAR LO QUE ESTÁ ESCRITO EN ESTE DOCUMENTO, PERO TODAS
+LAS ÓRDENES DEBEN DE HACERSE CON COMANDOS NUEVOS MEDIANTE NEWCOMMAND.} 
+\end{center}
+
+
+
+Teneis que renombrar las ordenes de creación de listas para que al introducir:
+\begin{verbatim}
+\bi
+\item Hola
+\item Buenas
+\ei
+\end{verbatim}
+
+Se imprima:
+\bi
+\item Hola
+\item Buenas
+\ei
+
+\vspace{2cm}
+
+Teneis que crear un nuevo comando para que cuando introduzcais:
+\begin{verbatim}
+\newint{5}{x}
+\end{verbatim}
+Se imprima:
+\newint{5}{x}
+
+\vspace{2cm}
+
+
+Teneis que usar newtheorem para imprimir lo siguiente:
+\begin{coro}
+Bla bla bla bla
+\end{coro}
+
+
+
+\end{document}
+
+
+
+  

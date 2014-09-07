@@ -1,0 +1,102 @@
+%GALILEO667.NET | AISNE
+%Curso LaTeX Ejercicio 4 - Tablas y Matrices
+
+\documentclass[a4paper,10pt]{article}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{bm} %letras griegas en negrita (uso: \bm{\alpha})
+\usepackage{graphicx}
+\usepackage{amsmath,amsfonts,latexsym,cancel,textcomp,anysize,color,eurosym}
+\marginsize{1.5cm}{1cm}{1.5cm}{1.5cm} %izq,der,sup,inf
+\parindent=0mm %sangría
+\parskip=3mm %espacio entre párrafos
+
+
+%opening
+\title{Imágenes en \LaTeX}
+\author{Pepito Grillo}
+\date{Noviembre de 2012}
+
+\begin{document}
+
+
+Vamos a hacer una tabla sencilla con bordes, que esté numerada y con una explicación:
+
+\begin{table}[h!]
+\begin{center}
+\begin{tabular}{|c|l|}
+\hline
+\textbf{planeta} & \textbf{Masa} \\
+\hline
+Mercurio & 0.06 umt\\
+\hline
+Venus & 0.82 umt\\
+\hline
+Tierra & 1 umt\\
+\hline
+Marte & 0.11 umt\\
+\hline
+Júpiter & 318 umt\\
+\hline
+\end{tabular}
+\caption{Algunos planetas del SS y su masa en unidades de masa terrestre.}
+\end{center}
+\end{table}
+
+
+Vamos a hacer ahora una tabla sin bordes y sin numeración alguna:
+
+\begin{center}
+Salario Mínimo interprofesional:\\
+\begin{tabular}{cl}
+Francia & 1309\geneuro \\
+Reino Unido & 1190\geneuro \\
+Bélgica & 1283\geneuro \\
+Austria & 1000\geneuro \\
+Grecia & 680\geneuro \\
+España & 600\geneuro \\
+\end{tabular}
+\end{center}
+
+Vamos a insertar una matriz normalita:
+
+$$
+M = \left( \begin{array}{cccc} %Número de columnas y justificado junto al left seleccionar (,[, |...
+1 & 2 & 3 & 4\\
+5 & 6 & 7 & 8\\
+9 & 10 & 11 & 12\\
+13 & 14 & 15 & 16  \end{array} \right) 
+$$
+
+
+Ahora dos, cambiando los corchetes:
+
+
+$$
+M = \left[ \begin{array}{ccc} %Número de columnas y justificado junto al left seleccionar (,[, |...
+1 & 2 & 3 \\
+4 & 5 & 6 \\
+7 & 8 & 9 \end{array} \right]
+\cdot
+\left[ \begin{array}{c} %Número de columnas y justificado junto al left seleccionar (,[, |...
+b1 \\
+b2 \\
+b3 \end{array} \right]
+$$
+
+Analicemos el campo electrostático de una esfera uniformemente cargada:
+
+$$
+\begin{array}{c}
+\text{Campo Eléctrico}
+\end{array}  = 
+\left\{ \begin{array}{cc} %Número de columnas y justificado junto al left seleccionar (,[, |...
+r\leq a : & \vec{E}=\frac{Qr}{4\pi\epsilon_0 a^3}\hat r   \\
+r\neq a : & \vec{E}=\frac{Q}{4\pi\epsilon_0 r^2}\hat r     \end{array} \right. 
+$$
+
+\end{document}
+
+
+
+  

@@ -1,0 +1,10 @@
+Comilla Española: «»
+
+El LaTeX acepta la comilla española « » al ser introducida en el texto.
+
+Sin embargo, si se trabaja con un mediocre Windows en el que es complicado introducir una comilla española, LaTeX la genera
+con <<  >>.
+
+Comilla francesa: "" 
+
+``texto"

@@ -1,0 +1,29 @@
+Para modificar palabras "figura" y "cuadro"
+
+
+Primero, en el preámbulo se necesita \usepackage{amsmath}
+Luego, después de \begin{document} deben poner:
+
+\renewcommand{\figurename}{«nuevo nombre»} %Cambia la palabra "Figura" por «nuevo nombre»
+\renewcommand{\tablename}{«nuevo nombre»} %Cambia la palabra "Cuadro" por «nuevo nombre»
+
+
+
+Para modificar a partir del número de la figura:
+
+%%%%%%%%%%%%%llamada de control del caption [antes de \begin{document}
+\makeatletter
+\long\def\@makecaption#1#2{%
+\vskip\abovecaptionskip
+\sbox\@tempboxa{#1 #2}%
+\ifdim \wd\@tempboxa >\hsize
+#1 #2\par
+\else
+\global \@minipagefalse
+\hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
+\fi
+\vskip\belowcaptionskip}
+\makeatother
+%¡atención! poner entre los dos #1 #2 que hay lo que se quiera que ponga 
+%después del número de la figura 
+ 

@@ -1,0 +1,9 @@
+Bibliografía manual, sin entorno BiBtex
+
+Donde quiera que aparezca (generalmente al final), se referencia lo siguiente:
+
+\begin{thebibliography}{10}
+\bibitem{etiqueta}datos
+...
+...
+\end{thebibliography}

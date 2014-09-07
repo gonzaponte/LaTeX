@@ -1,0 +1,5 @@
+Para realizar este ejercicio hay que coger la base_beamer.tex del directorio de plantillas.
+
+Seleccionar un tema que te guste del directorio de temas de Beamer: http://deic.uab.es/~iblanes/beamer_gallery/
+
+Y hacer unas cuantas diapositivas con él.

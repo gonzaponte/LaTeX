@@ -1,0 +1,49 @@
+Corchetes tipo esquema para esquemas o funciones por partes:
+$
+\begin{array}{c}
+talcosaes
+\end{array}  = 
+\left\{ \begin{array}{cc} %Número de columnas y justificado junto al left seleccionar (,[, |...
+eq1 & cond1  \\
+eq2 & cond2   \\
+eq3 & cond3  \end{array} \right. 
+$
+
+%Con $cond1$ se pueden escru¡ibir textos en las condiciones.
+
+Arrays (Como tablas pero sin bordes):
+
+\[ \begin{array}{lcr} %Número columnas y centrado
+First number & x & 8 \\
+Second number & y & 15 \\
+Sum & x + y & 23 \\
+Difference & x - y & -7 \\
+Product & xy & 120 \end{array}\] 
+
+
+Matrices :
+
+NOMBREMATRIZ = \left( \begin{array}{ccc} %Número de columnas y justificado junto al left seleccionar (,[, |...
+a & b & c \\
+d & e & f \\
+g & h & i \end{array} \right) PUEDE CONTINUARSE DESARROLLO %junto al right...
+
+
+PATRÓN MATRIZ DE PASO
+
+$
+\left( \begin{array}{c}
+i\\
+i\\
+i\\
+\end{array} \right)  = 
+\left( \begin{array}{ccc} %Número de columnas y justificado junto al left seleccionar (,[, |...
+a & b & c \\
+d & e & f \\
+g & h & i \end{array} \right) 
+\left( \begin{array}{c}
+i\\
+i\\
+i\\
+\end{array} \right) %junto al right...
+$
