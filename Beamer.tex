@@ -15,8 +15,8 @@
 \usetheme{default}
 %\usetheme{Marburg}
 
-\input{/Users/Gonzalo/Dropbox/Gonzalo/LaTeX/Comandos.tex}
-\input{/Users/Gonzalo/Dropbox/Gonzalo/LaTeX/headline.tex}
+\input{/Users/Gonzalo/github/LaTeX/Comandos.tex}
+\input{/Users/Gonzalo/github/LaTeX/headline.tex}
 \definecolor{mycor}{rgb}{1,0,0}
 \newcommand{\cor}[1]{\textcolor{mycor}{#1}}
 \newcommand{\azul}[1]{\textcolor{blue}{#1}}
@@ -92,6 +92,14 @@
 \end{center}
 \end{frame}
 }
+\newcommand{\mytitleframelarge}[1]
+{
+\begin{frame}
+\begin{center}
+   {\Large\bf\azul{#1}}
+\end{center}
+\end{frame}
+}
 \newcommand{\mybigtitleframe}[2]
 {
 \begin{frame}
@@ -127,7 +135,7 @@
 \column{0.2\textwidth}
 \begin{figure}[h!]
 \centering
-\includegraphics[scale=0.1]{logo_usc.pdf}
+\includegraphics[scale=0.1]{/Users/Gonzalo/github/LaTeX/logo_usc.pdf}
 \end{figure}
 \end{columns}
 \vspace{1cm}
@@ -149,13 +157,13 @@
 \column{0.2\textwidth}
 \begin{figure}[h!]
 \centering
-\includegraphics[scale=0.08]{logo_next.png}
+\includegraphics[scale=0.08]{/Users/Gonzalo/github/LaTeX/logo_next.png}
 \end{figure}
 \column{0.6\textwidth}
 \column{0.2\textwidth}
 \begin{figure}[h!]
 \centering
-\includegraphics[scale=0.08]{logo_usc.pdf}
+\includegraphics[scale=0.08]{/Users/Gonzalo/github/LaTeX/logo_usc.pdf}
 \end{figure}
 \end{columns}
 \vspace{5mm}
@@ -182,7 +190,7 @@
 {
 \frametitle{
 \raggedleft #1 \ 
-\raggedright \includegraphics[scale=0.03]{logo_usc.pdf}
+\raggedright \includegraphics[scale=0.03]{/Users/Gonzalo/github/LaTeX/logo_usc.pdf}
 }
 }
 
